@@ -1,6 +1,6 @@
 # Datapel Mobile
 
-## Build andrpod 
+## Build android 
 
 ionic capacitor build android --prod
 
