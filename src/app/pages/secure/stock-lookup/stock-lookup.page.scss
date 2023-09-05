@@ -1,0 +1,23 @@
+ion-content{
+    --background : #fff;
+}
+
+ion-footer {
+    padding: 20px;
+    background: #fff;
+}
+
+
+ion-input{
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+form.form-default ion-list.item-card-list ion-item{
+    padding: 6px;
+    border-width: 2px;
+}
+
+form.form-default ion-list.item-card-list ion-item.item-has-focus {
+    border-width: 2px;
+}

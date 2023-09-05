@@ -1,0 +1,46 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Stock Lookup
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-list-header>
+      <ion-label color="dark">Scan Product</ion-label>
+    </ion-list-header>
+    <form class="form-default" >
+
+      <ion-list class="item-card-list" lines="none">
+        <ion-item>
+          <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
+          <ion-input  placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+        </ion-item>
+      </ion-list>
+
+    </form>
+  
+        
+
+    <!-- <ion-list>
+      <ion-item *ngFor="let barcode of barcodes">
+        <ion-label position="stacked">{{ barcode.format }}</ion-label>
+        <ion-input type="text" [value]="barcode.rawValue"></ion-input>
+      </ion-item>
+    </ion-list> -->
+  </div>
+  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan</ion-button>
+  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="stockDetail()">Continue</ion-button>
+</ion-footer>
