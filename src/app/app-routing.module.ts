@@ -34,6 +34,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/public/password-reset/password-reset.module').then( m => m.PasswordResetPageModule),
     // canActivate: [PublicGuard] // Prevent for signed in users
   },
+  {
+    path: 'signin2',
+    loadChildren: () => import('./pages/public/signin2/signin2.module').then( m => m.Signin2PageModule)
+  },  {
+    path: 'signup2',
+    loadChildren: () => import('./pages/public/signup2/signup2.module').then( m => m.Signup2PageModule)
+  },
+
+
 ];
 @NgModule({
   imports: [

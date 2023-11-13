@@ -1,0 +1,53 @@
+
+<ion-content>
+
+  <div class="ion-padding ion-full-height ion-flex ion-flex-center" style="background: linear-gradient(to bottom, #e87100 70%, white 0%); ">
+
+    <div class="logo-container">
+      <h2 class="logo-placeholder" style="color: white;font-size: 28px;font-weight: bold;">Mobility Assistant</h2>
+      <p  style="color: white;">Create an account</p>
+    </div>
+
+    <form class="form-default" [formGroup]="signup_form" (submit)="signIn()">
+
+      <ion-card  style="border-radius: 15px;">
+        <ion-card-header>
+          <ion-card-title style="text-align: center;">Register</ion-card-title>
+          <ion-card-subtitle></ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-list class="item-card-list" lines="none">
+            <ion-item>
+              <ion-label color="tertiary" position="stacked">Email</ion-label>
+              <ion-input formControlName="email" type="email" autocom plete="off"
+                placeholder="Your email address"></ion-input>
+            </ion-item>
+    
+            <ion-item class="ion-margin-top-small">
+              <ion-label color="tertiary" position="stacked">Password</ion-label>
+              <ion-input formControlName="password" type="password" placeholder="Your password"></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-margin-top-small">
+            <ion-label color="tertiary" position="stacked">Password repeat</ion-label>
+            <ion-input formControlName="password_repeat" type="password" placeholder="Password repeat"></ion-input>
+          </ion-item>
+          </ion-list>
+    
+          <ion-button class="ion-margin-top" type="submit" expand="block" color="primary">
+            Register
+          </ion-button>          
+        </ion-card-content>
+      </ion-card>      
+    </form>
+
+    <div style="text-align: center;">
+      <!-- <h2 class="logo-placeholder" style="color: white;font-size: 28px;font-weight: bold;">Mobility Assistant</h2> -->
+      <p>Already have an account? <a>LOGIN</a></p><br>
+      <!-- <a style="text-decoration-line: none;" href="">SIGN UP</a> -->
+    </div>
+
+  </div>
+
+</ion-content>
