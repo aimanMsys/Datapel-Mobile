@@ -1,0 +1,36 @@
+
+
+
+h2{
+    text-align: center;
+}
+
+ion-button{
+--background: #FCF8C2;
+  --background-hover:#FCF8C2;
+  --background-activated: #FCF8C2;
+  --background-focused: #FCF8C2;
+
+  --color:black;
+
+  --length: 100px;
+
+}
+ion-list{
+    background: transparent !important;
+    transition: 0 !important;
+}
+
+.top-padd{
+    padding-top:1em;
+    font-size: 27px; 
+}
+.large-button {
+    font-size: 1.7em; 
+    padding: 10px 20px;
+    
+  }
+  
+  
+  
+
