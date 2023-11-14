@@ -22,9 +22,15 @@ export class HomePage implements OnInit {
     }, 2000);
   }
 
+  binlookup(){
+    this.router.navigate(['/bin-lookup']);
+  }
   stocklookup(){
     this.router.navigate(['/stock-lookup']);
     
+  }
+  Transfer(){
+    this.router.navigate(['/transfer']);
   }
 
   despatch(){

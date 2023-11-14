@@ -207,8 +207,8 @@ const routes: Routes = [
     loadChildren: () => import('./scan-box-next-stage/scan-box-next-stage.module').then( m => m.ScanBoxNextStagePageModule)
   },
   {
-    path: 'transfer',
-    loadChildren: () => import('./transfer/transfer.module').then( m => m.TransferPageModule)
+    path: 'transfer2',
+    loadChildren: () => import('./transfer2/transfer.module').then( m => m.TransferPageModule)
   },
   {
     path: 'transfer-bin-source',
@@ -234,7 +234,59 @@ const routes: Routes = [
     path: 'transfer-menu',
     loadChildren: () => import('./transfer-menu/transfer-menu.module').then( m => m.TransferMenuPageModule)
 
+  },
+  {
+    path: 'bin-lookup',
+    loadChildren: () => import('./bin-lookup/bin-lookup.module').then( m => m.BinLookupPageModule)
+  },
+  {
+    path: 'jas-main',
+    loadChildren: () => import('./jas-main/jas-main.module').then( m => m.JasMainPageModule)
+  },
+  {
+    path: 'scan-bin',
+    loadChildren: () => import('./scan-bin/scan-bin.module').then( m => m.ScanBinPageModule)
+  },
+  {
+    path: 'scan-bin',
+    loadChildren: () => import('./scan-bin/scan-bin.module').then( m => m.ScanBinPageModule)
+  },
+  {
+    path: 'transfer',
+    loadChildren: () => import('./transfer/transfer.module').then( m => m.TransferPageModule)
+  },
+  {
+    path: 'transfer-destination',
+    loadChildren: () => import('./transfer-destination/transfer-destination.module').then( m => m.TransferDestinationPageModule)
+  },
+  {
+    path: 'scanlot',
+    loadChildren: () => import('./scanlot/scanlot.module').then( m => m.ScanlotPageModule)
+  },
+  {
+    path: 'scanlot',
+    loadChildren: () => import('./scanlot/scanlot.module').then( m => m.ScanlotPageModule)
+  },
+  {
+    path: 'enter-qty',
+    loadChildren: () => import('./enter-qty/enter-qty.module').then( m => m.EnterQtyPageModule)
+  },
+  {
+    path: 'scan-putaway',
+    loadChildren: () => import('./scan-putaway/scan-putaway.module').then( m => m.ScanPutawayPageModule)
+  },
+  {
+    path: 'transfer-comp',
+    loadChildren: () => import('./transfer-comp/transfer-comp.module').then( m => m.TransferCompPageModule)
+  },
+  {
+    path: 'confirm-qty',
+    loadChildren: () => import('./confirm-qty/confirm-qty.module').then( m => m.ConfirmQtyPageModule)
+
   }
+
+
+
 
 ];
 

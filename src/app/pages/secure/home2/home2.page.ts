@@ -35,4 +35,8 @@ export class Home2Page implements OnInit {
     this.router.navigate(['/transfer']);
   }
 
+  binlookup(){
+    this.router.navigate(['/bin-lookup']);
+  }
+
 }
