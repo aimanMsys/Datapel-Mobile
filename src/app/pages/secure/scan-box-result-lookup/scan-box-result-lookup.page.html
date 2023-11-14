@@ -1,0 +1,80 @@
+
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button defaultHref="/stage-collect-order"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title-center" >Box Inquiry</ion-title>
+    <ion-buttons slot="primary">
+      <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>  
+</ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-toolbar>
+      <ion-title class="title-left"><span style="color: #C4DBF2">|</span>Scan Box Number</ion-title>
+      <ion-button fill="none" id="open-modal" slot="primary">
+        <ion-icon slot="icon-only"  color="primary" name="alert-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-toolbar>         
+
+    <div class="ion-padding">
+      <form class="form-default" >
+
+        <ion-list class="item-card-list" lines="none">
+          <ion-item>
+            <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
+            <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+          </ion-item>
+        </ion-list>
+  
+      </form>
+    </div>
+        
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <label>Box#</label>
+          <p>40000004</p>
+        </ion-col>
+        <ion-col>
+          <div style="background-color:#faecd1;text-align: center;color:#C28632;">
+            BOX IN USE
+          </div>
+
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+
+      <ion-card class="blue-bg">
+        <ion-card-header>
+          <ion-card-title><span style="color: #4471ee;">|</span>Swanston Cameras</ion-card-title>
+          <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <label>Order Number</label>
+                <p>40000004</p>
+              </ion-col>
+              
+            </ion-row>
+          </ion-grid>
+  
+        </ion-card-content>
+      </ion-card>
+  
+  </ion-content>
+  <ion-footer class="ion-no-border">
+    <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan</ion-button>
+    <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="stockDetail()">Continue</ion-button>
+  </ion-footer>
+
+  
