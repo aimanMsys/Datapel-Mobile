@@ -39,10 +39,6 @@ const routes: Routes = [
     loadChildren: () => import('./despatch/despatch.module').then( m => m.DespatchPageModule)
   },
   {
-    path: 'test',
-    loadChildren: () => import('./test/test.module').then( m => m.TestPageModule)
-  },
-  {
     path: 'browse-order',
     loadChildren: () => import('./browse-order/browse-order.module').then( m => m.BrowseOrderPageModule)
   },
@@ -53,10 +49,6 @@ const routes: Routes = [
   {
     path: 'label-count',
     loadChildren: () => import('./label-count/label-count.module').then( m => m.LabelCountPageModule)
-  },
-  {
-    path: 'device-format',
-    loadChildren: () => import('./device-format/device-format.module').then( m => m.DeviceFormatPageModule)
   },
   {
     path: 'scan-box-lookup',
