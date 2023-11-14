@@ -12,12 +12,13 @@ export class BinrefillsPage implements OnInit {
     private router:Router
   ) { }
 
-  gotoTransfer(){
-    this.router.navigateByUrl('/transer-scanpickbin')
-  }
+  
 
   gotoUrgentbinrefill(){
     this.router.navigateByUrl('/urgentbinrefill')
+  }
+  transfer3(){
+    this.router.navigateByUrl('/transfer3')
   }
   ngOnInit() {
   }

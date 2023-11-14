@@ -1,43 +1,73 @@
-<ion-header collapse="fade" [translucent]="true" class="ion-padding">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/transer-scanpickbin"  size="large"></ion-back-button>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-back-button  defaultHref="/transfer3"></ion-back-button>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="title-center" >Bin Refills</ion-title>
+      <ion-buttons slot="primary">
+        <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-      <ion-title >Bin Refills</ion-title>
-  </ion-toolbar>
-</ion-header>
+      </ion-buttons>
+    </ion-toolbar>  
+  </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-list [inset]="true">
-    <ion-item>
-      <ion-icon slot ="end" name="arrow-forward-outline"></ion-icon>
-      <ion-label (click)="gotoUrgentbinrefill()">Urgent Bin Refill</ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-list [inset]="true">
-    <ion-item>
-      <ion-icon slot ="end" name="arrow-forward-outline"></ion-icon>
-      <ion-label>Bin Refill List</ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-list [inset]="true" (click)="gotoBinrefills()">
-    <ion-item >
-      <ion-icon slot ="end" name="arrow-forward-outline"></ion-icon>
-      <ion-label>Bin Lookup</ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-list [inset]="true">
-    <ion-item>
-      <ion-icon slot ="end" name="arrow-forward-outline"></ion-icon>
-      <ion-label>Item Search</ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-list [inset]="true">
-    <ion-item>
-      <ion-icon slot ="end" name="arrow-forward-outline"></ion-icon>
-      <ion-label (click)="gotoTransfer()">Main Menu</ion-label>
-    </ion-item>
-  </ion-list>
+  <div class="ion-padding">
+
+    <ion-toolbar>
+      <ion-title class="title-left"><span style="color: #eddc00">|</span> Select Task</ion-title>
+      <ion-button fill="none" id="open-modal" slot="primary">
+        <ion-icon slot="icon-only"  color="primary" name="alert-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-toolbar> 
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="gotoUrgentbinrefill()">
+          <ion-label>
+            <h3>Urgent Bin Refill</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" >
+          <ion-label>
+            <h3>Bin Refill List</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item  class="yellow-card">
+          <ion-label>
+            <h3>Bin Lookup</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item  class="yellow-card">
+          <ion-label>
+            <h3>Item search</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="transfer3()">
+          <ion-label>
+            <h3>Main Menu</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+  </div>
  
   
   
