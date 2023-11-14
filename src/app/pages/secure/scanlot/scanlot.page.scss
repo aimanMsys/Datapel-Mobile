@@ -1,0 +1,73 @@
+.text-center{
+    text-align: left;
+    padding-left: 20px;
+}
+
+.ion-button{
+  --backgoround: transparent;
+}
+
+.text-center::before {
+    content: ""; /* Create an empty pseudo-element */
+    display: inline-block;
+    width: 8px; /* Adjust the width as needed */
+    height: 100%; /* Set the height to match the text height */
+    background-color: yellow; /* Set the desired color */
+    margin-right: 8px; /* Adjust the spacing between the color and text */
+  }
+
+.button-with-space{
+    margin-bottom: 10px;
+}
+
+
+
+$custom-primary: #FFA500; // Orange
+$custom-secondary: #000000; // Black
+
+.item1 {
+  --ion-background-color: $custom-primary; // Orange background
+  color: $custom-secondary; // Black text color
+  padding: 10px; // Adjust padding as needed
+  font-size: 16px; // Adjust font size as needed
+  border-bottom: 1px solid $custom-secondary; // Add a border
+}
+
+.modal-button {
+  margin-top: 360px;
+}
+
+.text-center {
+    text-align: start;
+  }
+
+  .black-icon {
+    color: black !important; /* Use !important to override Ionic's default styles */
+  }
+
+  .transparent-button {
+    --background: transparent;
+  }
+  
+.bold-text{
+    color: gray;
+}
+
+.col {
+  background-color: transparent; /* Set background color to transparent */
+  border: solid 1px #000; /* Set border color to black */
+  color: #000; /* Set text color to black */
+  text-align: center;
+}
+
+/* Add margin or padding to rows with the "row-with-line-break" class */
+.row-with-line-break {
+  margin-bottom: 10px; /* Adjust the value as needed to control the spacing */
+}
+
+/* Example to force visibility */
+ion-menu-button {
+  visibility: visible !important;
+  display: inline !important;
+}
+
