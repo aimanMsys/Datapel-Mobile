@@ -37,7 +37,8 @@ const routes: Routes = [
   {
     path: 'signin2',
     loadChildren: () => import('./pages/public/signin2/signin2.module').then( m => m.Signin2PageModule)
-  },  {
+  },
+  {
     path: 'signup2',
     loadChildren: () => import('./pages/public/signup2/signup2.module').then( m => m.Signup2PageModule)
   },

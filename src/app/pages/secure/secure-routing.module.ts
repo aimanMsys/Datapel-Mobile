@@ -31,6 +31,34 @@ const routes: Routes = [
     loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
   },
   {
+    path: 'stock-moredetails',
+    loadChildren: () => import('./stock-moredetails/stock-moredetails.module').then( m => m.StockMoredetailsPageModule)
+  },
+  {
+    path: 'transfer3',
+    loadChildren: () => import('./transfer3/transfer.module').then( m => m.TransferPageModule)
+  },
+  {
+    path: 'trans-scanpickbin',
+    loadChildren: () => import('./trans-scanpickbin/trans-scanpickbin.module').then( m => m.TransScanpickbinPageModule)
+  },
+  {
+    path: 'stock-batchscanner',
+    loadChildren: () => import('./stock-batchscanner/stock-batchscanner.module').then( m => m.StockBatchscannerPageModule)
+  },
+  {
+    path: 'transfer-scanproduct',
+    loadChildren: () => import('./transfer-scanproduct/transfer-scanproduct.module').then( m => m.TransferScanproductPageModule)
+  },
+  {
+    path: 'trans-scanbatch',
+    loadChildren: () => import('./trans-scanbatch/trans-scanbatch.module').then( m => m.TransScanbatchPageModule)
+  },
+  {
+    path: 'stock-detail',
+    loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
+  },
+  {
     path: 'home2',
     loadChildren: () => import('./home2/home2.module').then( m => m.Home2PageModule)
   },
@@ -201,7 +229,13 @@ const routes: Routes = [
   {
     path: 'complete-transfer-bin',
     loadChildren: () => import('./complete-transfer-bin/complete-transfer-bin.module').then( m => m.CompleteTransferBinPageModule)
+  },
+  {
+    path: 'transfer-menu',
+    loadChildren: () => import('./transfer-menu/transfer-menu.module').then( m => m.TransferMenuPageModule)
+
   }
+
 ];
 
 @NgModule({

@@ -32,7 +32,8 @@ export class HomePage implements OnInit {
   }
 
   transfer(){
-    this.router.navigate(['/transfer']);
+    this.router.navigate(['/transfer-menu']);
+    
   }
 
 }
