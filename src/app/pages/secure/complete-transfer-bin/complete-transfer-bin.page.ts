@@ -16,7 +16,7 @@ export class CompleteTransferBinPage implements OnInit {
   }
 
   home(){
-    this.router.navigate(['/transfer']);    
+    this.router.navigate(['/transfer3']);    
   }
 
 
