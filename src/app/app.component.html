@@ -28,6 +28,16 @@
         </ion-list>
       </ion-menu-toggle>
     </div>
+    <ion-menu-toggle>
+    <ion-footer>
+      <ion-toolbar padding >
+        <ion-item lines="none" (click)="signout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-text > &nbsp; Sign Out</ion-text>
+      </ion-item>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-menu-toggle>
     </ion-menu>
   
     <ion-router-outlet id="main-content"></ion-router-outlet>

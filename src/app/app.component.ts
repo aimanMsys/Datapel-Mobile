@@ -3,6 +3,8 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,9 @@ import { Platform } from '@ionic/angular';
 export class AppComponent {
 
   constructor(
-    private platform: Platform
+    private platform: Platform,
+    private loadingController: LoadingController,
+    private router: Router,
   ) {
     this.initializeApp();
   }
@@ -41,5 +45,25 @@ export class AppComponent {
         await SplashScreen.hide();
       }, 2000);
     });
+  }
+
+  async signout(){
+    const loading = await this.loadingController.create({
+      cssClass: 'default-loading',
+      message: '<p>Signing out...</p><span>See You Again.</span>',
+      spinner: 'crescent'
+    });
+    await loading.present();
+
+    // TODO: Add your sign in logic
+    // ...
+
+    // Fake timeout
+    setTimeout(async () => {
+
+      // Sign in success
+      await this.router.navigate(['/signin']);
+      loading.dismiss();
+    }, 4000);
   }
 }
