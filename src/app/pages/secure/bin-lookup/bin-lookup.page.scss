@@ -1,0 +1,82 @@
+.text-center{
+    text-align: left;
+    padding-left: 20px;
+}
+
+.header-with-underline {
+  border-bottom: 0.05px solid #999999; /* Add your desired color here */
+}
+
+
+.item1{
+    --background: lightblue;
+    margin-inline: 20px;
+    margin-bottom: 1rem;
+}
+
+.button-with-space {
+    margin-bottom: 10px; 
+}
+  
+
+/* CSS for the custom items */
+// Custom theme colors
+$custom-primary: #FFA500; // Orange
+$custom-secondary: #000000; // Black
+
+.item1 {
+  --ion-background-color: $custom-primary; // Orange background
+  color: $custom-secondary; // Black text color
+  padding: 10px; // Adjust padding as needed
+  font-size: 20px; // Adjust font size as needed
+  border-bottom: 1px solid $custom-secondary; // Add a border
+  --background: #FBD1CB;
+}
+
+ion-card{
+  ion-label{
+    padding-block: 10px;
+  }
+}
+
+.modal-button {
+  margin-top: 480px;
+}
+
+.text-center {
+  text-align: left;
+}
+
+.black-icon {
+  color: black !important; /* Use !important to override Ionic's default styles */
+}
+
+.transparent-button {
+  --background: transparent;
+}
+
+.text-center::before {
+  content: "";
+  display: inline-block;
+  width: 4px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+  background-color: red;
+  margin-right: 5px; /* Adjust the margin as needed */
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -10px; 
+  justify-content: center;
+}
+
+.card-row ion-card {
+  width: calc(95% - 5px); 
+  margin: 5px;
+}
+
+
+
+
+
