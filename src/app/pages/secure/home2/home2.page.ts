@@ -32,7 +32,7 @@ export class Home2Page implements OnInit {
   }
 
   transfer(){
-    this.router.navigate(['/transfer']);
+    this.router.navigate(['/transfer3']);
   }
 
   binlookup(){

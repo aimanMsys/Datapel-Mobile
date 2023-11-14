@@ -19,4 +19,8 @@ export class TransferPage implements OnInit {
     this.router.navigate(['/transfer-bin-source']);    
   }
 
+  transfer(){
+    this.router.navigate(['/transfer']);    
+  }
+
 }

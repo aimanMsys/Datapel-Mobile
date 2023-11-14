@@ -21,4 +21,8 @@ export class TransScanbatchPage implements OnInit {
     this.router.navigate (['/transfer'])
    } 
 
+   scanLot(){
+    this.router.navigate (['/scanlot'])
+   } 
+
 }

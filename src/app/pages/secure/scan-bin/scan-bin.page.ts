@@ -35,6 +35,6 @@ export class ScanBinPage implements OnInit {
   }
 
   Backpage() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home2']);
   }
 }

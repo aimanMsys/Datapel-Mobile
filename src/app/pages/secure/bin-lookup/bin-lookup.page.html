@@ -11,32 +11,7 @@
   </ion-toolbar>
 </ion-header>
 
-
-<ion-menu side="end" contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
-    
-    <ion-list style="display: flex; flex-direction: column; height: 100%;">
-      <ion-item style="flex-grow: 1;">
-        <ion-button expand="full" [routerLink]="['/home']" class="transparent-button">
-          <ion-icon name="home" style="margin-right: 10px;" class="black-icon"></ion-icon>
-        </ion-button>
-      </ion-item>
-      <ion-item>
-        <ion-button expand="full" (click)="logout()" class="transparent-button">
-          <ion-icon name="log-out-outline" class="black-icon"></ion-icon> Logout
-        </ion-button>
-      </ion-item>
-    </ion-list>
-    
-  </ion-content>
-</ion-menu>
-
-<ion-content id="main-content">
+<ion-content class="ion-padding">
   <ion-toolbar>
     <ion-title class="text-center">Select Bin <br>Lookup Location</ion-title>
     <ion-buttons slot="end">
