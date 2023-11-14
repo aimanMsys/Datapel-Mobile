@@ -13,7 +13,8 @@ ion-row{
 }
 ion-card{
     padding: 10px;
-    border-radius: 0px;
+    border-radius: 10px;
+    --background:#F8DABD
 }
 
 .bg-orange{
@@ -22,4 +23,189 @@ ion-card{
 ion-footer {
     padding: 20px;
     background: #fff;
+}
+
+.item1{
+    justify-content: center;
+    align-items: center;
+    background:black;
+    width:100%;
+  height: 50px;
+  font-size: 0.85rem;
+  --padding-start: 0;
+  --padding-end: 0;
+  font-size: 1rem;
+  --box-shadow: none;
+  font-weight: bold;
+}
+
+
+
+  .custom-butt {
+    --background: #FFCD41; /* Set the default background color */
+    --background-activated: black; /* Set the color when button is active (clicked) */
+    --background-hover: black; /* Set the color when button is hovered */
+  
+    /* Additional styling for text color, border, etc. can be added here */
+  }
+  
+
+.fonttype{
+    margin-bottom:10px;
+    margin-inline: 30px;
+    font-weight: bold;
+}
+
+.fontitem{
+    margin-left: 2rem;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 30px;
+    font-size: xx-large;
+   
+}
+
+.spacing{
+    margin-left: 20px;
+}
+
+.itemprop{
+    --border-color:black;
+    margin-inline: 2rem;
+}
+
+/*.ion-item-button {
+    border: 0.2rem solid #C4DBF2;
+    margin: 20px auto;
+    
+    ion-col {
+        display: flex;
+        // text-align: center;
+        justify-content: space-around;
+        align-items: center;
+        color: black;
+    }
+
+    ion-label {
+        margin:24px 0;
+        // margin: 0; /* Change this line */
+        // text-align: center; /* Add this line */
+    
+
+    /* ion-col:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+*/    
+
+
+.textcolor{
+    color: black;
+}
+
+
+
+ion-header{
+    border-bottom: 1px solid #ccc;
+}
+
+ion-header{
+    border-bottom: 1px solid #ccc;
+}
+
+
+ion-modal {
+    --height: 90%;
+}
+
+.ion-item-button{
+
+    border:0.2rem solid #C4DBF2;
+    margin:20px auto;
+   
+
+    ion-col{
+        display: flex;
+        // text-align: center;
+        justify-content: space-around;
+        align-items: center;
+        color: black;
+    }
+
+    ion-label{
+        margin: 24px 0;
+    }
+
+}
+
+ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+  
+    }
+}
+
+
+
+ion-col{
+    label{        
+        color:black;
+    }
+    
+    p{
+        font-weight: bold;
+    }
+}
+
+.blue-bg{
+    --background:#e9f1fe;
+    margin-inline: 0px;
+}
+
+ion-card{
+    color: #000;
+    margin: 0px;
+    margin-bottom: 20px;
+
+
+    ion-card-title{
+        font-size: 1.4rem;
+        font-weight: bold; 
+    }
+
+   
+
+}
+
+.col{
+    border: 3px solid #fcc38d;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+
+}
+
+
+.no-button {
+    background-color: white;
+    color: black;
+    border: 2px solid black; /* Add a black border */
+    --ion-color-base: black; /* Set the background color */
+    --ion-color-contrast: white; /* Set the text color */
+    flex-grow: 1;
+
+    --background: white;
+}
+
+.spacing{
+    padding-left: 3px;
+}
+
+
+.title-center{
+    text-align: center;
 }
