@@ -1,0 +1,113 @@
+
+
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button  defaultHref="/home2"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title-center">Despatch</ion-title>
+    <ion-buttons slot="primary">
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>  
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding">
+    <ion-toolbar>
+      <ion-title class="title-left"><span style="color: #C4DBF2">|</span> Select Task</ion-title>
+      <ion-button fill="none" id="open-modal" slot="primary">
+        <ion-icon slot="icon-only" color="primary" name="alert-circle-outline"></ion-icon>
+        <!-- <ion-icon slot="icon-only"  name="menu-outline"></ion-icon> -->
+      </ion-button>
+    </ion-toolbar> 
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none" class="blue-card" (click)="scanStageBox()">
+          <ion-label>
+            <h3>Scan or Stage Boxes</h3>
+          </ion-label>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item lines="none" class="blue-card" (click)="collect()">
+          <ion-label>
+            <h3>Order Box List</h3>
+          </ion-label>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item lines="none" class="blue-card" (click)="lookup()">
+          <ion-label>
+            <h3>Box Lookup</h3>
+          </ion-label>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item lines="none" class="blue-card" (click)="print()">
+          <ion-label>
+            <h3>Print Labels</h3>
+          </ion-label>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-list class="list-custom" lines="full">
+      <ion-item button class="blue-card" (click)="scanStageBox()">
+        <ion-label>
+          <h3>Scan or Stage Boxes</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item button class="blue-card" (click)="collect()">
+        <ion-label>
+          <h3>Order Box List</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item button class="blue-card" (click)="lookup()">
+        <ion-label>
+          <h3>Box Lookup</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item button class="blue-card" (click)="print()">
+        <ion-label>
+          <h3>Print Labels</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list> -->
+  </div> 
+
+  
+
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Header</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <ion-toolbar>
+          <ion-title class="text-center">Header Toolbar</ion-title>          
+        </ion-toolbar>
+        
+        <ion-button (click)="modal.dismiss()" expand="block">Block</ion-button>
+
+      </ion-content>
+
+
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
