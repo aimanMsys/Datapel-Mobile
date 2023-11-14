@@ -1,0 +1,204 @@
+.text-center{
+    text-align: left;
+    padding-left: 20px;
+}
+
+
+.text-center::before {
+    content: ""; /* Create an empty pseudo-element */
+    display: inline-block;
+    width: 8px; /* Adjust the width as needed */
+    height: 100%; /* Set the height to match the text height */
+    background-color: yellow; /* Set the desired color */
+    margin-right: 8px; /* Adjust the spacing between the color and text */
+  }
+
+  .bold-text{
+    color: gray;
+}
+
+/* Styling ion-label elements within ion-col */
+ion-col ion-label {
+    color: #7c8086;
+  }
+  
+  /* Styling ion-card elements */
+  .ion-card {
+    color: #000;
+    margin: 10px; /* Add margin if needed */
+    padding: 10px; /* Add padding if needed */
+    --background: #FFFFED; /* Set the background color to yellow */
+  }
+  
+  /* Styling ion-card-title elements within ion-card */
+  ion-card ion-card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  
+  /* Styling ion-row elements with the .blue-bg class */
+  ion-row.blue-bg {
+    --background: #e9f1fe;
+  }
+  
+  /* Add styles for other elements as needed */
+  
+  
+.bold-text{
+    font: bold;
+    color: #7c8086;
+}
+
+/* Styling ion-card-title elements within ion-card-header */
+/* Style the solid yellow inline block */
+ion-card-title.with-inline-block {
+    position: relative;
+  }
+  
+  ion-card-title.with-inline-block::before {
+    content: "";
+    display: inline-block;
+    width: 0.5em; /* Adjust the width to make it thinner */
+    height: 2em; /* Set the height to match the letter "F" */
+    background-color: yellow;
+    margin-right: 5px; /* Adjust the spacing between the inline block and text */
+    vertical-align: middle; /* Align the inline block vertically with text */
+  }
+
+
+/* Style the container to display buttons at the start and end */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically align buttons in the container */
+    width: 100%;
+    padding: 10px; /* Add padding to create space at the start and end */
+  }
+  
+  /* Style the Yes button */
+  .yes-button {
+    background-color: black;
+    color: white;
+    flex-grow: 1; /* Allow the button to grow to fill available space */
+    margin-right: 5px; /* Add margin between the buttons */
+  }
+  
+/* Style the No button */
+.no-button {
+    background-color: white;
+    color: black;
+    border: 2px solid black; /* Add a black border */
+    --ion-color-base: black; /* Set the background color */
+    --ion-color-contrast: white; /* Set the text color */
+    flex-grow: 1;
+    margin-left: 5px;
+    --background: white;
+  }
+
+  .col {
+    background-color: transparent; /* Set background color to transparent */
+    border: solid 1px #000; /* Set border color to black */
+    color: #000; /* Set text color to black */
+    text-align: center;
+  }
+  
+  /* Add margin or padding to rows with the "row-with-line-break" class */
+  .row-with-line-break {
+    margin-bottom: 10px; /* Adjust the value as needed to control the spacing */
+  }
+
+  ion-card{
+    padding: 10px;
+    border-radius: 0px;
+}
+
+.bg-orange{
+    background: #fdfbe6;
+}
+ion-footer {
+    padding: 20px;
+    background: #fff;
+}
+
+.btn-white{
+    background-color: #fdf1e6;
+}
+
+.bold-text {
+    font-weight: bold; /* Set the font weight to bold */
+    color: black;
+}
+
+.Bold{
+    font-weight: bold;
+    color: black;
+}
+
+$custom-primary: #FFA500; // Orange
+$custom-secondary: #000000; // Black
+
+.item1 {
+  --ion-background-color: $custom-primary; // Orange background
+  color: $custom-secondary; // Black text color
+  padding: 10px; // Adjust padding as needed
+  font-size: 16px; // Adjust font size as needed
+  border-bottom: 1px solid $custom-secondary; // Add a border
+}
+
+.modal-button {
+  margin-top: 480px;
+}
+
+.black-icon {
+    color: black !important; /* Use !important to override Ionic's default styles */
+  }
+  
+  .transparent-button {
+    --background: transparent;
+  }
+
+.rounded-card{
+    border-radius: 10px;
+}
+
+.custom-label{
+    font-size: 24px; /* Adjust the font size as needed */
+    color: black;
+    font-weight: bold; /* Make the text bold if desired */
+}
+
+.red-block {
+    display: inline-block;
+    width: 1px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    background-color: yellow;
+    margin-right: 5px; /* Adjust the margin as needed */
+  }
+  
+  .custom-card::before {
+    content: "";
+    position: absolute;
+    width: 2px; /* Adjust the width as needed */
+    height: 3em; /* Adjust the height to match the letter "F" */
+    background-color: #FFFF00;
+    top: 0.6em; /* Adjust the top position to align with the "F" */
+    left: 0; /* Position at the left border of the card */
+    z-index: 1;
+  }
+  
+  .custom-title { 
+    color: #0c0101; /* Use a darker color code or color name */
+    font: bold;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    position: relative; /* Add this line to ensure the red block respects the new alignment */
+  }
+  
+  .red-block {
+    width: 4px !important;
+    height: 15px;
+    background-color: yellow;
+    margin-right: 5px;
+  }
+

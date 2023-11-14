@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/scanlot"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Transfer</ion-title>
+    <ion-button slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list style="display: flex; flex-direction: coloumn; height: 100%;">
+      <ion-item style="flex-grow: 1;">
+        <ion-button expand="full" [routerLink]="['/home']" class="transparent-button">
+          <ion-icon name="home" style="margin-right: 10px;" class="black-icon"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button expand="full" (click)="logout()" class="transparent-button">
+          <ion-icon name="log-out-outline" class="black-icon"></ion-icon>Logout
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content class="ion-padding">
+
+  <ion-toolbar>
+    <ion-title class="text-center">Enter Quantity</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon id="open-modal7" name="alert-circle-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-card class="input-card">
+    <ion-list class="item-card-list" lines="none">
+      <ion-item>
+        <ion-label color="tertiary" position="stacked">
+          <!-- Add label text here if needed -->
+        </ion-label>
+        <ion-input placeholder="Enter Quantity" name="barcode" [(ngModel)]="barcode"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-row class="blue-bg">
+    <ion-col class="bold-text">Source</ion-col>
+    <ion-col class="bold-text">Destination</ion-col>
+  </ion-row>
+  <ion-row class="blue-bg">
+    <ion-col>Photo-Inwards</ion-col>
+    <ion-col>Photo-Main</ion-col>
+  </ion-row>
+
+  <ion-card class="ion-card-chart ion-no-margin animate__animated animate__fadeIn bg-orange mt-10 rounded-card custom-card custom-width ion-padding">
+    <ion-list-header>FujiFilm X100V</ion-list-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          Item Number
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="bold-text row">
+          Camera-01
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          GTIN
+        </ion-col>
+        <ion-col class="bold-text">9352297077571</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="bold-text">BIN</ion-col>
+        <ion-col class="bold-text">R-900</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>BRN#</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-modal #modal trigger="open-modal7" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Info</ion-title>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-content class="ion-padding">
+        <ion-toolbar>
+          <ion-title class="text-center">Barcode Shortcut Code</ion-title>
+        </ion-toolbar>
+
+        <ion-grid [fixed]="true">
+          <ion-row class="row-with-line-break">
+            <ion-col class="col">*9 Broken barcode(Accept)</ion-col>
+          </ion-row>
+        
+          <ion-row class="row-with-line-break">
+            <ion-col class="col">*1 Skip next item</ion-col>
+          </ion-row>
+        
+          <ion-row class="row-with-line-break">
+            <ion-col class="col">*0 Stock out zero line</ion-col>
+          </ion-row>
+        
+          <ion-row class="row-with-line-break">
+            <ion-col class="col">* None-stock item (Accept)</ion-col>
+          </ion-row>
+        </ion-grid>
+        
+  
+        <ion-button (click)="modal.dismiss()" expand="block" class="modal-button">Back</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <div class="button-container">
+    <ion-button mode="md" class="btn btn-dark yes-button" (click)="YesPage()">
+      Yes
+    </ion-button>
+    <ion-button mode="md" class="btn btn-light no-button" (click)="NoPage()">
+      No
+    </ion-button>
+  </div>
+</ion-footer>
+
+
