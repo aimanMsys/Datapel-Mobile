@@ -1,0 +1,150 @@
+.ion-item-button{
+
+    // border-top: 1px solid blue;
+    // border-bottom: 1px solid blue;
+    // border-left: 1px solid blue;
+    // border-right: 1px solid blue;
+    border:0.2rem solid #C4DBF2;
+   
+    h3{
+        font-weight: 600;
+        // font-size: 1.8rem;
+    }
+
+
+    ion-label{
+        // margin: 24px 0;
+    }
+}
+
+ion-footer {
+    padding: 20px;
+    background: #fff;
+}
+
+
+ion-input{
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+ion-back-button{
+    // font-size: 1.8rem;
+}
+
+ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+  
+    }
+  }
+
+ion-item{
+    // margin-bottom: 2rem;
+    
+    h3{
+        font-weight: 600;
+        // font-size: 1.8rem;
+        padding-block: 10px;
+    }
+
+    .text-info{
+        // font-size: 1.8rem;
+    }
+    // margin-block:20px auto;
+
+    p{
+        // font-size: 1.8rem;
+        font-weight: bold;
+    }
+}
+
+.text-large{
+    font-weight: 600;
+    // font-size: 1.8rem;
+    padding-block: 10px;
+}
+.blue-card{
+    --background:#C4DBF2
+}
+.blue-bg{
+    --background:#e9f1fe
+}
+.blue-text{
+    color:#C4DBF2
+}
+ion-list.item-card-list ion-item{
+    --border-radius: 0px !important;
+    margin: 0px;
+}
+
+ion-col{
+    label{        
+        color:#7c8086;
+        // font-size: 1.8rem;
+    }
+    p{
+        // font-size: 1.8rem;
+        font-weight: bold;
+    }
+}
+
+ion-card{
+    color: #000;
+    // margin: 0px;
+    // box-shadow: 0px 5px 5px 0px #32409A;
+    // text-align: center;
+
+    ion-card-content{
+        // padding: 15px 13px;
+    }
+
+    ion-card-title{
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    h6{
+        font-weight: normal;
+        // font-size: 0.8rem;
+        letter-spacing: 1px;
+    }    
+
+    ion-button{
+        // font-size: 1.8rem;
+        font-weight: bold;
+        color:#4471ee;
+        float: right;
+        align-self: center;
+    }
+    
+}
+
+ion-header {
+    // padding-block:1rem;
+}
+
+.title-center{
+    text-align: center;
+}
+
+ion-modal {
+    --height: 80%;
+    // --border-radius: 16px;
+    // --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+.info-button{
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+ion-content{
+    --background : #fff;
+}
