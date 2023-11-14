@@ -1,0 +1,66 @@
+.text-center{
+    text-align: left;
+    padding-left: 20px;
+}
+
+.ion-back-button{
+    --background: transparent;
+}
+
+.ion-button{
+    --background: transparent;
+}
+.header-with-underline {
+  border-bottom: 0.05px solid #999999; /* Add your desired color here */
+}
+
+
+.item1{
+    --background: lightblue;
+    margin-inline: 20px;
+    margin-bottom: 1rem;
+}
+
+.button-with-space {
+    margin-bottom: 10px; 
+}
+  
+
+/* CSS for the custom items */
+// Custom theme colors
+$custom-primary: #FFA500; // Orange
+$custom-secondary: #000000; // Black
+
+.item1 {
+  --ion-background-color: $custom-primary; // Orange background
+  color: $custom-secondary; // Black text color
+  padding: 10px; // Adjust padding as needed
+  font-size: 20px; // Adjust font size as needed
+  border-bottom: 1px solid $custom-secondary; // Add a border
+  --background: #FFD580;
+}
+
+.modal-button {
+  margin-top: 480px;
+}
+
+.text-center {
+  text-align: start;
+}
+
+.text-center::before {
+    content: ""; /* Create an empty pseudo-element */
+    display: inline-block;
+    width: 8px; /* Adjust the width as needed */
+    height: 100%; /* Set the height to match the text height */
+    background-color: #ff0000; /* Set the desired color */
+    margin-right: 8px; /* Adjust the spacing between the color and text */
+  }
+
+.black-icon {
+  color: black !important; /* Use !important to override Ionic's default styles */
+}
+
+.transparent-button {
+  --background: transparent;
+}
