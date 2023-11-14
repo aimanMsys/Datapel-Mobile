@@ -1,0 +1,125 @@
+ion-content{
+    --background : #fff;
+}
+.col{
+  border-left: 3px solid   red;
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+}
+.text-left{
+  text-align: left;
+}
+.bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-10{
+    margin-top: 15px;
+}
+ion-row{
+    color: var(--ion-color-medium-shade);
+}
+ion-card{
+    padding: 10px;
+    border-radius: 0px;
+}
+
+.bg-orange{
+    background:  #FBD1CB;
+}
+ion-footer {
+    padding: 20px;
+    background: #fff;
+}
+
+.btn-white{
+    background-color: #fdf1e6;
+}
+
+.bold-text {
+    font-weight: bold; /* Set the font weight to bold */
+    color: black;
+}
+
+.Bold{
+    font-weight: bold;
+    color: black;
+}
+
+$custom-primary: #FFA500; // Orange
+$custom-secondary: #000000; // Black
+
+.item1 {
+  --ion-background-color: $custom-primary; // Orange background
+  color: $custom-secondary; // Black text color
+  padding: 10px; // Adjust padding as needed
+  font-size: 16px; // Adjust font size as needed
+  border-bottom: 1px solid $custom-secondary; // Add a border
+}
+
+.modal-button {
+  margin-top: 480px;
+}
+
+.black-icon {
+    color: black !important; /* Use !important to override Ionic's default styles */
+  }
+  
+  .transparent-button {
+    --background: transparent;
+  }
+
+.rounded-card{
+    border-radius: 10px;
+}
+
+.custom-label{
+    font-size: 24px; /* Adjust the font size as needed */
+    color: black;
+    font-weight: bold; /* Make the text bold if desired */
+}
+
+.red-block {
+    display: inline-block;
+    width: 1px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    background-color: red;
+    margin-right: 5px; /* Adjust the margin as needed */
+  }
+  
+  .custom-card::before {
+    content: "";
+    position: absolute;
+    width: 2px; /* Adjust the width as needed */
+    height: 3em; /* Adjust the height to match the letter "F" */
+    background-color: red;
+    top: 0.6em; /* Adjust the top position to align with the "F" */
+    left: 0; /* Position at the left border of the card */
+    z-index: 1;
+  }
+  
+  .custom-title { 
+    color: #0c0101; /* Use a darker color code or color name */
+    font: bold;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    position: relative; /* Add this line to ensure the red block respects the new alignment */
+  }
+  
+  .red-block {
+    width: 4px !important;
+    height: 15px;
+    background-color: red;
+    margin-right: 5px;
+  }
+
+  .custom-width{
+    width: 100%;
+    margin-left: auto;
+  }
+
+  .row{
+    margin-top: -10px;
+  }
