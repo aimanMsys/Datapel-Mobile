@@ -35,12 +35,16 @@ const routes: Routes = [
     // canActivate: [PublicGuard] // Prevent for signed in users
   },
   {
-    path: 'signin2',
-    loadChildren: () => import('./pages/public/signin2/signin2.module').then( m => m.Signin2PageModule)
+    path: 'item1',
+    loadChildren: () => import('./pages/secure/item1/item1.module').then( m => m.Item1PageModule)
   },
   {
-    path: 'signup2',
-    loadChildren: () => import('./pages/public/signup2/signup2.module').then( m => m.Signup2PageModule)
+    path: 'item2',
+    loadChildren: () => import('./pages/secure/item2/item2.module').then( m => m.Item2PageModule)
+  },
+  {
+    path: 'item3',
+    loadChildren: () => import('./pages/secure/item3/item3.module').then( m => m.Item3PageModule)
   },
 
 

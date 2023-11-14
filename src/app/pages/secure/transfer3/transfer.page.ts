@@ -23,4 +23,8 @@ export class TransferPage implements OnInit {
     this.router.navigate(['/transfer']);    
   }
 
+  binRefill(){
+    this.router.navigate(['/binrefills']);    
+  }
+
 }

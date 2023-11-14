@@ -31,6 +31,34 @@ const routes: Routes = [
     loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
   },
   {
+    path: 'transer-scanpickbin',
+    loadChildren: () => import('./transer-scanpickbin/transer-scanpickbin.module').then( m => m.TranserScanpickbinPageModule)
+  },
+  {
+    path: 'binrefills',
+    loadChildren: () => import('./binrefills/binrefills.module').then( m => m.BinrefillsPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
+  },
+  {
+    path: 'settings/profile/edit',
+    loadChildren: () => import('./profile/edit/edit.module').then( m => m.EditPageModule)
+  },
+  {
+    path: 'payments/detail',
+    loadChildren: () => import('./payments/payment-detail/payment-detail.module').then( m => m.PaymentDetailPageModule)
+  },
+  {
+    path: 'stock-lookup',
+    loadChildren: () => import('./stock-lookup/stock-lookup.module').then( m => m.StockLookupPageModule)
+  },
+  {
+    path: 'stock-detail',
+    loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
+  },
+  {
     path: 'stock-moredetails',
     loadChildren: () => import('./stock-moredetails/stock-moredetails.module').then( m => m.StockMoredetailsPageModule)
   },
@@ -287,10 +315,11 @@ const routes: Routes = [
     path: 'confirm-qty',
     loadChildren: () => import('./confirm-qty/confirm-qty.module').then( m => m.ConfirmQtyPageModule)
 
+  }, 
+  {   
+    path: 'urgentbinrefill',
+    loadChildren: () => import('./urgentbinrefill/urgentbinrefill.module').then( m => m.UrgentbinrefillPageModule)
   }
-
-
-
 
 ];
 

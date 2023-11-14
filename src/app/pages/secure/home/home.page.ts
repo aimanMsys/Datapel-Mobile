@@ -42,4 +42,8 @@ export class HomePage implements OnInit {
     
   }
 
+  gotoTransfer(){
+    this.router.navigateByUrl('/transer-scanpickbin')
+  }
+
 }
