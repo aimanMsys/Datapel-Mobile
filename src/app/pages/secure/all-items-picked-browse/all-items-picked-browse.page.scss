@@ -1,0 +1,147 @@
+.ion-item-button{
+
+    border:0.2rem solid #C4DBF2;
+    margin:20px auto;
+   
+    h3{
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+
+
+    ion-label{
+        margin: 24px 0;
+    }
+}
+
+.text-large{
+    font-weight: 600;
+    font-size: 1.8rem;
+    padding-block: 10px;
+}
+
+.orange-card{
+    --background:#F8DABD;
+    --padding-bottom:0.4vw
+}
+.blue-card{
+    --background:#C4DBF2
+}
+
+.blue-bg{
+    --background:#e9f1fe
+}
+.blue-text{
+    color:#C4DBF2
+}
+ion-list.item-card-list ion-item{
+    --border-radius: 0px !important;
+    margin: 0px;
+}
+
+.title-center{
+    text-align: center;
+}
+
+ion-modal {
+    --height: 90%;
+  }
+
+.info-button{
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+ion-fab-button {
+    --background:  #4471ee;
+    --border-radius: 15px;    
+  }
+
+
+ 
+ .fab-horizontal-center {
+    margin-left: unset;
+    margin-inline-start: -50px !important;
+ }
+
+ ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+  
+    }
+}
+
+
+ion-content{
+    --background : #fff;
+}
+
+ion-col{
+    label{        
+        color:#7c8086;
+    }
+    
+    p{
+        font-weight: bold;
+    }
+}
+
+.blue-bg{
+    --background:#e9f1fe;
+    margin-inline: 0px;
+}
+
+ion-card{
+    color: #000;
+
+    ion-card-title{
+        font-size: 1.4rem;
+        font-weight: bold; 
+    }
+
+    ion-button{
+        // font-size: 1.8rem;
+        font-weight: bold;
+        color:#4471ee;
+        float: right;
+        align-self: center;
+    }
+
+}
+
+.bar-green{
+    background-color:#dbfeda;
+    text-align: center;
+    color:#317522;
+}
+
+.bar-yellow{
+    background-color:#faecd1;
+    text-align: center;
+    color:#C28632;
+}
+
+.icon-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ion-footer {
+    padding: 20px;
+    background: #fff;
+}
+
+.btn-white{
+    // font-size: 1.8rem;
+    font-weight: bold;
+    color:#000;
+    --background: #ffffff !important;
+    border: 2px solid #000;
+}

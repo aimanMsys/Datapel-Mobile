@@ -1,0 +1,127 @@
+.ion-item-button{
+
+    border:0.2rem solid #C4DBF2;
+    margin:20px auto;
+   
+    h3{
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+
+
+    ion-label{
+        margin: 24px 0;
+    }
+}
+
+.text-large{
+    font-weight: 600;
+    font-size: 1.8rem;
+    padding-block: 10px;
+}
+
+.orange-card{
+    --background:#F8DABD;
+    --padding-bottom:0.4vw
+}
+.blue-card{
+    --background:#C4DBF2
+}
+
+.blue-bg{
+    --background:#e9f1fe
+}
+.blue-text{
+    color:#C4DBF2
+}
+ion-list.item-card-list ion-item{
+    --border-radius: 0px !important;
+    margin: 0px;
+}
+
+.title-center{
+    text-align: center;
+}
+
+ion-modal {
+    --height: 90%;
+  }
+
+.info-button{
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+ion-fab-button {
+    --background:  #4471ee;
+    // --background-activated: #87d361;
+    // --background-hover: #a3e681;
+    --border-radius: 15px;
+    
+    // width: 5rem;
+    // height: 5rem;
+    // // --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    // --color: black;
+    ion-icon{
+        // font-size: 3rem;
+        // color: #4471ee;
+    }
+  }
+
+
+ 
+ .fab-horizontal-center {
+    margin-left: unset;
+    margin-inline-start: -50px !important;
+ }
+
+ ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+  
+    }
+}
+
+
+ion-content{
+    --background : #fff;
+}
+
+ion-col{
+    label{        
+        color:#7c8086;
+    }
+    
+    p{
+        font-weight: bold;
+    }
+}
+
+.blue-bg{
+    --background:#e9f1fe;
+    margin-inline: 0px;
+}
+
+ion-card{
+    color: #000;
+
+    ion-card-title{
+        font-size: 1.4rem;
+        font-weight: bold; 
+    }
+
+    ion-button{
+        // font-size: 1.8rem;
+        font-weight: bold;
+        color:#4471ee;
+        float: right;
+        align-self: center;
+    }
+
+}
