@@ -1,0 +1,197 @@
+.fontitem{
+    margin-left: 2rem;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 30px;
+    font-size: xx-large;
+   
+}
+
+.fontitem2{
+    font-weight: bold;
+    margin-left: 3rem;
+}
+
+.fontitem3{
+    color: gray;
+    margin-left: 3rem;
+}
+
+
+  .custom-butt {
+    --background: #FFCD41; /* Set the default background color */
+    --background-activated: black; /* Set the color when button is active (clicked) */
+    --background-hover: black; /* Set the color when button is hovered */
+  
+    /* Additional styling for text color, border, etc. can be added here */
+  }
+  
+
+.fonttype{
+    margin-bottom:10px;
+    margin-inline: 30px;
+    font-weight: bold;
+}
+
+.enlargeicon{
+    font-size: 20px;
+}
+
+.fontspacing{
+    margin-inline: 35px;
+}
+
+.lightfont{
+    color: grey;
+}
+
+ion-content{
+    --background : #fff;
+}
+.bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-10{
+    margin-top: 15px;
+}
+ion-row{
+    color: var(--ion-color-medium-shade);
+}
+ion-card{
+    padding: 10px;
+    border-radius: 10px;
+    --background:#F8DABD
+    
+    
+}
+
+.bg-orange{
+    background: #fdf1e6;
+}
+ion-footer {
+    padding: 20px;
+    background: #fff;
+}
+
+.item1{
+    justify-content: center;
+    align-items: center;
+    background:black;
+    width:100%;
+  height: 50px;
+  font-size: 0.85rem;
+  --padding-start: 0;
+  --padding-end: 0;
+  font-size: 1rem;
+  --box-shadow: none;
+  font-weight: bold;
+}
+
+.spacing{
+    margin-left: 20px;
+}
+.item1 {
+    color: white;
+    /* Existing properties */
+    justify-content: center;
+    align-items: center;
+    background: black;
+    width: 100%;
+    height: 50px;
+    font-size: 0.85rem;
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: 1rem;
+    --box-shadow: none;
+    font-weight: bold;
+    
+}
+
+ion-modal {
+    --height: 90%;
+}
+
+.ion-item-button{
+
+    border:0.2rem solid #C4DBF2;
+    margin:20px auto;
+   
+
+    ion-col{
+        display: flex;
+        // text-align: center;
+        justify-content: space-around;
+        align-items: center;
+        color: black;
+    }
+
+    ion-label{
+        margin: 24px 0;
+    }
+
+}
+
+ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+  
+    }
+}
+
+
+.textcolor{
+    color: black;
+}
+
+ion-header{
+    border-bottom: 1px solid #ccc;
+}
+
+.col{
+    border: 3px solid #fcc38d;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+
+}
+
+ion-card{
+    color: #000;
+    margin: 0px;
+    margin-bottom: 20px;
+
+    ion-card-title{
+        font-size: 1.4rem;
+        font-weight: bold; 
+    }
+
+    ion-button{
+        // font-size: 1.8rem;
+        font-weight: bold;
+        color:#4471ee;
+        float: right;
+        align-self: center;
+    }
+
+}
+
+.ion-card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .top-card, .udf-card {
+    flex: 1 1 100%;
+    max-width: calc(33.33% - 2rem); /* Set the max-width based on the number of cards you want in a row */
+    margin: 0.5rem;
+  }
+
+  .custom-alert {
+    width: 300px; /* Set the desired width */
+    height: 150px; /* Set the desired height */
+  }
+  
+  
