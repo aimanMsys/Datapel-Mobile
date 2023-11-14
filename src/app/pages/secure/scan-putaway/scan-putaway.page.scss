@@ -1,0 +1,70 @@
+.text-title{
+    text-align: left;
+    color: black;
+    font-size: 20px;
+}
+
+.text-title::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 25px; /* Adjust the height as needed */
+    background-color: yellow;
+    margin-right: 8px;
+    vertical-align: middle; /* To vertically center the bar */
+  }
+
+.bold-text{
+    font: bold;
+    color: #7c8086;
+}
+
+ion-content{
+    --background : #fff;
+}
+.bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-10{
+    margin-top: 15px;
+}
+ion-row{
+    color: var(--ion-color-medium-shade);
+}
+ion-card{
+    padding: 10px;
+    border-radius: 0px;
+}
+
+.bg-orange{
+    background: #FFFFEDe6;
+}
+
+.rounded-card{
+    border-radius: 10px;
+}
+
+.custom-card::before {
+    content: "";
+    position: absolute;
+    width: 2px; /* Adjust the width as needed */
+    height: 3em; /* Adjust the height to match the letter "F" */
+    background-color: yellow;
+    top: 0.6em; /* Adjust the top position to align with the "F" */
+    left: 0; /* Position at the left border of the card */
+    z-index: 1;
+  }
+
+.black-text{
+    font: bolder;
+    color: #333;
+}
+
+.custom-toolbar {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
