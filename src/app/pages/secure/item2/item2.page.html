@@ -1,13 +1,22 @@
-<ion-header collapse="fade" [translucent]="true" class="ion-padding" >
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button (click)="gotoitem1()"  size="large"></ion-back-button>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-back-button  defaultHref="/item1"></ion-back-button>
+         
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="title-center" >Bin Detail</ion-title>
+      <ion-buttons slot="primary">
+        <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-      <ion-title >Bin Details</ion-title>
-  </ion-toolbar>
-</ion-header>
+      </ion-buttons>
+    </ion-toolbar>  
+  </ion-header>
+<br>
 
-<ion-content class="ion-padding">
   <ion-list>
     <ion-grid>
       <ion-row>
@@ -15,22 +24,22 @@
           <ion-label>Item#:</ion-label>
        </ion-col>
        <ion-col class="col1" >
-          MEDIUM SLIVER
+          MEDIUMSILVER
       </ion-col> 
   </ion-row>
   </ion-grid>
   </ion-list>
-  <br><br>
+  <br>
   <ion-list>
     <ion-grid>
       <ion-row>
         <ion-col>
-  <ion-label><b>SLIVER MEDIUM BOLT </b></ion-label>
+  <ion-label><b>SILVER MEDIUM BOLT</b></ion-label>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-list>
-  <br><br>
+  <br>
   <ion-list>
     <ion-grid>
       <ion-row>
@@ -76,10 +85,10 @@
     <ion-grid>
       <ion-row>
        <ion-col>
-          <ion-button  (click)="gotoitem1()" expand="full"> < Previous </ion-button> 
+          <ion-button  class="yellow-card" (click)="gotoitem1()" expand="full">< Prev</ion-button> 
        </ion-col>
        <ion-col>
-        <ion-button   (click)="gotoitem3()" class="large-button" expand="full">Next></ion-button> 
+        <ion-button class="yellow-card" (click)="gotoitem3()"  expand="full">Next></ion-button> 
       </ion-col> 
   </ion-row>
   </ion-grid>
@@ -87,7 +96,7 @@
   <ion-list>
     <ion-grid>
       <ion-row>
-       <ion-col size="2">
+       <ion-col size="4">
           <ion-label>LOCATION:</ion-label>
        </ion-col>
        <ion-col class="col1" >
@@ -99,7 +108,7 @@
   <ion-list>
     <ion-grid>
       <ion-row>
-       <ion-col size="2">
+       <ion-col size="4">
           <ion-label>BIN SLOT:</ion-label>
        </ion-col>
        <ion-col class="col1" >
@@ -111,7 +120,7 @@
   <ion-list>
     <ion-grid>
       <ion-row>
-       <ion-col size="2">
+       <ion-col size="4">
           <ion-label>BULK BIN(S):</ion-label>
        </ion-col>
        <ion-col class="col1" >
@@ -124,13 +133,14 @@
     <ion-grid>
       <ion-row>
        <ion-col>
-          <ion-button  (click)="gotobinrefill()" expand="full"> Done </ion-button> 
+          <ion-button  (click)="gotobinrefill()"class="yellow-card" expand="full">Done</ion-button> 
        </ion-col>
        <ion-col>
-        <ion-button   class="large-button" expand="full">Item Search</ion-button> 
-      </ion-col> 
-  </ion-row>
-  </ion-grid>
+        <ion-button  class="yellow-card" expand="full">Item Search</ion-button> 
+     </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-list>
 
 </ion-content>
+
