@@ -1,0 +1,55 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-back-button  defaultHref="/scan-putaway-transfer-bin"></ion-back-button>
+          <!-- <ion-icon  defaultHref="/despatch" slot="icon-only" name="arrow-back"></ion-icon> -->
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Transfer Bin</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> 
+    
+      <div class="icon-div">
+        <ion-icon style="font-size: 10rem;text-align: center;color:#4471ee" (click)="stage()" name="cube-outline"></ion-icon>
+        <!-- <ion-card-header> -->
+          <ion-card-title>
+            Transfer Order Complete
+          </ion-card-title>
+      </div>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>Reference</label>
+            <p>T0-0431-7311</p>
+          </ion-col>
+          <!-- <ion-col>
+            <div class="bar-green">
+              ALLOCATED
+            </div>
+          </ion-col> -->
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Status</label>
+            <p>Closed</p>
+          </ion-col>
+        </ion-row>        
+      </ion-grid>
+      
+      <!-- </ion-card-header> -->
+    <!-- </ion-card> -->
+    
+
+<!-- </ion-content> -->
+  </ion-content>
+  <ion-footer class="ion-no-border">
+    <ion-button mode="md" style="width: 100%;margin-right: 2%;" class="btn btn-white" (click)="home()">Continue</ion-button>
+  </ion-footer>
+</div>
