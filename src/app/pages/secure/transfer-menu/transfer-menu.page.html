@@ -1,0 +1,152 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Transfer
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--TO DISPLAY MODAL-->
+<ion-modal #modal trigger="open-modaltransfer">
+  <ng-template>
+    <ion-content class="ion-padding">
+    <ion-header >
+      <ion-toolbar>
+        <ion-title class="title-left"><span class="blue-text">| </span>Barcode Shortcuts & Description</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+  
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row style="color: black;">
+            <ion-col size="3" style="text-align: center"><p class="">[ - ]</p></ion-col>
+            <ion-col><h6 >Undo Scan</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">[ .NNN ]</p></ion-col>
+            <ion-col><h6>Set Quantity</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">[ .X*Y ]</p></ion-col>
+            <ion-col><h6> Calc Quantity </h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">[ # ]</p></ion-col>
+            <ion-col><h6 >Show Scan History</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">[ #NN ]</p></ion-col>
+            <ion-col><h6 >Set Box Number</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">[ ## ]</p></ion-col>
+            <ion-col><h6 >Next Box</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">[ #. ]</p></ion-col>
+            <ion-col><h6 >Prev Box</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">*5</p></ion-col>
+            <ion-col><h6 >Item Search</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">*4</p></ion-col>
+            <ion-col><h6 >Bin Lookup</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+        
+    
+    
+        <ion-button class="" expand="block" (click)="modal.dismiss()">Back</ion-button>
+      
+        <ion-grid class="item-has-start-slot item md item-fill-none ion-activatable ion-focusable hydrated " style="padding-top: 20px;">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class=""></p></ion-col>
+            <ion-col><h6 ></h6></ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+
+
+<ion-content class="ion-padding">
+
+  <ion-list-header style="padding-left: 8px;" >  
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-icon style="color:  #e87100;" id="open-modaltransfer"name="alert-circle-outline" class="enlargeicon"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+      </ion-list-header>
+
+
+<ion-toolbar>
+  <ion-item  class="custom-item" (click)="transfer()" lines="none">
+    <ion-label>
+      <ion-text>
+        <h2>Start Transfer</h2>
+      </ion-text>
+    </ion-label>
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </ion-item>
+  
+  <ion-item  class="custom-item" (click)="transferBin()" lines="none">
+    <ion-label>
+      <ion-text>
+        <h2>Transfer Bin </h2>
+      </ion-text>
+    </ion-label>
+    <ion-icon name="arrow-forward-outline" ></ion-icon>
+  </ion-item>
+
+  <ion-item  class="custom-item" lines="none">
+    <ion-label>
+      <ion-text>
+        <h2>Bin Refills</h2>
+      </ion-text>
+    </ion-label>
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item  class="custom-item" lines="none" (click)="home()">
+    <ion-label>
+      <ion-text>
+        <h2>Main Menu</h2>
+      </ion-text>
+    </ion-label>
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </ion-item>
+  </ion-toolbar>
+
+</ion-content>
