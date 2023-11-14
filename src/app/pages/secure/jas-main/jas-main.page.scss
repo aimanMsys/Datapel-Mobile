@@ -1,0 +1,103 @@
+.text-center{
+    text-align: left;
+    padding-left: 20px;
+}
+
+.col{
+  border-left: 3px solid   red;
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+}
+.button-with-space{
+    margin-bottom: 10px;
+}
+
+
+
+
+$custom-primary: #FFA500; // Orange
+$custom-secondary: #000000; // Black
+
+.item1 {
+  --ion-background-color: $custom-primary; // Orange background
+  color: $custom-secondary; // Black text color
+  padding: 10px; // Adjust padding as needed
+  font-size: 16px; // Adjust font size as needed
+  border-bottom: 1px solid $custom-secondary; // Add a border
+}
+
+.modal-button {
+  margin-top: 480px;
+}
+
+.text-center {
+    text-align: left;
+  }
+
+  .black-icon {
+    color: black !important; /* Use !important to override Ionic's default styles */
+  }
+
+  .transparent-button {
+    --background: transparent;
+  }
+  
+.light-red-alert{
+  --background: #aa2828;
+}
+
+.custom-title {
+  font-size: 24px; /* Increase the font size as desired */
+  color: #0c0101; /* Use a darker color code or color name */
+  font: bold;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  position: relative; /* Add this line to ensure the red block respects the new alignment */
+}
+
+.red-block {
+  width: 2px;
+  height: 20px;
+  background-color: red;
+  margin-right: 5px;
+}
+
+/* Custom CSS class for loading component */
+.loading-alert {
+  --background: #fff; /* Background color */
+  --border-radius: 10px; /* Border radius */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+  --max-width: 300px; /* Adjust the maximum width as needed */
+  --width: 80%; /* Adjust the width as needed */
+  --height: auto; /* Allow height to adjust to content */
+  --padding: 16px; /* Adjust the padding as needed */
+}
+
+ion-card{
+  padding: 10px;
+  border-radius: 0px;
+}
+
+.bg-orange{
+   --background: #FBD1CB;
+}
+
+.mt-10{
+  margin-top: 15px;
+}
+
+.rounded-card{
+  border-radius: 10px;
+}
+
+.bold-text{
+  font-size: larger;
+  color: #000000;
+}
+
+.light-red-alert {
+  --padding-start: 20px; 
+  --padding-end: 20px; 
+}
