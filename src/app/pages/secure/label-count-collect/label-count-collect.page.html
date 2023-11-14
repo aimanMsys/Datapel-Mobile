@@ -1,0 +1,55 @@
+
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button  defaultHref="/stage-collect-order"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title-center" >Order Collect</ion-title>
+    <ion-buttons slot="primary">
+      <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>  
+</ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-toolbar>
+      <ion-title class="title-left"><span style="color: #C4DBF2;padding-bottom: 20px;">|</span>Label Count</ion-title>
+      <ion-button fill="none" id="open-modal" slot="primary">
+        <ion-icon slot="icon-only"  color="primary" name="alert-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
+
+    <div class="ion-padding">
+      <form class="form-default" >
+
+        <ion-list class="item-card-list" lines="none">
+          <ion-item>
+            <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
+            <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+          </ion-item>
+        </ion-list>
+
+      </form>
+      
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6"><ion-button class="btn btn-grey">01</ion-button></ion-col>
+        <ion-col size="6"><ion-button class="btn btn-grey">02</ion-button></ion-col>
+        <ion-col size="6"><ion-button class="btn btn-grey">03</ion-button></ion-col>
+        <ion-col size="6"><ion-button class="btn btn-grey">04</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+        
+  
+  </ion-content>
+  <ion-footer class="ion-no-border">
+    <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn btn-white">No Label</ion-button>
+    <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="continue()">Continue</ion-button>
+  </ion-footer>
+  

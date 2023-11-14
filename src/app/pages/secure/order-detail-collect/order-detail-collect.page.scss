@@ -1,0 +1,152 @@
+.ion-item-button{
+
+    // border-top: 1px solid blue;
+    // border-bottom: 1px solid blue;
+    // border-left: 1px solid blue;
+    // border-right: 1px solid blue;
+    border:0.2rem solid #C4DBF2;
+    margin:20px auto;
+   
+    h3{
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+
+
+    ion-label{
+        margin: 24px 0;
+    }
+}
+
+ion-item{
+    
+    h3{
+        font-weight: 600;
+        font-size: 1.8rem;
+        padding-block: 10px;
+    }
+
+    .text-info{
+        font-size: 1.8rem;
+    }
+    margin-block:20px auto;
+
+
+    ion-label{
+        margin: 24px 0;
+    }
+}
+
+.text-large{
+    font-weight: 600;
+    font-size: 1.8rem;
+    padding-block: 10px;
+}
+// .ion-item-button{
+   
+//     h3{
+//         font-weight: 600;
+//         font-size: 1rem;
+//     }
+
+
+//     ion-label{
+//         margin: 24px 0;
+//     }
+// }
+
+.orange-card{
+    --background:#F8DABD;
+    --padding-bottom:0.4vw
+}
+.blue-card{
+    --background:#C4DBF2
+}
+
+.blue-bg{
+    --background:#e9f1fe
+}
+.blue-text{
+    color:#C4DBF2
+}
+ion-list.item-card-list ion-item{
+    --border-radius: 0px !important;
+    margin: 0px;
+}
+ion-col{
+    label{        
+        color:#7c8086;
+    }
+    
+    p{
+        font-weight: bold;
+    }
+}
+
+.blue-bg{
+    --background:#e9f1fe;
+    margin-inline: 0px;
+}
+
+ion-card{
+    color: #000;
+
+    ion-card-title{
+        font-size: 1.4rem;
+        font-weight: bold; 
+    }
+
+    ion-button{
+        // font-size: 1.8rem;
+        font-weight: bold;
+        color:#4471ee;
+        float: right;
+        align-self: center;
+    }
+
+}
+
+
+.title-center{
+    text-align: center;
+}
+
+ion-modal {
+    --height: 80%;
+    // --border-radius: 16px;
+    // --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+.info-button{
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+ion-fab-button {
+    --background:  #4471ee;
+    --border-radius: 15px;
+    
+  }
+ 
+ .fab-horizontal-center {
+    margin-left: unset;
+    margin-inline-start: -50px !important;
+ }
+
+ ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+  
+    }
+}
+
+
+ion-content{
+    --background : #fff;
+}
