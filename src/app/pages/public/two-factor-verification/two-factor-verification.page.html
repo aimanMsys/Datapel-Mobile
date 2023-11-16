@@ -1,0 +1,48 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>two-factor-verification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content> -->
+
+
+<ion-content>
+
+  <div class="ion-padding ion-full-height ion-flex ion-flex-center">
+
+    <div class="logo-container">
+      <h1 class="logo-placeholder">Two Factor Verification</h1>
+      <p>Login to start using the Datapel Mobility Assistance.
+        Enter the registered email address and password.</p>
+    </div>
+
+    <form class="form-default"  (submit)="signIn()">
+
+      <ion-list class="item-card-list" lines="none">
+        <!-- <ion-item>
+          <ion-label color="tertiary" position="stacked">Email</ion-label>
+          <ion-input formControlName="email" type="email" autocomplete="off"
+            placeholder="Your email address"></ion-input>
+        </ion-item> -->
+
+        <ion-item class="ion-margin-top-small">
+          <ion-label color="tertiary" position="stacked">Enter InvAssist Pin Number</ion-label>
+          <ion-input  type="text" placeholder="xxxx-xxxx-xxxx-xxxx"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-button class="ion-margin-top" expand="block" color="primary" type="submit">
+        Next
+      </ion-button>
+
+      <ion-button color="primary" fill="clear" expand="block" class="ion-button-small ion-margin-top-medium" >
+        Resend verification code
+      </ion-button>
+    </form>
+
+  </div>
+
+</ion-content>

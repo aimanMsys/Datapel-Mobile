@@ -61,7 +61,7 @@ export class StockLookupPage implements OnInit {
   }
 
   home(){
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home2'])
   }
 
   signin(){
@@ -115,10 +115,6 @@ export class StockLookupPage implements OnInit {
     });
     await alert.present();
   }
-  
-  
-
-
 }
   
 

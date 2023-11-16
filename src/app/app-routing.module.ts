@@ -35,17 +35,15 @@ const routes: Routes = [
     // canActivate: [PublicGuard] // Prevent for signed in users
   },
   {
-    path: 'item1',
-    loadChildren: () => import('./pages/secure/item1/item1.module').then( m => m.Item1PageModule)
+    path: 'two-factor-verification',
+    loadChildren: () => import('./pages/public/two-factor-verification/two-factor-verification.module').then( m => m.TwoFactorVerificationPageModule)
   },
   {
-    path: 'item2',
-    loadChildren: () => import('./pages/secure/item2/item2.module').then( m => m.Item2PageModule)
+    path: 'signin2',
+    loadChildren: () => import('./pages/public/signin2/signin2.module').then(m => m.Signin2PageModule),
+    // canActivate: [PublicGuard] // Prevent for signed in users
   },
-  {
-    path: 'item3',
-    loadChildren: () => import('./pages/secure/item3/item3.module').then( m => m.Item3PageModule)
-  },
+
 
 
 ];
