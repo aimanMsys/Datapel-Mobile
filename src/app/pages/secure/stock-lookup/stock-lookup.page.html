@@ -103,19 +103,23 @@
 </ion-modal>
 
 <ion-content [fullscreen]="true" class="ion-padding">
+<<<<<<< HEAD
   <ion-list-header>
+=======
+
+  <ion-list-header>    
+>>>>>>> 8a14368 (stock-lookup)
     <ion-toolbar>
-      <ion-label color="dark" style="text-align: left;">
+      <ion-label color="dark" style="text-align: left;"> 
         <div class="col col-50">
-          &nbsp;Scan Product
-          </div> 
-        </ion-label>
-      <ion-buttons slot="primary" >
-        <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" ></ion-icon>
+        &nbsp;Scan Products
+        </div>  </ion-label>
+      <ion-buttons slot="end">
+        <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon"></ion-icon>
         </ion-buttons>
     </ion-toolbar>
-    
-  </ion-list-header> 
+      </ion-list-header>
+
 
 
     <form class="form-default" >
@@ -151,6 +155,35 @@
 
   <ion-button mode="md"  style="width: 49%" class="btn btn-dark" [disabled]="barcode == ''" (click)="search()">Continue</ion-button>
 </ion-footer>
+
+
+
+<!-- 
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-item lines="none" >
+    <ion-toolbar style="margin-top: 1rem;">
+      <ion-label>Mobility <br><ion-label>Assistant</ion-label> </ion-label>
+    </ion-toolbar>
+  </ion-item>
+  </ion-header>
+  <ion-item (click)="home()" >
+    <ion-icon name="home-sharp"></ion-icon>
+     &nbsp; Home
+  </ion-item>
+  <ion-content class="ion-padding"></ion-content>
+
+
+  <ion-footer>
+    <ion-toolbar padding>
+      <ion-item lines="none" (click)="signout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-text> &nbsp; Sign Out</ion-text>
+    </ion-item>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-menu> -->
 
 
 
