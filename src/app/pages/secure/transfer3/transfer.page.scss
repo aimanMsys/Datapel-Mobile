@@ -1,4 +1,89 @@
+ion-content{
+    --background : #fff;
+}
 
+ion-header{
+    border-bottom: 1px solid #ccc;
+}
+
+.bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-10{
+    margin-top: 15px;
+}
+.col{
+    border: 2px solid  yellow;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+  
+
+}
+
+
+.custom-button{
+    background-color: #e87100;
+}
+
+.custom-item {
+    
+   --background:#FCF8C2;
+   margin-bottom: 10px; 
+    position: relative;
+    margin-inline: 10px;
+  }
+  
+  .arrow-icon {
+    font-weight: bold; /* Adjust the value as needed */
+  }
+  
+
+  ion-modal {
+    --height: 90%;
+}
+
+.ion-item-button{
+
+    border:0.2rem solid #C4DBF2;
+    margin:20px auto;
+   
+
+    ion-col{
+        display: flex;
+        // text-align: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    ion-label{
+        margin: 24px 0;
+    }
+
+}
+
+ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+  
+    }
+}
+
+
+.lighter-text {
+    font-weight: lighter;
+  }
+
+
+  .enlargeicon{
+    font-size: 20px;
+  }
+
+
+//   abg aiman punya css// 
 
 .ion-item-button{
 
@@ -111,3 +196,7 @@ ion-toolbar {
 }
 
 ion-item{ --border-color: #FFF; }
+
+.enlargeicon{
+    font-size: 24px;
+}
