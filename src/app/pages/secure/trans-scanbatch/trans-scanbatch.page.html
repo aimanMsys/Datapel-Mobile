@@ -14,80 +14,45 @@
 
 
 <!--TO DISPLAY MODAL-->
+
 <ion-modal #modal trigger="open-modal4">
   <ng-template>
-    <ion-header collapse="condense">
+    <ion-content class="ion-padding">
+    <ion-header >
       <ion-toolbar>
         <ion-title class="title-left"><span class="blue-text">| </span>Barcode Shortcuts & Description</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
-      <p class=" ">Helpful Hints</p>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row style="color: black;">
-            <ion-col size="3" style="text-align: center"><p class="">[ - ]</p></ion-col>
-            <ion-col><h6 >Undo Scan</h6></ion-col>
-          </ion-row>
-        </ion-grid>
+    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+      <ion-row style="color: black;">
+        <ion-col size="3" style="text-align: center"><p class="">*9</p></ion-col>
+        <ion-col><h6 >Broken Barcode (Accept)</h6></ion-col>
+      </ion-row>
+    </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ .NNN ]</p></ion-col>
-            <ion-col><h6>Set Quantity</h6></ion-col>
-          </ion-row>
-        </ion-grid>
+    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+      <ion-row  style="color: black;">
+        <ion-col size="3" style="text-align: center"><p class="">*1</p></ion-col>
+        <ion-col><h6>Skip Next Item</h6></ion-col>
+      </ion-row>
+    </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ .X*Y ]</p></ion-col>
-            <ion-col><h6> Calc Quantity </h6></ion-col>
-          </ion-row>
-        </ion-grid>
+    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+      <ion-row  style="color: black;" >
+        <ion-col size="3" style="text-align: center"><p class="">*0</p></ion-col>
+        <ion-col><h6> Stock Out zero line </h6></ion-col>
+      </ion-row>
+    </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ # ]</p></ion-col>
-            <ion-col><h6 >Show Scan History</h6></ion-col>
-          </ion-row>
-        </ion-grid>
+    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+      <ion-row style="color:black;">
+        <ion-col size="3" style="text-align: center"><p class="">*</p></ion-col>
+        <ion-col><h6 >None-stock item (accept)</h6></ion-col>
+      </ion-row>
+    </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ #NN ]</p></ion-col>
-            <ion-col><h6 >Set Box Number</h6></ion-col>
-          </ion-row>
-        </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ ## ]</p></ion-col>
-            <ion-col><h6 >Next Box</h6></ion-col>
-          </ion-row>
-        </ion-grid>
-
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ #. ]</p></ion-col>
-            <ion-col><h6 >Prev Box</h6></ion-col>
-          </ion-row>
-        </ion-grid>
-
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">*5</p></ion-col>
-            <ion-col><h6 >Item Search</h6></ion-col>
-          </ion-row>
-        </ion-grid>
-
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">*4</p></ion-col>
-            <ion-col><h6 >Bin Lookup</h6></ion-col>
-          </ion-row>
-        </ion-grid>
-
-    
         <ion-button class="" expand="block" (click)="modal.dismiss()">Back</ion-button>
       
         <ion-grid class="item-has-start-slot item md item-fill-none ion-activatable ion-focusable hydrated " style="padding-top: 20px;">
@@ -100,19 +65,21 @@
   </ng-template>
 </ion-modal>
 
+
+
 <ion-content class="ion-padding">
-  <ion-list-header>
+    
+  <ion-list-header>    
     <ion-toolbar>
-      <ion-label color="dark" style="text-align: left;">
+      <ion-label color="dark" style="text-align: left;"> 
         <div class="col col-50">
-          &nbsp; Scan Batch/Serials
-        </div>
-      </ion-label>
+        &nbsp;Scan Batch/Serial
+        </div>  </ion-label>
       <ion-buttons slot="end">
-        <ion-icon style="color: #e87100;" id="open-modal4" name="alert-circle-outline" class="enlargeicon"></ion-icon>
-      </ion-buttons>
+        <ion-icon style="color:  #e87100;" id="open-modal4"name="alert-circle-outline" class="enlargeicon"></ion-icon>
+        </ion-buttons>
     </ion-toolbar>
-  </ion-list-header>
+      </ion-list-header>
 
   <form class="form-default">
     <ion-list class="item-card-list" lines="none">
