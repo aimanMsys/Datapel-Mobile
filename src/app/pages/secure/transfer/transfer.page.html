@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/transfer-menu"></ion-back-button>
+      <ion-back-button defaultHref="/transfer3"></ion-back-button>
     </ion-buttons>
     <ion-title>
       Transfer
@@ -72,81 +72,45 @@
 <!-- </div> -->
 
 <!--TO DISPLAY MODAL-->
-<ion-modal #modal trigger="open-modal">
+<ion-modal #modal trigger="opentransfer1">
   <ng-template>
     <ion-content class="ion-padding">
     <ion-header >
       <ion-toolbar>
-        <ion-title class="title-left"><span class="blue-text">| </span>Barcode Shortcuts & Description</ion-title>
+        <ion-title class="title-left"><span>| </span>Barcode Shortcuts & Description</ion-title>
       </ion-toolbar>
     </ion-header>
 
   
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row style="color: black;">
-            <ion-col size="3" style="text-align: center"><p class="">[ - ]</p></ion-col>
-            <ion-col><h6 >Undo Scan</h6></ion-col>
-          </ion-row>
-        </ion-grid>
+    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+      <ion-row style="color: black;">
+        <ion-col size="3" style="text-align: center"><p class="">*9</p></ion-col>
+        <ion-col><h6 >Broken Barcode (Accept)</h6></ion-col>
+      </ion-row>
+    </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ .NNN ]</p></ion-col>
-            <ion-col><h6>Set Quantity</h6></ion-col>
-          </ion-row>
-        </ion-grid>
+    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+      <ion-row  style="color: black;">
+        <ion-col size="3" style="text-align: center"><p class="">*1</p></ion-col>
+        <ion-col><h6>Skip Next Item</h6></ion-col>
+      </ion-row>
+    </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ .X*Y ]</p></ion-col>
-            <ion-col><h6> Calc Quantity </h6></ion-col>
-          </ion-row>
-        </ion-grid>
+    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+      <ion-row  style="color: black;" >
+        <ion-col size="3" style="text-align: center"><p class="">*0</p></ion-col>
+        <ion-col><h6> Stock Out zero line </h6></ion-col>
+      </ion-row>
+    </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ # ]</p></ion-col>
-            <ion-col><h6 >Show Scan History</h6></ion-col>
-          </ion-row>
-        </ion-grid>
+    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+      <ion-row style="color:black;">
+        <ion-col size="3" style="text-align: center"><p class="">*</p></ion-col>
+        <ion-col><h6 >None-stock item (accept)</h6></ion-col>
+      </ion-row>
+    </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ #NN ]</p></ion-col>
-            <ion-col><h6 >Set Box Number</h6></ion-col>
-          </ion-row>
-        </ion-grid>
 
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ ## ]</p></ion-col>
-            <ion-col><h6 >Next Box</h6></ion-col>
-          </ion-row>
-        </ion-grid>
-
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">[ #. ]</p></ion-col>
-            <ion-col><h6 >Prev Box</h6></ion-col>
-          </ion-row>
-        </ion-grid>
-
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">*5</p></ion-col>
-            <ion-col><h6 >Item Search</h6></ion-col>
-          </ion-row>
-        </ion-grid>
-
-        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-          <ion-row >
-            <ion-col size="3" style="text-align: center"><p class="">*4</p></ion-col>
-            <ion-col><h6 >Bin Lookup</h6></ion-col>
-          </ion-row>
-        </ion-grid>
-        
-    
-    
         <ion-button class="" expand="block" (click)="modal.dismiss()">Back</ion-button>
       
         <ion-grid class="item-has-start-slot item md item-fill-none ion-activatable ion-focusable hydrated " style="padding-top: 20px;">
@@ -159,29 +123,27 @@
   </ng-template>
 </ion-modal>
 
-<!--{{ selectedSourceLocation }}  -->
 
 
- <!--- <div *ngIf="!hideText2"> 
-              <ion-label style="font-weight: bolder;"><p>Source Destination</p> </ion-label>
-              <p>photo-main</p>
-           </div> -->
 
+<!-- {{ selectedSourceLocation }} -->
+    
 <ion-content  class="ion-padding">
  <ion-toolbar>
     
-      <ion-list-header style="padding-left: 8px;" >  
-        <ion-toolbar>
-          <ion-label color="dark"  >
-             <div class="col col-50">
-              &nbsp; {{ selectedSourceLocation }}
-              </div> 
-          </ion-label>
-          <ion-buttons slot="end">
-            <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon"></ion-icon>
-            </ion-buttons>
-        </ion-toolbar>
-          </ion-list-header>
+  <ion-list-header>    
+    <ion-toolbar>
+      <ion-label color="dark" style="text-align: left;"> 
+        <div class="col col-50">
+        &nbsp;{{ selectedSourceLocation }}
+        </div>  </ion-label>
+      <ion-buttons slot="end">
+        <ion-icon style="color:  #e87100;" id="opentransfer1"name="alert-circle-outline" class="enlargeicon"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+      </ion-list-header>
+
+
    
             <div *ngIf="!hideText1" style="padding-left: 8px;">
               <ion-row>
@@ -194,55 +156,66 @@
               </ion-row>
             </div>
       
-  </ion-toolbar>
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-item  class="yellow-card" (click)="toggleText1()" [class.active]="!hideText1">
+        <ion-label>
+          <h3>01 &nbsp; PHOTO-INWARDS</h3>
+        </ion-label>
+        <ion-icon  name="arrow-forward-outline"></ion-icon>
+      </ion-item>
+    </ion-col>
+    </ion-row>
 
 
-    <ion-toolbar>
-      <ion-item (click)="toggleText1()" [class.active]="!hideText1" class="custom-item" lines="none">
-        <ion-label>
-          <ion-text>
-            <h2>01 &nbsp; PHOTO-INWARDS</h2>
-          </ion-text>
-        </ion-label>
-        <ion-icon name="arrow-forward-outline"></ion-icon>
-      </ion-item>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="scanpickbin()" [class.active]="!hideText1">
+          <ion-label>
+            <h3>02 &nbsp; PHOTO-MAIN</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      </ion-row>
+     
+    <ion-row>
+      <ion-col size="12">
+        <ion-item  class="yellow-card"  [class.active]="!hideText1">
+          <ion-label>
+            <h3>03 &nbsp; PHOTO-TRANSIT  </h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      </ion-row>
       
-      <ion-item (click)="toggleText2()" (click)="scanpickbin()" [class.active]="!hideText2" class="custom-item" lines="none">
-        <ion-label>
-          <ion-text>
-            <h2>02 &nbsp; PHOTO-MAIN</h2>
-          </ion-text>
-        </ion-label>
-        <ion-icon name="arrow-forward-outline" ></ion-icon>
-      </ion-item>
-    
-      <ion-item (click)="toggleText3()" [class.active]="!hideText3" class="custom-item" lines="none">
-        <ion-label>
-          <ion-text>
-            <h2>03 &nbsp; PHOTO-TRANSIT</h2>
-          </ion-text>
-        </ion-label>
-        <ion-icon name="arrow-forward-outline"></ion-icon>
-      </ion-item>
       
-      <ion-item (click)="toggleText4()" [class.active]="!hideText4" class="custom-item" lines="none">
-        <ion-label>
-          <ion-text>
-            <h2>04 &nbsp; TEST MAIN</h2>
-          </ion-text>
-        </ion-label>
-        <ion-icon name="arrow-forward-outline"></ion-icon>
-      </ion-item>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item  class="yellow-card"  [class.active]="!hideText1">
+          <ion-label>
+            <h3>04 &nbsp; TEST MAIN</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      </ion-row>
     
-      <ion-item (click)="toggleText5()" [class.active]="!hideText5" class="custom-item" lines="none">
-        <ion-label>
-          <ion-text>
-            <h2>05 &nbsp; WH-ABC </h2>
-          </ion-text>
-        </ion-label>
-        <ion-icon name="arrow-forward-outline"></ion-icon>
-      </ion-item>
-    
+      
+    <ion-row>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="scanpickbin()" [class.active]="!hideText1">
+          <ion-label>
+            <h3>05 &nbsp; WH-ABC</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      </ion-row>
+ 
 
 </ion-toolbar>
 </ion-content>
