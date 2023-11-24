@@ -1,6 +1,9 @@
 .text-center{
     text-align: left;
     padding-left: 20px;
+    font-family: Lato, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .header-with-underline {
@@ -18,6 +21,14 @@
     margin-bottom: 10px; 
 }
   
+ion-toolbar {
+  .title-left {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    text-align: left;
+
+  }
+}
 
 /* CSS for the custom items */
 // Custom theme colors
@@ -31,6 +42,20 @@ $custom-secondary: #000000; // Black
   font-size: 20px; // Adjust font size as needed
   border-bottom: 1px solid $custom-secondary; // Add a border
   --background: #FBD1CB;
+}
+
+.red-card{
+  --background: #FBD1CB;
+}
+
+ion-item{
+  border-radius: 8px;
+  h3{
+      font-weight: 600;
+      // font-size: 1.8rem;
+      padding-block: 10px;
+  }
+
 }
 
 ion-card{
@@ -76,7 +101,48 @@ ion-card{
   margin: 5px;
 }
 
+.col{
+  border: 3px solid red;
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+}
 
 
+ion-content {
+  --ion-background-color: #ffffff; 
+}
 
+ion-row {
+  background-color: #ffffff; /* Set the background color to white */
+}
 
+ion-toolbar {
+  --background: transparent; /* Set the toolbar background to be transparent */
+}
+
+/* Set the background color to white for the entire body */
+body {
+  background-color: #fff;
+  margin: 0;
+}
+
+/* Set the background color to white for the ion-app container */
+ion-app {
+  background-color: #fff;
+}
+
+ion-toolbar {
+  .title-left {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    text-align: left;
+  }
+}
+
+ion-content {
+  --background: #fff;
+}
+
+/* Add any additional styles as needed */
+ion-item{ --border-color: #FFF; }
