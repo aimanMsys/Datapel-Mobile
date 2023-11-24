@@ -1,20 +1,26 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="header-with-underline">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/bin-lookup"></ion-back-button>
+      <ion-back-button defaultHref="/home2"></ion-back-button>
     </ion-buttons>
     <ion-title>Bin Lookup</ion-title>
+    
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content class="ion-padding" [fullscreen]="true">
   <ion-toolbar>
     <ion-list-header>
       <ion-toolbar>
-        <ion-label color="dark"><div class="col col-50">&nbsp;Scan Bin</div></ion-label>
+        <ion-label color="dark" style="text-align: left;">
+          <div class="col col-50">
+            &nbsp;Scan Bin
+            </div> 
+          </ion-label>
       </ion-toolbar>
     </ion-list-header>
     <ion-buttons slot="end">
@@ -28,7 +34,6 @@
     <ion-list class="item-card-list" lines="none">
       <ion-item>
         <ion-label color="tertiary" position="stacked">
-          <ion-icon name="barcode-outline"></ion-icon>
           Enter or Scan Barcode
         </ion-label>
         <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
@@ -37,35 +42,29 @@
   </form>
 
   <ion-card class="ion-card-chart ion-no-margin animate__animated animate__fadeIn bg-orange mt-10 rounded-card custom-card">
-    <ion-row>
-      <ion-Label position="stacked">Location</ion-Label>
+    <ion-row class="location-row">
+      <ion-label position="stacked" class="larger-font">Location</ion-label>
     </ion-row>
-    <ion-row>
+    <ion-row class="location-row">
       <ion-label class="bold-text">JAS-MAIN</ion-label>
     </ion-row>
   </ion-card>
+  
 </ion-content>
 
 <ion-modal #modal trigger="open-modal2" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
   <ng-template>
-    <ion-header>
+    <ion-content class="ion-padding">
+    <ion-header collapse="condense">
       <ion-toolbar>
-        <ion-title>Header</ion-title>
+        <ion-title class="title-left"><div class="col col-50">&nbsp;Description</div></ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content class="ion-padding">
-      <ion-toolbar>
-        <ion-header class="custom-title" slot="start"><span class="red-block"></span> Description</ion-header>
-      </ion-toolbar>
-
-      <ion-toolbar>
-        <ion-label>
-          Bibendum consectetur tortor tinicidunt ac donec lorem
-          ornare gravida id nisi enim in consectetur semper. 
-        </ion-label>
-      </ion-toolbar>
-
+    <ion-row style="color: black;">
+      <ion-col><h6> Bibendum consectetur tortor tinicidunt ac donec lorem
+        ornare gravida id nisi enim in consectetur semper.  </h6></ion-col>
+      </ion-row>
       <ion-button (click)="modal.dismiss()" expand="block" class="modal-button">Back</ion-button>
     </ion-content>
   </ng-template>

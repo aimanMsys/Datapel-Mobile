@@ -3,6 +3,11 @@
     padding-left: 20px;
 }
 
+.larger-font {
+  font-size: 18px; /* Adjust the font size as needed */
+  color: #000000;
+}
+
 .col{
   border-left: 3px solid   red;
   border-bottom: none;
@@ -75,29 +80,65 @@ $custom-secondary: #000000; // Black
   --padding: 16px; /* Adjust the padding as needed */
 }
 
-ion-card{
+ion-card {
   padding: 10px;
-  border-radius: 0px;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
 }
 
-.bg-orange{
-   --background: #FBD1CB;
+.bg-orange {
+  --background: #FBD1CB;
 }
 
-.mt-10{
-  margin-top: 15px;
+.mt-10 {
+  margin-top: 10px; /* Adjust the top margin as needed */
 }
 
-.rounded-card{
+.rounded-card {
   border-radius: 10px;
 }
 
-.bold-text{
+
+ion-card-title {
+  margin-bottom: -10px; /* Use negative margin to reduce the space */
+}
+
+ion-card-content {
+  padding-top: 0; /* Remove top padding for the card content */
+}
+
+ion-label {
+  margin-bottom: 0; /* Remove bottom margin for the label inside the content */
+}
+
+.bold-text {
   font-size: larger;
   color: #000000;
 }
 
+
 .light-red-alert {
   --padding-start: 20px; 
   --padding-end: 20px; 
+}
+
+.header-with-underline {
+  border-bottom: 0.05px solid #999999; /* Add your desired color here */
+}
+
+ion-content{
+  --background: #fff;
+}
+
+.location-row {
+  margin-left: 10px; /* Adjust the left margin for the location row */
+}
+
+ion-toolbar {
+  .title-left {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    text-align: left;
+  }
 }
