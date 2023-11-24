@@ -1,6 +1,9 @@
 ion-content{
     --background : #fff;
 }
+.header-with-underline {
+  border-bottom: 0.05px solid #999999; /* Add your desired color here */
+}
 .col{
   border-left: 3px solid   red;
   border-bottom: none;
@@ -20,14 +23,21 @@ ion-content{
 ion-row{
     color: var(--ion-color-medium-shade);
 }
-ion-card{
-    padding: 10px;
-    border-radius: 0px;
+
+/* Add this style to adjust the left margin for the FujiFilm card */
+.custom-margin {
+  margin-left: 10px; /* Adjust the left margin as needed */
+}
+
+ion-card {
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .bg-orange{
     background:  #FBD1CB;
 }
+
 ion-footer {
     padding: 20px;
     background: #fff;
@@ -88,15 +98,11 @@ $custom-secondary: #000000; // Black
     margin-right: 5px; /* Adjust the margin as needed */
   }
   
-  .custom-card::before {
-    content: "";
-    position: absolute;
-    width: 2px; /* Adjust the width as needed */
-    height: 3em; /* Adjust the height to match the letter "F" */
-    background-color: red;
-    top: 0.6em; /* Adjust the top position to align with the "F" */
-    left: 0; /* Position at the left border of the card */
-    z-index: 1;
+  .shadow {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
   }
   
   .custom-title { 
@@ -121,5 +127,13 @@ $custom-secondary: #000000; // Black
   }
 
   .row{
-    margin-top: -10px;
+    margin-top: -5px;
   }
+
+  ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+    }
+}
