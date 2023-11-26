@@ -50,7 +50,7 @@ export class TwoFactorVerificationPage implements OnInit {
       // Proceed with loading overlay
       const loading = await this.loadingController.create({
         cssClass: 'default-loading',
-        message: '<p>Verifying...</p><span>Please be patient.</span>',
+        message: '<p>Verifying...</p><span>Please wait....</span>',
         spinner: 'crescent'
       });
       await loading.present();

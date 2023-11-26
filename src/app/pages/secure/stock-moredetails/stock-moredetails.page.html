@@ -1,21 +1,14 @@
-<ion-header collapse="fade" [translucent]="true">
+<ion-header collapse="condense">
   <ion-toolbar>
-   
     <ion-buttons slot="start">
-      <ion-back-button  defaultHref="/stock-lookup"></ion-back-button>
+      <ion-button>
+        <ion-back-button defaultHref="/stock-lookup"></ion-back-button>
+      </ion-button>
     </ion-buttons>
-    <div class="ion-page" id="main-content1">
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="end">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
-          <ion-title>
-          Stock Lookup
-        </ion-title>
-        </ion-toolbar>
-      </ion-header>
-    </div>
+    <ion-title class="title-center">Stock Lookup</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -153,33 +146,4 @@
   
   <ion-button mode="md" style="margin-top: 10px;" class="btn btn-dark"  (click)="home()">Back</ion-button>
 </ion-footer>
-
-
-
-
-<ion-menu side="end" contentId="main-content1">
-  <ion-header>
-    <ion-item lines="none" >
-    <ion-toolbar style="margin-top: 1rem;">
-      <ion-label>Mobility <br><ion-label>Assistant</ion-label> </ion-label>
-    </ion-toolbar>
-  </ion-item>
-  </ion-header>
-  <ion-item (click)="home2()" >
-    <ion-icon name="home-sharp"  ></ion-icon>
-     &nbsp; Home
-  </ion-item>
-  <ion-content class="ion-padding"></ion-content>
-
-
-  <ion-footer>
-    <ion-toolbar padding>
-      <ion-item lines="none" (click)="signout()">
-      <ion-icon name="log-out-outline"></ion-icon>
-      <ion-text> &nbsp; Sign Out</ion-text>
-    </ion-item>
-    </ion-toolbar>
-  </ion-footer>
-
-</ion-menu>
 

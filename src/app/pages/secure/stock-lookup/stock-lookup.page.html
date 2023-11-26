@@ -1,6 +1,6 @@
 <!-- <ion-header collapse="fade" [translucent]="true"> -->
  
-  <ion-toolbar lines="full">
+  <!-- <ion-toolbar lines="full">
     
       <div class="ion-page" id="main-content">
         <ion-header>
@@ -17,7 +17,20 @@
           </ion-toolbar>
         </ion-header>
       </div>
-  </ion-toolbar>
+  </ion-toolbar> -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-back-button defaultHref="/home2"></ion-back-button>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="title-center">Stock Lookup</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
 <!-- </ion-header> -->
 

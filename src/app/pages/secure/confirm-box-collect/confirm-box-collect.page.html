@@ -1,4 +1,3 @@
-
 <ion-header collapse="condense">
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -6,84 +5,194 @@
         <ion-back-button defaultHref="/stage-collect-order"></ion-back-button>
       </ion-button>
     </ion-buttons>
-    <ion-title class="title-center" >Order Collect</ion-title>
-    <ion-buttons slot="primary">
-      <ion-buttons slot="end">
+    <ion-title class="title-center">Order Collect</ion-title>
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    </ion-buttons>
-  </ion-toolbar>  
+  </ion-toolbar>
 </ion-header>
 
-  <ion-content class="ion-padding">
+<ion-content class="ion-padding">
+
+  <ion-list-header>
     <ion-toolbar>
-      <ion-title class="title-left"><span style="color: #C4DBF2">|</span>Confirm Box to Collect</ion-title>
-      <ion-button fill="none" id="open-modal" slot="primary">
-        <ion-icon slot="icon-only"  color="primary" name="alert-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-toolbar>         
+      <ion-label color="dark" style="text-align: left;">
+        <div class="col col-50">
+          &nbsp;Confirm Box to Collect
+        </div>
+      </ion-label>
+      <ion-buttons slot="primary">
+        <ion-icon style="color:  #e87100;" id="open-modal" name="alert-circle-outline"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-list-header>
 
-    <div class="ion-padding">
-      <form class="form-default" >
+  <div class="ion-padding">
+    <form class="form-default">
 
-        <ion-list class="item-card-list" lines="none">
-          <ion-item>
-            <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
-            <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
-          </ion-item>
-        </ion-list>
+      <ion-list class="item-card-list" lines="none">
+        <ion-item>
+          <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
+          <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+        </ion-item>
+      </ion-list>
+
+    </form>
+  </div>
+
+  <ion-text color="">
+    <h5 style="color:#7c8086;">GoTo Area</h5>
+  </ion-text>
+  <ion-text color="">
+    <h3 class="blue-text-bold">STAGING1</h3>
+  </ion-text>
+
+  <ion-card class="blue-bg">
+    <ion-card-header>
+      <ion-card-title>
+        <div class="col col-50">&nbsp;Swanston Cameras</div>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>Order#</label>
+            <p>L2201090</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Box#</label>
+            <p>700005</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Collected</label>
+            <p>1 of 2</p>
+          </ion-col>
+          <ion-col>
+            <label>Collect Box</label>
+            <p>1 of 2</p>
+
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+
   
-      </form>
-    </div>
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-header collapse="condense">
+          <ion-toolbar>
+            <ion-title class="title-left"><span class="blue-text">| </span>Barcode Shortcuts & Description</ion-title>
+          </ion-toolbar>
+        </ion-header>
 
-    <ion-text color="">
-      <h5 style="color:#7c8086;">Goto Area</h5>
-    </ion-text>
-    <ion-text color="">
-      <h3>STAGING1</h3>
-    </ion-text>
-
-    <ion-card class="blue-bg">
-      <ion-card-header>
-        <ion-card-title><span style="color: #4471ee;">|</span>Swanston Cameras</ion-card-title>
-      </ion-card-header>
-    
-      <ion-card-content>
-        <ion-grid>
-          <ion-row>
+        <ion-grid
+          class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row style="color: black;">
+            <ion-col size="3" style="text-align: center">
+              <p class="">*9</p>
+            </ion-col>
             <ion-col>
-              <label>Order Number</label>
-              <p>L2201090</p>
+              <h6>Broken Barcode (Accept)</h6>
             </ion-col>
           </ion-row>
-          <ion-row>
-            <ion-col>
-              <label>Box</label>
-              <p>700005</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <label>Collected</label>
-              <p>1 of 2</p>
-            </ion-col>
-            <ion-col>
-              <label>Collect Box</label>
-              <p>1 of 2</p>
-
-            </ion-col>
-          </ion-row>
-          
         </ion-grid>
 
-      </ion-card-content>
-    </ion-card>
-      
-  
-  </ion-content>
-  <ion-footer class="ion-no-border">
-    <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan</ion-button>
-    <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="scanNext()">Continue</ion-button>
-  </ion-footer>
+        <ion-grid
+          class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row>
+            <ion-col size="3" style="text-align: center">
+              <p class="">*5</p>
+            </ion-col>
+            <ion-col>
+              <h6>Item Search</h6>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-  
+        <ion-grid
+          class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row>
+            <ion-col size="3" style="text-align: center">
+              <p class="">*4</p>
+            </ion-col>
+            <ion-col>
+              <h6>Bin Lookup</h6>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid
+          class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row>
+            <ion-col size="3" style="text-align: center">
+              <p class="">*1</p>
+            </ion-col>
+            <ion-col>
+              <h6>Skip Item</h6>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid
+          class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row>
+            <ion-col size="3" style="text-align: center">
+              <p class="">*0</p>
+            </ion-col>
+            <ion-col>
+              <h6>Zero Line</h6>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid
+          class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row>
+            <ion-col size="3" style="text-align: center">
+              <p class="">*</p>
+            </ion-col>
+            <ion-col>
+              <h6>Pick NonStock</h6>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+
+        <ion-button class="" expand="block" (click)="modal.dismiss()">Back</ion-button>
+
+        <ion-grid class="item-has-start-slot item md item-fill-none ion-activatable ion-focusable hydrated "
+          style="padding-top: 20px;">
+          <ion-row>
+            <ion-col size="3" style="text-align: center">
+              <p class=""></p>
+            </ion-col>
+            <ion-col>
+              <h6></h6>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported">
+    <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan</ion-button>
+  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''"
+    (click)="scanNext()">Continue</ion-button>
+</ion-footer>
