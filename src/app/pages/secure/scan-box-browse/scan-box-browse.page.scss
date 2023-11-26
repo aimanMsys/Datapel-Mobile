@@ -73,6 +73,7 @@ ion-fab-button {
       padding-inline-start: 0;
       padding-inline-end: 0;
       text-align: left;
+      font-family: Lato, sans-serif;
   
     }
 }
@@ -126,4 +127,46 @@ ion-footer {
     color:#000000;
     --background: #ffffff !important;
     border: 2px solid #000;
+}
+
+
+.col{
+    border: 3px solid #4471ee;;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+
+}
+
+form.form-default ion-list.item-card-list ion-item{
+    padding: 6px;
+    border-width: 2px;
+}
+
+form.form-default ion-list.item-card-list ion-item.item-has-focus {
+    border-width: 2px;
+}
+
+
+ion-modal {
+    --height: 90%;
+}
+
+.ion-item-button{
+
+    border:0.2rem solid #C4DBF2;
+    margin:20px auto;
+   
+
+    ion-col{
+        display: flex;
+        // text-align: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    ion-label{
+        margin: 24px 0;
+    }
+
 }

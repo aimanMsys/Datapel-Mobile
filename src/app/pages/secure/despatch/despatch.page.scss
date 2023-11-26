@@ -74,9 +74,6 @@ ion-card{
 
 .title-center{
     text-align: center;
-    font-family: Lato, sans-serif;
-    font-size: 20px;
-    font-weight: 700;
 }
 
 ion-modal {
@@ -95,12 +92,21 @@ ion-modal {
 }
 
 ion-toolbar {
+    font-family: Lato, sans-serif;
     .title-left {
       padding-inline-start: 0;
       padding-inline-end: 0;
       text-align: left;
-  
     }
 }
 
 ion-item{ --border-color: #FFF; }
+
+
+.col{
+    border: 3px solid #4471ee;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+
+}

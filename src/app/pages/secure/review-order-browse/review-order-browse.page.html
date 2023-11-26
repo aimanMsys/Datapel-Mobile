@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-buttons slot="start">
@@ -16,21 +16,30 @@
     </ion-toolbar>  
   </ion-header>
 
-  <div class="ion-padding">
-    <ion-toolbar>
-      <ion-title class="title-left" ><span style="color: #4471ee;">|</span> Review Order</ion-title>
-      <ion-button fill="none" id="open-modal" slot="primary">
-        <ion-icon slot="icon-only"  color="primary" name="alert-circle-outline"></ion-icon>
-        <!-- <ion-icon slot="icon-only"  name="menu-outline"></ion-icon> -->
-      </ion-button>
-    </ion-toolbar> 
+  <ion-content class="ion-padding">
+  <div>
+    <ion-list-header>
+      <ion-toolbar class="ion-no-padding">
+        <ion-label color="dark" style="text-align: left;">
+          <div class="col col-50">
+            &nbsp;Review Order
+            </div> 
+          </ion-label>
+        <ion-buttons slot="primary" >
+          <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" ></ion-icon>
+          </ion-buttons>
+      </ion-toolbar>      
+    </ion-list-header> 
 
-    <h3 style="font-weight: bold;"><span style="color: #4471ee;">|</span> Swanston Camera</h3>
+    <h3 style="font-weight: bold;">
+      <!-- <span style="color: #4471ee;">|</span> Swanston Camera -->
+      <div class="col col-50">&nbsp;Swanston Camera</div>
+    </h3>
 
     <ion-grid>
       <ion-row>
         <ion-col>
-          <label>Order Number</label>
+          <label>Order#</label>
           <p>L2201090</p>
         </ion-col>
       </ion-row>
@@ -54,14 +63,16 @@
 
     <ion-card class="blue-bg">
       <ion-card-header>
-        <ion-card-title><span style="color: #4471ee;">|</span> Hasselbald 500 C/M</ion-card-title>
+        <ion-card-title>           
+           <div class="col col-50">&nbsp;Hasselbald 500 C/M</div>
+        </ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
         <ion-grid>
           <ion-row>
             <ion-col>
-              <label>Order Number</label>
+              <label>Order#</label>
               <p>L2201090</p>
             </ion-col>
             <ion-col>
@@ -99,7 +110,9 @@
 
     <ion-card class="blue-bg">
       <ion-card-header>
-        <ion-card-title><span style="color: #4471ee;">|</span> Hasselbald 500 C/M</ion-card-title>
+        <ion-card-title>
+          <div class="col col-50">&nbsp;Hasselbald 500 C/M</div>  
+        </ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
@@ -144,7 +157,9 @@
 
     <ion-card class="blue-bg">
       <ion-card-header>
-        <ion-card-title><span style="color: #4471ee;">|</span> Hasselbald 500 C/M</ion-card-title>
+        <ion-card-title>           
+           <div class="col col-50">&nbsp;Hasselbald 500 C/M</div>
+        </ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
@@ -187,59 +202,77 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-fab slot="fixed" (click)="scanQr()"  vertical="bottom" horizontal="end">
+    <!-- <ion-fab slot="fixed" (click)="scanBin()"  vertical="bottom" horizontal="end">
       <ion-fab-button>
         <ion-icon name="qr-code-outline"></ion-icon>
       </ion-fab-button>
-    </ion-fab>
+    </ion-fab> -->
     
   </div>
 
   <ion-modal #modal trigger="open-modal">
     <ng-template>
+      <ion-content class="ion-padding">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title class="title-center" ><span class="blue-text">| </span>Barcode Shortcuts & Description</ion-title>
+          <ion-title class="title-left"><span class="blue-text">| </span>Barcode Shortcuts & Description</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content class="ion-padding">
-        <p class="ion-padding-horizontal text-large">You must accept the terms and conditions to close this modal</p>
-
+  
           <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-            <ion-row >
-              <ion-col size="3" style="text-align: center"><p class="text-large">*9</p></ion-col>
-              <ion-col><h3 class="text-left">Broken barcode (Accept)</h3></ion-col>
-              <!-- <ion-col>3</ion-col> -->
+            <ion-row style="color: black;">
+              <ion-col size="3" style="text-align: center"><p class="">*9</p></ion-col>
+              <ion-col><h6 >Broken Barcode (Accept)</h6></ion-col>
             </ion-row>
           </ion-grid>
-
+  
           <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
             <ion-row >
-              <ion-col size="3" style="text-align: center"><p class="text-large">*1</p></ion-col>
-              <ion-col><h3 class="text-left">Skip next Item</h3></ion-col>
-              <!-- <ion-col>3</ion-col> -->
+              <ion-col size="3" style="text-align: center"><p class="">*5</p></ion-col>
+              <ion-col><h6>Item Search</h6></ion-col>
             </ion-row>
           </ion-grid>
-
+  
           <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
             <ion-row >
-              <ion-col size="3" style="text-align: center"><p class="text-large">*0</p></ion-col>
-              <ion-col><h3 class="text-left">Stock out zero line</h3></ion-col>
-              <!-- <ion-col>3</ion-col> -->
+              <ion-col size="3" style="text-align: center"><p class="">*4</p></ion-col>
+              <ion-col><h6 >Bin Lookup</h6></ion-col>
             </ion-row>
           </ion-grid>
-
+  
           <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
             <ion-row >
-              <ion-col size="3" style="text-align: center"><p class="text-large">*</p></ion-col>
-              <ion-col><h3 class="text-left">None-stock item (Accept)</h3></ion-col>
-              <!-- <ion-col>3</ion-col> -->
+              <ion-col size="3" style="text-align: center"><p class="">*1</p></ion-col>
+              <ion-col><h6 >Skip Item</h6></ion-col>
+            </ion-row>
+          </ion-grid>
+  
+          <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+            <ion-row >
+              <ion-col size="3" style="text-align: center"><p class="">*0</p></ion-col>
+              <ion-col><h6 >Zero Line</h6></ion-col>
+            </ion-row>
+          </ion-grid>
+  
+          <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+            <ion-row >
+              <ion-col size="3" style="text-align: center"><p class="">*</p></ion-col>
+              <ion-col><h6 >Pick NonStock</h6></ion-col>
             </ion-row>
           </ion-grid>
           
-          <ion-button class="text-large" expand="block" (click)="modal.dismiss()">Back</ion-button>
-
+      
+      
+          <ion-button class="" expand="block" (click)="modal.dismiss()">Back</ion-button>
         
+          <ion-grid class="item-has-start-slot item md item-fill-none ion-activatable ion-focusable hydrated " style="padding-top: 20px;">
+            <ion-row >
+              <ion-col size="3" style="text-align: center"><p class=""></p></ion-col>
+              <ion-col><h6 ></h6></ion-col>
+            </ion-row>
+          </ion-grid>
+  
+  
       </ion-content>
     </ng-template>
   </ion-modal>

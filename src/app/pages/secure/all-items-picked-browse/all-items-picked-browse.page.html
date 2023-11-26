@@ -3,7 +3,7 @@
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-button>
-          <ion-back-button  defaultHref="/browse-order"></ion-back-button>
+          <ion-back-button  defaultHref="/scan-count-browse"></ion-back-button>
           <!-- <ion-icon  defaultHref="/despatch" slot="icon-only" name="arrow-back"></ion-icon> -->
         </ion-button>
       </ion-buttons>
@@ -24,7 +24,7 @@
     </div> -->
     <!-- <ion-card> -->
       <div class="icon-div">
-        <ion-icon style="font-size: 10rem;text-align: center;color:#4471ee" (click)="stage()" name="cube-outline"></ion-icon>
+        <ion-icon style="font-size: 7rem;text-align: center;color:#4471ee" (click)="stage()" name="cube-outline"></ion-icon>
         <!-- <ion-card-header> -->
           <ion-card-title>All Items Picked</ion-card-title>
       </div>
@@ -34,56 +34,43 @@
     
     <ion-card class="blue-bg">
       <ion-card-header>
-        <ion-card-title><span style="color: #4471ee;">|</span> Hasselbald 500 C/M</ion-card-title>
+        <ion-card-title>
+          <div class="col col-50">&nbsp;Hasselbald 500 C/M</div>
+        </ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
         <ion-grid>
           <ion-row>
             <ion-col>
-              <label>Order Number</label>
-              <p>L2201090</p>
+              <label>Item Number</label>
+              <p>Camera-01</p>
             </ion-col>
-            <!-- <ion-col>
-              <div class="bar-green">
-                ALLOCATED
-              </div>
-            </ion-col> -->
           </ion-row>
           <ion-row>
             <ion-col>
               <label>BIN*</label>
-              <p>20/08/2022</p>
+              <p>R-900</p>
             </ion-col>
-          </ion-row>
-          <ion-row>            
             <ion-col >
               <label>Box#</label>
               <p>3000001</p>
             </ion-col>
           </ion-row>
           <ion-row>
+            <ion-col >
+              <label>Quantity</label>
+              <p>3</p>
+            </ion-col>
             <ion-col>
               <label>BRN</label>
               <p>~</p>
             </ion-col>
-            <!-- <ion-col>
-              <ion-button (click)="scanBin()" fill="clear">
-                1 OF 3
-                <ion-icon name="chevron-forward"></ion-icon>
-              </ion-button>
-            </ion-col> -->
           </ion-row>
         </ion-grid>
 
       </ion-card-content>
     </ion-card>
-
-    <!-- <ion-fab slot="fixed" (click)="scanQr()"  vertical="bottom" horizontal="end">
-      <ion-fab-button>
-        <ion-icon name="qr-code-outline"></ion-icon>
-      </ion-fab-button>
-    </ion-fab> -->
     
   </div>
 
@@ -141,6 +128,7 @@
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn btn-white" (click)="scan()">Main Menu</ion-button>
-  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="review()">Add Item</ion-button>
+  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn " [disabled]="barcode == ''" (click)="review()">Add Item</ion-button>
+  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [routerLink]="['/home2']"> <ion-icon name="home" style="margin-right: 10px;"></ion-icon> Main Menu </ion-button>
+  
 </ion-footer>

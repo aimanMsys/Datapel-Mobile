@@ -80,13 +80,25 @@ ion-fab-button {
  }
 
  ion-toolbar {
+    font-family: Lato, sans-serif;  
     .title-left {
       padding-inline-start: 0;
       padding-inline-end: 0;
       text-align: left;
-  
+      
     }
 }
+
+
+.col{
+    border: 3px solid #4471ee;;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+    font-family: Lato, sans-serif; 
+
+}
+
 
 
 ion-content{
@@ -103,6 +115,25 @@ ion-col{
     }
 }
 
+.ion-item-button{
+
+    border:0.2rem solid #C4DBF2;
+    margin:20px auto;
+   
+
+    ion-col{
+        display: flex;
+        // text-align: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    ion-label{
+        margin: 24px 0;
+    }
+
+}
+
 .blue-bg{
     --background:#e9f1fe;
     margin-inline: 0px;
@@ -114,6 +145,7 @@ ion-card{
     ion-card-title{
         font-size: 1.4rem;
         font-weight: bold; 
+        font-family: Lato, sans-serif; 
     }
 
     ion-button{
