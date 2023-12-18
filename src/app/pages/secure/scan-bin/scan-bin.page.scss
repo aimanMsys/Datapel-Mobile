@@ -17,8 +17,8 @@ ion-content{
 .mt-5{
     margin-top: 5px;
 }
-.mt-10{
-    margin-top: 15px;
+.mt-2{
+    margin-top: 20px;
 }
 ion-row{
     color: var(--ion-color-medium-shade);
@@ -113,7 +113,10 @@ $custom-secondary: #000000; // Black
     text-align: left;
     position: relative; /* Add this line to ensure the red block respects the new alignment */
   }
-  
+  .bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
+  .mt-5{
+    margin-top: 5px;
+  }
   .red-block {
     width: 4px !important;
     height: 15px;
