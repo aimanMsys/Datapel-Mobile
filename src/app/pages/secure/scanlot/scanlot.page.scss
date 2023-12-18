@@ -1,73 +1,177 @@
 .text-center{
-    text-align: left;
-    padding-left: 20px;
+  text-align: left;
+  padding-left: 20px;
 }
 
-.ion-button{
-  --backgoround: transparent;
+.larger-font {
+font-size: 18px; /* Adjust the font size as needed */
+color: gray;
 }
 
-.text-center::before {
-    content: ""; /* Create an empty pseudo-element */
-    display: inline-block;
-    width: 8px; /* Adjust the width as needed */
-    height: 100%; /* Set the height to match the text height */
-    background-color: yellow; /* Set the desired color */
-    margin-right: 8px; /* Adjust the spacing between the color and text */
-  }
 
+.col{
+border-left: 3px solid   yellow;
+border-bottom: none;
+border-top: none;
+border-right: none;
+}
 .button-with-space{
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
+ion-input{
+font-size: 1.5rem;
+margin-top: 10px;
+}
+
+form.form-default ion-list.item-card-list ion-item{
+padding: 6px;
+border-width: 2px;
+}
+
+form.form-default ion-list.item-card-list ion-item.item-has-focus {
+border-width: 2px;
+}
 
 
 $custom-primary: #FFA500; // Orange
 $custom-secondary: #000000; // Black
 
 .item1 {
-  --ion-background-color: $custom-primary; // Orange background
-  color: $custom-secondary; // Black text color
-  padding: 10px; // Adjust padding as needed
-  font-size: 16px; // Adjust font size as needed
-  border-bottom: 1px solid $custom-secondary; // Add a border
+--ion-background-color: $custom-primary; // Orange background
+color: $custom-secondary; // Black text color
+padding: 10px; // Adjust padding as needed
+font-size: 16px; // Adjust font size as needed
+border-bottom: 1px solid $custom-secondary; // Add a border
 }
 
 .modal-button {
-  margin-top: 360px;
+margin-top: 480px;
 }
 
 .text-center {
-    text-align: start;
-  }
-
-  .black-icon {
-    color: black !important; /* Use !important to override Ionic's default styles */
-  }
-
-  .transparent-button {
-    --background: transparent;
-  }
-  
-.bold-text{
-    color: gray;
+  text-align: left;
 }
 
-.col {
+.black-icon {
+  color: black !important; /* Use !important to override Ionic's default styles */
+}
+
+.transparent-button {
+  --background: transparent;
+}
+
+.light-red-alert{
+--background: #aa2828;
+}
+
+.custom-title {
+font-size: 24px; /* Increase the font size as desired */
+color: #0c0101; /* Use a darker color code or color name */
+font: bold;
+display: flex;
+align-items: flex-start;
+text-align: left;
+position: relative; /* Add this line to ensure the red block respects the new alignment */
+}
+
+.red-block {
+width: 2px;
+height: 20px;
+background-color: red;
+margin-right: 5px;
+}
+
+/* Custom CSS class for loading component */
+.loading-alert {
+--background: #fff; /* Background color */
+--border-radius: 10px; /* Border radius */
+--box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+--max-width: 300px; /* Adjust the maximum width as needed */
+--width: 80%; /* Adjust the width as needed */
+--height: auto; /* Allow height to adjust to content */
+--padding: 16px; /* Adjust the padding as needed */
+}
+
+ion-card {
+padding: 10px;
+border-radius: 10px;
+margin: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
+}
+
+.bg-orange {
+--background: #FBD1CB;
+}
+
+.mt-10 {
+margin-top: 10px; /* Adjust the top margin as needed */
+}
+
+.rounded-card {
+border-radius: 10px;
+}
+
+
+ion-card-title {
+margin-bottom: -10px; /* Use negative margin to reduce the space */
+}
+
+ion-card-content {
+padding-top: 0; /* Remove top padding for the card content */
+}
+
+ion-label {
+margin-bottom: 0; /* Remove bottom margin for the label inside the content */
+}
+
+.bold-text {
+font-size: larger;
+color: #000000;
+}
+
+
+.light-red-alert {
+--padding-start: 20px; 
+--padding-end: 20px; 
+}
+
+.header-with-underline {
+border-bottom: 0.05px solid #999999; /* Add your desired color here */
+}
+
+ion-content{
+--background: #fff;
+}
+
+.location-row {
+margin-left: 10px; /* Adjust the left margin for the location row */
+}
+
+ion-toolbar {
+.title-left {
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  text-align: left;
+}
+}
+
+.sizeW{
+width: 100%;
+margin-left: auto;
+}
+
+.bold-text{
+  color: gray;
+}
+
+.row-with-line-break {
+  margin-bottom: 10px; /* Adjust the value as needed to control the spacing */
+}
+
+.col1 {
   background-color: transparent; /* Set background color to transparent */
   border: solid 1px #000; /* Set border color to black */
   color: #000; /* Set text color to black */
   text-align: center;
 }
-
-/* Add margin or padding to rows with the "row-with-line-break" class */
-.row-with-line-break {
-  margin-bottom: 10px; /* Adjust the value as needed to control the spacing */
-}
-
-/* Example to force visibility */
-ion-menu-button {
-  visibility: visible !important;
-  display: inline !important;
-}
-
