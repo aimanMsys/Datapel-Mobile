@@ -3,6 +3,21 @@
     padding-left: 20px;
 }
 
+.col{
+  border-left: 3px solid   yellow;
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+  }
+
+  form.form-default ion-list.item-card-list ion-item{
+    padding: 6px;
+    border-width: 2px;
+    }
+    
+    form.form-default ion-list.item-card-list ion-item.item-has-focus {
+    border-width: 2px;
+    }
 
 .text-center::before {
     content: ""; /* Create an empty pseudo-element */
@@ -66,6 +81,10 @@ ion-card-title.with-inline-block {
   }
 
 
+ion-content{
+  --background: white;
+}
+
 /* Style the container to display buttons at the start and end */
 .button-container {
     display: flex;
@@ -95,7 +114,7 @@ ion-card-title.with-inline-block {
     --background: white;
   }
 
-  .col {
+  .col1 {
     background-color: transparent; /* Set background color to transparent */
     border: solid 1px #000; /* Set border color to black */
     color: #000; /* Set text color to black */
