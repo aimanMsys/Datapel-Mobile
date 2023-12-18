@@ -5,7 +5,7 @@
 
 .larger-font {
   font-size: 18px; /* Adjust the font size as needed */
-  color: #000000;
+  color: gray;
 }
 
 .col{
@@ -18,7 +18,19 @@
     margin-bottom: 10px;
 }
 
+ion-input{
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
 
+form.form-default ion-list.item-card-list ion-item{
+  padding: 6px;
+  border-width: 2px;
+}
+
+form.form-default ion-list.item-card-list ion-item.item-has-focus {
+  border-width: 2px;
+}
 
 
 $custom-primary: #FFA500; // Orange
@@ -141,4 +153,9 @@ ion-toolbar {
     padding-inline-end: 0;
     text-align: left;
   }
+}
+
+.sizeW{
+  width: 100%;
+  margin-left: auto;
 }

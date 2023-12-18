@@ -18,7 +18,7 @@
       <ion-toolbar>
         <ion-label color="dark" style="text-align: left;">
           <div class="col col-50">
-            &nbsp;Scan Bin
+            &nbsp;Scan Lot
             </div> 
           </ion-label>
       </ion-toolbar>
@@ -30,25 +30,28 @@
     </ion-buttons>
   </ion-toolbar>
 
-  <form class="form-default">
+  <form class="form-default" >
     <ion-list class="item-card-list" lines="none">
       <ion-item>
-        <ion-label color="tertiary" position="stacked">
-          Enter or Scan Barcode
-        </ion-label>
-        <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+        <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
+        <ion-input  placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" ></ion-input>
       </ion-item>
     </ion-list>
+
   </form>
 
-  <ion-card class="ion-card-chart ion-no-margin animate__animated animate__fadeIn bg-orange mt-10 rounded-card custom-card">
-    <ion-row class="location-row">
-      <ion-label position="stacked" class="larger-font">Location</ion-label>
-    </ion-row>
-    <ion-row class="location-row">
-      <ion-label class="bold-text">JAS-MAIN</ion-label>
-    </ion-row>
-  </ion-card>
+  <ion-toolbar>
+    <div>
+      <ion-card class="ion-card-chart ion-no-margin animate__animated animate__fadeIn bg-orange mt-10 rounded-card custom-card sizeW">
+        <ion-row class="location-row">
+          <ion-label position="stacked" class="larger-font">Location</ion-label>
+        </ion-row>
+        <ion-row class="location-row">
+          <ion-label class="bold-text">JAS-MAIN</ion-label>
+        </ion-row>
+      </ion-card>
+    </div>
+  </ion-toolbar>
   
 </ion-content>
 
