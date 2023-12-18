@@ -3,7 +3,14 @@
     padding-left: 20px;
 }
 
+.col{
+  border-left: 3px solid   yellow;
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+  }
 
+  
 .text-center::before {
     content: ""; /* Create an empty pseudo-element */
     display: inline-block;
@@ -71,3 +78,9 @@ ion-button[slot="start"] {
     color: var(--ion-color-primary); /* Set the text color to the primary color */
   }
   
+  .col1 {
+    background-color: transparent; /* Set background color to transparent */
+    border: solid 1px #000; /* Set border color to black */
+    color: #000; /* Set text color to black */
+    text-align: center;
+  }

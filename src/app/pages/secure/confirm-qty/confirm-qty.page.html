@@ -1,20 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button slot="start">
+    <ion-buttons slot="start">
       <ion-back-button defaultHref="/enter-qty"></ion-back-button>
-    </ion-button>
+    </ion-buttons>
     <ion-title>Transfer</ion-title>
-    <ion-button slot="end">
+    
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
-    </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding" [fullscreen] = "true">
   <ion-toolbar>
-    <ion-title class="text-center">Confirm Quantity</ion-title>
+    <ion-list-header>
+      <ion-toolbar>
+        <ion-label color="dark" style="text-align: left;">
+          <div class="col col-50">
+            &nbsp;Confirm quantity
+            </div> 
+          </ion-label>
+      </ion-toolbar>
+    </ion-list-header>
     <ion-buttons slot="end">
-      <ion-icon id="open-modal9" name="alert-circle-outline"></ion-icon>
+      <ion-buttons slot="end">
+        <ion-icon id="open-modal9" name="alert-circle-outline" style="font-size: 24px; color: #FFA500;"></ion-icon>
+      </ion-buttons>
     </ion-buttons>
   </ion-toolbar>
 
@@ -92,19 +103,19 @@
 
         <ion-grid [fixed]="true">
           <ion-row class="row-with-line-break">
-            <ion-col class="col">*9 Broken barcode(Accept)</ion-col>
+            <ion-col class="col1">*9 Broken barcode(Accept)</ion-col>
           </ion-row>
         
           <ion-row class="row-with-line-break">
-            <ion-col class="col">*1 Skip next item</ion-col>
+            <ion-col class="col1">*1 Skip next item</ion-col>
           </ion-row>
         
           <ion-row class="row-with-line-break">
-            <ion-col class="col">*0 Stock out zero line</ion-col>
+            <ion-col class="col1">*0 Stock out zero line</ion-col>
           </ion-row>
         
           <ion-row class="row-with-line-break">
-            <ion-col class="col">* None-stock item (Accept)</ion-col>
+            <ion-col class="col1">* None-stock item (Accept)</ion-col>
           </ion-row>
         </ion-grid>
         
