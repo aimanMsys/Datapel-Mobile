@@ -10,7 +10,10 @@
   border-right: none;
   }
 
-  
+
+  ion-content{
+    --background: white;
+  }
 .text-center::before {
     content: ""; /* Create an empty pseudo-element */
     display: inline-block;
