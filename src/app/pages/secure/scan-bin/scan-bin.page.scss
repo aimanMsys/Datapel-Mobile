@@ -13,13 +13,22 @@ ion-content{
 .text-left{
   text-align: left;
 }
+ion-card{
+  padding: 10px;
+  border-radius: 10px;
+  --background:#FBD1CB;
+}
 .bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
+.mt-3{
+    margin-bottom: 20px;
+}
 .mt-5{
-    margin-top: 5px;
+  margin-top: 20px;
 }
 .mt-2{
-    margin-top: 20px;
+    margin-top: 10px;
 }
+
 ion-row{
     color: var(--ion-color-medium-shade);
 }
