@@ -5,6 +5,9 @@
     justify-content: center;
   }
   
+  ion-content{
+    --background: white;
+  }
   .icon-row {
     display: flex;
     align-items: center;
