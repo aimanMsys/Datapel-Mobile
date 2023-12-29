@@ -8,6 +8,9 @@ font-size: 18px; /* Adjust the font size as needed */
 color: gray;
 }
 
+.header-with-underline {
+  border-bottom: 0.05px solid #999999; /* Add your desired color here */
+}
 
 .col{
 border-left: 3px solid   yellow;
@@ -174,4 +177,14 @@ margin-left: auto;
   border: solid 1px #000; /* Set border color to black */
   color: #000; /* Set text color to black */
   text-align: center;
+}
+
+.loading-alert {
+  --background: #fff; /* Background color */
+  --border-radius: 10px; /* Border radius */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+  --max-width: 300px; /* Adjust the maximum width as needed */
+  --width: 80%; /* Adjust the width as needed */
+  --height: auto; /* Allow height to adjust to content */
+  --padding: 16px; /* Adjust the padding as needed */
 }

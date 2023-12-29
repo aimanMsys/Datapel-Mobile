@@ -61,7 +61,7 @@ export class ScanlotPage implements OnInit {
       console.log('Valid barcode. Showing loading...');
       const loading =  await this.loadingController.create({
         cssClass: 'default-loading',
-        message: '<p><ion-icon name="search-outline" style="margin-right: 5px;"></ion-icon> Searching...</p><span>Please wait.</span>',
+        message: '<p><ion-icon name="search-circle-outline" style="margin-right: 5px;"></ion-icon> Searching</p><span>Please wait...</span>',
         spinner: 'crescent'
       });
       await loading.present();
@@ -74,8 +74,8 @@ export class ScanlotPage implements OnInit {
     }else{
       console.log('Invalid barcode. Showing alert...');
       const alert = await this.alertController.create({
-        header: 'Bin not found!',
-        message: 'The entered barcode is incorrect. Please try again.',
+        header: 'System Alert',
+        message: 'Bin not found!',
         buttons: [
           {
             text: 'OK',
