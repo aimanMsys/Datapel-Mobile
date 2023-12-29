@@ -2,6 +2,68 @@
     text-align: left;
     padding-left: 20px;
 }
+.header-with-underline {
+  border-bottom: 0.05px solid #999999; /* Add your desired color here */
+}
+.bg-orange{
+  background: #fdfbe6;
+}
+
+ion-row.blue-bg {
+  --background: #e9f1fe;
+}
+
+.custom-label{
+  font-size: 24px; /* Adjust the font size as needed */
+  color: black;
+  font-weight: bold; /* Make the text bold if desired */
+}
+
+.col1 {
+  background-color: transparent; /* Set background color to transparent */
+  border: solid 1px #000; /* Set border color to black */
+  color: #000; /* Set text color to black */
+  text-align: center;
+}
+.row-with-line-break {
+  margin-bottom: 10px; /* Adjust the value as needed to control the spacing */
+}
+
+/* Add styles for other elements as needed */
+
+
+.bold-text{
+  font: bold;
+  color: #7c8086;
+}
+.ion-card {
+  color: #000;
+  margin: 10px; /* Add margin if needed */
+  padding: 10px; /* Add padding if needed */
+  --background: #FFFFED; /* Set the background color to yellow */
+}
+
+/* Styling ion-card-title elements within ion-card */
+ion-card ion-card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.bold-text{
+  color: gray;
+}
+
+/* Styling ion-label elements within ion-col */
+ion-col ion-label {
+  color: #7c8086;
+}
+form.form-default ion-list.item-card-list ion-item{
+  padding: 6px;
+  border-width: 2px;
+  }
+  
+  form.form-default ion-list.item-card-list ion-item.item-has-focus {
+  border-width: 2px;
+  }
 
 .col{
   border-left: 3px solid   yellow;
@@ -14,23 +76,23 @@
   ion-content{
     --background: white;
   }
-.text-center::before {
-    content: ""; /* Create an empty pseudo-element */
-    display: inline-block;
-    width: 8px; /* Adjust the width as needed */
-    height: 100%; /* Set the height to match the text height */
-    background-color: yellow; /* Set the desired color */
-    margin-right: 8px; /* Adjust the spacing between the color and text */
-  }
+// .text-center::before {
+//     content: ""; /* Create an empty pseudo-element */
+//     display: inline-block;
+//     width: 8px; /* Adjust the width as needed */
+//     height: 100%; /* Set the height to match the text height */
+//     background-color: yellow; /* Set the desired color */
+//     margin-right: 8px; /* Adjust the spacing between the color and text */
+//   }
 
   .bold-text{
     color: gray;
 }
 
 /* Styling ion-label elements within ion-col */
-ion-col ion-label {
-    color: #7c8086;
-  }
+// ion-col ion-label {
+//     color: #7c8086;
+//   }
   
   /* Styling ion-card elements */
   .ion-card {
@@ -41,45 +103,48 @@ ion-col ion-label {
   }
   
   /* Styling ion-card-title elements within ion-card */
-  ion-card ion-card-title {
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
+  // ion-card ion-card-title {
+  //   font-size: 1.4rem;
+  //   font-weight: bold;
+  // }
   
   /* Styling ion-row elements with the .blue-bg class */
-  ion-row.blue-bg {
-    --background: #e9f1fe;
-  }
+  // ion-row.blue-bg {
+  //   --background: #e9f1fe;
+  // }
   
+  .rounded-card{
+    border-radius: 10px;
+}
   /* Add styles for other elements as needed */
   
   
-.bold-text{
-    font: bold;
-    color: #7c8086;
+  .bold-text {
+    font-weight: bold; /* Set the font weight to bold */
+    color: black;
 }
 
 /* Styling ion-card-title elements within ion-card-header */
 /* Style the solid yellow inline block */
-ion-card-title.with-inline-block {
-    position: relative;
-  }
+// ion-card-title.with-inline-block {
+//     position: relative;
+//   }
   
-  ion-card-title.with-inline-block::before {
-    content: "";
-    display: inline-block;
-    width: 0.5em; /* Adjust the width to make it thinner */
-    height: 2em; /* Set the height to match the letter "F" */
-    background-color: yellow;
-    margin-right: 5px; /* Adjust the spacing between the inline block and text */
-    vertical-align: middle; /* Align the inline block vertically with text */
-  }
+  // ion-card-title.with-inline-block::before {
+  //   content: "";
+  //   display: inline-block;
+  //   width: 0.5em; /* Adjust the width to make it thinner */
+  //   height: 2em; /* Set the height to match the letter "F" */
+  //   background-color: yellow;
+  //   margin-right: 5px; /* Adjust the spacing between the inline block and text */
+  //   vertical-align: middle; /* Align the inline block vertically with text */
+  // }
 
   /* Add this CSS to your component's stylesheet */
-ion-button[slot="start"] {
-    --background: transparent; /* Remove the orange background */
-    color: var(--ion-color-primary); /* Set the text color to the primary color */
-  }
+// ion-button[slot="start"] {
+//     --background: transparent; /* Remove the orange background */
+//     color: var(--ion-color-primary); /* Set the text color to the primary color */
+//   }
   
   .col1 {
     background-color: transparent; /* Set background color to transparent */
@@ -87,3 +152,23 @@ ion-button[slot="start"] {
     color: #000; /* Set text color to black */
     text-align: center;
   }
+
+  
+  ion-card{
+    padding: 10px;
+    border-radius: 0px;
+}
+.shadow {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
+}
+.custom-title { 
+  color: #0c0101; /* Use a darker color code or color name */
+  font: bold;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  position: relative; /* Add this line to ensure the red block respects the new alignment */
+}
