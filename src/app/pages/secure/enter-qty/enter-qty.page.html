@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="header-with-underline">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/scanlot"></ion-back-button>
     </ion-buttons>
@@ -49,34 +49,38 @@
     <ion-col>Photo-Main</ion-col>
   </ion-row>
 
-  <ion-card class="ion-card-chart ion-no-margin animate__animated animate__fadeIn bg-orange mt-10 rounded-card custom-card custom-width ion-padding">
-    <ion-list-header>FujiFilm X100V</ion-list-header>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          Item Number
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="bold-text row">
-          Camera-01
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          GTIN
-        </ion-col>
-        <ion-col class="bold-text">9352297077571</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="bold-text">BIN</ion-col>
-        <ion-col class="bold-text">R-900</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>BRN#</ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+ <ion-toolbar>
+  <div>
+    <ion-card class="ion-card-chart ion-no-margin animate__animated animate__fadeIn bg-orange mt-10 rounded-card custom-card custom-width ion-padding shadow">
+      <ion-list-header><div class="col col-50">&nbsp;FujiFilm X100V </div></ion-list-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Item Number
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="bold-text row">
+            Camera-01
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            GTIN
+          </ion-col>
+          <ion-col class="bold-text">9352297077571</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="bold-text">BIN</ion-col>
+          <ion-col class="bold-text">R-900</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>BRN#</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+ </ion-toolbar>
 
   <ion-modal #modal trigger="open-modal7" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
@@ -117,15 +121,11 @@
 
 </ion-content>
 
-<ion-footer class="ion-no-border">
-  <div class="button-container">
-    <ion-button mode="md" class="btn btn-dark yes-button" (click)="YesPage()">
-      Yes
-    </ion-button>
-    <ion-button mode="md" class="btn btn-light no-button" (click)="NoPage()">
-      No
-    </ion-button>
-  </div>
+<ion-footer class="ion-no-border ion-padding">
+  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="YesPage()"> 
+    Yes
+  </ion-button>
+  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="NoPage()">
+    No
+  </ion-button>
 </ion-footer>
-
-
