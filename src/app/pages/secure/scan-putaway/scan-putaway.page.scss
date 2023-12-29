@@ -1,70 +1,141 @@
-.text-title{
-    text-align: left;
-    color: black;
-    font-size: 20px;
-}
+// .text-title{
+//     text-align: left;
+//     color: black;
+//     font-size: 20px;
+// }
 
-.text-title::before {
-    content: "";
-    display: inline-block;
-    width: 8px;
-    height: 25px; /* Adjust the height as needed */
-    background-color: yellow;
-    margin-right: 8px;
-    vertical-align: middle; /* To vertically center the bar */
-  }
+// .text-title::before {
+//     content: "";
+//     display: inline-block;
+//     width: 8px;
+//     height: 25px; /* Adjust the height as needed */
+//     background-color: yellow;
+//     margin-right: 8px;
+//     vertical-align: middle; /* To vertically center the bar */
+//   }
 
-.bold-text{
-    font: bold;
-    color: #7c8086;
-}
+// .bold-text{
+//     font: bold;
+//     color: #7c8086;
+// }
+
+// ion-content{
+//     --background : #fff;
+// }
+// .bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
+// .mt-5{
+//     margin-top: 5px;
+// }
+// .mt-10{
+//     margin-top: 15px;
+// }
+// ion-row{
+//     color: var(--ion-color-medium-shade);
+// }
+// ion-card{
+//     padding: 10px;
+//     border-radius: 0px;
+// }
+
+// .bg-orange{
+//     background: #FFFFEDe6;
+// }
+
+// .rounded-card{
+//     border-radius: 10px;
+// }
+
+// .custom-card::before {
+//     content: "";
+//     position: absolute;
+//     width: 2px; /* Adjust the width as needed */
+//     height: 3em; /* Adjust the height to match the letter "F" */
+//     background-color: yellow;
+//     top: 0.6em; /* Adjust the top position to align with the "F" */
+//     left: 0; /* Position at the left border of the card */
+//     z-index: 1;
+//   }
+
+// .black-text{
+//     font: bolder;
+//     color: #333;
+// }
+
+// .custom-toolbar {
+//     text-align: center;
+//     position: absolute;
+//     bottom: 0;
+//     width: 100%;
+//   }
+  
+.col{
+    border-left: 3px solid   yellow;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+    }
 
 ion-content{
-    --background : #fff;
-}
-.bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
-.mt-5{
-    margin-top: 5px;
-}
-.mt-10{
-    margin-top: 15px;
-}
-ion-row{
-    color: var(--ion-color-medium-shade);
-}
-ion-card{
-    padding: 10px;
-    border-radius: 0px;
+    --background: white;
 }
 
 .bg-orange{
-    background: #FFFFEDe6;
+    background:  #fdfbe6;
 }
 
-.rounded-card{
-    border-radius: 10px;
-}
-
-.custom-card::before {
-    content: "";
-    position: absolute;
-    width: 2px; /* Adjust the width as needed */
-    height: 3em; /* Adjust the height to match the letter "F" */
-    background-color: yellow;
-    top: 0.6em; /* Adjust the top position to align with the "F" */
-    left: 0; /* Position at the left border of the card */
-    z-index: 1;
+.bold-text {
+  font-size: larger;
+  color: #000000;
   }
 
-.black-text{
-    font: bolder;
-    color: #333;
+  .bold-text1{
+    color: gray;
+  }
+.shadow {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
+  }
+ion-card {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .custom-width{
+    width: 100%;
+    margin-left: auto;
+  }
+
+  .row{
+    margin-top: -5px;
+  }
+  ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+    }
 }
 
-.custom-toolbar {
+.col1 {
+    background-color: transparent; /* Set background color to transparent */
+    border: solid 1px #000; /* Set border color to black */
+    color: #000; /* Set text color to black */
     text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  }
+
+   /* Add margin or padding to rows with the "row-with-line-break" class */
+   .row-with-line-break {
+    margin-bottom: 10px; /* Adjust the value as needed to control the spacing */
   }
   
+
+  form.form-default ion-list.item-card-list ion-item{
+    padding: 6px;
+    border-width: 2px;
+    }
+    
+    form.form-default ion-list.item-card-list ion-item.item-has-focus {
+    border-width: 2px;
+    }

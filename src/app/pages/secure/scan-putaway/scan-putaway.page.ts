@@ -30,7 +30,9 @@ export class ScanPutawayPage implements OnInit {
     if (this.barcode === '2200') {
       console.log('Valid barcode. Showing loading...');
       const loading = await this.loadingController.create({
-        message: 'Navigating to the next page...',
+        cssClass: 'default-loading',
+        message: '<p><ion-icon name="search-circle-outline" style="margin-right: 5px;"></ion-icon> Searching</p><span>Please wait...</span>',
+        spinner: 'crescent'
       });
       await loading.present();
   
@@ -44,8 +46,8 @@ export class ScanPutawayPage implements OnInit {
       console.log('Invalid barcode. Showing alert...');
       // Show an alert with a "Back" button
       const alert = await this.alertController.create({
-        header: 'Wrong Input',
-        message: 'The entered barcode is incorrect. Please try again.',
+        header: 'System Alert',
+        message: 'Bin not found!',
         buttons: [
           {
             text: 'Back',
