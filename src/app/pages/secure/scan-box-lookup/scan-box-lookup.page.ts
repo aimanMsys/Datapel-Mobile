@@ -15,6 +15,8 @@ export class ScanBoxLookupPage implements OnInit {
     private loadingController: LoadingController,
   ) { }
 
+  firstSearch:boolean = true;
+
   ngOnInit() {
   }
 
@@ -30,7 +32,7 @@ export class ScanBoxLookupPage implements OnInit {
     // Proceed with loading overlay
     const loading = await this.loadingController.create({
       cssClass: 'default-loading',
-      message: '<p>Searching...</p><span>Please wait....</span>',
+      message: '<p><ion-icon name="search-circle-outline" style="margin-right: 5px;"></ion-icon> Searching</p><span>Please wait...</span>',
       spinner: 'crescent'
     });
     await loading.present();
@@ -45,6 +47,7 @@ export class ScanBoxLookupPage implements OnInit {
       // await this.router.navigate(['/home2']);
       search.style.display = 'block';
       loading.dismiss();
+      this.firstSearch = false;
     }, 2000);
     
 

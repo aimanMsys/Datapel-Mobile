@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scan-box-next-stage',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScanBoxNextStagePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
+
+  confirmBox(){
+    this.router.navigate(['/confirm-box-stage']);    
+  }
+
 
 }

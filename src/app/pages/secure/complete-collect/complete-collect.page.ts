@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-complete-collect',
@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
 })
 export class CompleteCollectPage implements OnInit {
 
+  nextBox:boolean = false;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -17,6 +20,13 @@ export class CompleteCollectPage implements OnInit {
 
   labelCount(){
     this.router.navigate(['/label-count-collect']);    
+  }
+
+  scanNext(){
+    this.router.navigate(
+      ['/scan-box-collect'],
+      { queryParams: { nextBox: 'true' } }
+    );
   }
 
 }

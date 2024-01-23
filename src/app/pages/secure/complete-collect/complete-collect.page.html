@@ -6,7 +6,7 @@
         <ion-back-button defaultHref="/stage-collect-order"></ion-back-button>
       </ion-button>
     </ion-buttons>
-    <ion-title class="title-center" >Order Staging</ion-title>
+    <ion-title class="title-center" >Order Collect</ion-title>
     <ion-buttons slot="primary">
       <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -166,7 +166,7 @@
   
   </ion-content>
   <ion-footer class="ion-no-border">
-    <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan Next Box</ion-button>
+    <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scanNext()" >Scan Next Box</ion-button>
     <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="labelCount()">Continue</ion-button>
   </ion-footer>
 

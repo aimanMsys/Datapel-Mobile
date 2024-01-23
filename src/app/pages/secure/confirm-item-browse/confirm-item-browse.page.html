@@ -174,5 +174,5 @@
   </ion-content>
   <ion-footer class="ion-no-border">
     <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan</ion-button>
-    <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="scanBatch()">Continue</ion-button>
+    <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="confirmContinue()">Continue</ion-button>
   </ion-footer>

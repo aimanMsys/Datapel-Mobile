@@ -50,7 +50,7 @@ export class AppComponent {
   async signout(){
     const loading = await this.loadingController.create({
       cssClass: 'default-loading',
-      message: '<p>Signing out...</p><span>See You Again.</span>',
+      message: '<p>Signing out</p><span>See you again</span>',
       spinner: 'crescent'
     });
     await loading.present();

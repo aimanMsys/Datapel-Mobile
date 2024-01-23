@@ -20,8 +20,11 @@
     <ion-list-header>
       <ion-toolbar>
         <ion-label color="dark" style="text-align: left;">
-          <div class="col col-50">
+          <div *ngIf="firstSearch" class="col col-50">
             &nbsp;Scan Box Number
+          </div>
+          <div *ngIf="!firstSearch" class="col col-50">
+            &nbsp;Scan Next Box Number
           </div>
         </ion-label>
         <ion-buttons slot="primary">

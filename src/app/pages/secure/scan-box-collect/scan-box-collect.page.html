@@ -17,7 +17,10 @@
   <ion-list-header>
     <ion-toolbar>
       <ion-label color="dark" style="text-align: left;">
-        <div class="col col-50">
+        <div *ngIf="nextBox" class="col col-50">
+          &nbsp;Scan Next Box to Collect
+        </div>
+        <div *ngIf="!nextBox" class="col col-50">
           &nbsp;Scan First Box to Collect
         </div>
       </ion-label>

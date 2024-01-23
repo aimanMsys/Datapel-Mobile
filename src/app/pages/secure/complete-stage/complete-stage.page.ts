@@ -19,8 +19,8 @@ export class CompleteStagePage implements OnInit {
     this.router.navigate(['/label-count-stage']);    
   }
 
-  completeStage(){
-    this.router.navigate(['/complete-stage']);    
+  scan(){
+    this.router.navigate(['/scan-box-next-stage']);    
   }
 
 }

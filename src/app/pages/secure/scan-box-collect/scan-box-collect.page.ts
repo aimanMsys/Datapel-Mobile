@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,11 +9,20 @@ import { Router } from '@angular/router';
 })
 export class ScanBoxCollectPage implements OnInit {
 
+  nextBox:boolean = false;
+  
   constructor(
+    private route: ActivatedRoute,
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
+    this.route.queryParams.subscribe(params => {
+      this.nextBox = params["nextBox"];
+      if (this.nextBox) {
+          // this.getDetail();
+      }
+    });
   }
 
   confirm(){

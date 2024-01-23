@@ -2,12 +2,33 @@
   <swiper class="swiper-welcome" #swiper [config]="config" (slideChange)="swiperSlideChanged($event)"
     (reachEnd)="onLastSlide()">
     <ng-template swiperSlide>
-      <ion-card class="card-image" >
-        <ion-icon name="card"  class="animate__animated animate__fadeInDown" ></ion-icon>
+<!-- 
+      <ion-card>
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+        <ion-card-header>
+          <ion-card-title>Card Title</ion-card-title>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Here's a small text description for the card content. Nothing more, nothing less.
+        </ion-card-content>
+      </ion-card> -->
+
+      <ion-card class="card-image" style="background-color: #fff;">
+        <img src="assets/image/datapellogin2.png" style="max-width: 100%;"/>
+
+        <ion-card-content >
+          
+        <img src="assets/image/logo.png"/>
+        <h2 class="animate__animated animate__fadeInUp" style="margin-top: 10px;">Mobility Assistant</h2> 
+        <p class="animate__animated animate__fadeInUp" style="margin-top: 20px;">Version 1.0.2</p> 
+        </ion-card-content>
       </ion-card>
       
-      <h3 class="animate__animated animate__fadeInUp" style="margin-top: 10px;">Datapel</h3>
-      <p class="animate__animated animate__fadeInUp">Mobility Assistant</p>
+      <!-- <h3 class="animate__animated animate__fadeInUp" style="margin-top: 10px;">Datapel</h3> -->
+      <!-- <img src="assets/image/logo.png"/>
+      <p class="animate__animated animate__fadeInUp">Mobility Assistant</p> -->
     </ng-template>
     <!-- <ng-template swiperSlide>
       <ion-icon name="sync"></ion-icon>
@@ -22,7 +43,7 @@
   </swiper>
 </ion-content>
 
-<ion-footer class="ion-padding-bottom-large animate__animated animate__fadeInUp">
+<ion-footer style="background-color: #fff;" class="ion-padding-bottom-large animate__animated animate__fadeInUp">
   <ion-button class="ion-margin" expand="block" (click)="nextSlide()" *ngIf="!last_slide">
     Next
   </ion-button>

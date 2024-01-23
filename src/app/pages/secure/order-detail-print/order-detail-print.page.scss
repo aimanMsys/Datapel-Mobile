@@ -53,7 +53,8 @@ ion-item{
     --background:#C4DBF2
 }
 .blue-bg{
-    --background:#e9f1fe
+    --background:#e9f1fe;
+    margin-inline: 0px;
 }
 .blue-text{
     color:#C4DBF2
@@ -66,43 +67,30 @@ ion-list.item-card-list ion-item{
 ion-col{
     label{        
         color:#7c8086;
-        //font-size: 1.8rem;
+        // font-size: 1.8rem;
     }
     p{
-        //font-size: 1.8rem;
+        // font-size: 1.8rem;
         font-weight: bold;
     }
 }
 
 ion-card{
     color: #000;
-    // margin: 0px;
-    // box-shadow: 0px 5px 5px 0px #32409A;
-    // text-align: center;
-
-    ion-card-content{
-        // padding: 15px 13px;
-    }
 
     ion-card-title{
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-size: 1.4rem;
+        font-weight: bold; 
     }
 
-    h6{
-        font-weight: normal;
-        // font-size: 0.8rem;
-        letter-spacing: 1px;
-    }    
-
     ion-button{
-        //font-size: 1.8rem;
+        // font-size: 1.8rem;
         font-weight: bold;
         color:#4471ee;
         float: right;
         align-self: center;
     }
-    
+
 }
 
 
