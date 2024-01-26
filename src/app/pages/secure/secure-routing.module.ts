@@ -265,7 +265,6 @@ const routes: Routes = [
   {
     path: 'transfer-menu',
     loadChildren: () => import('./transfer-menu/transfer-menu.module').then( m => m.TransferMenuPageModule)
-
   },
   {
     path: 'bin-lookup',
@@ -319,8 +318,19 @@ const routes: Routes = [
   {   
     path: 'urgentbinrefill',
     loadChildren: () => import('./urgentbinrefill/urgentbinrefill.module').then( m => m.UrgentbinrefillPageModule)
+  },
+  {   
+    path: 'item1',
+    loadChildren: () => import('./item1/item1.module').then( m => m.Item1PageModule)
+  },
+  {   
+    path: 'item2',
+    loadChildren: () => import('./item2/item2.module').then( m => m.Item2PageModule)
+  },
+  {   
+    path: 'item3',
+    loadChildren: () => import('./item3/item3.module').then( m => m.Item3PageModule)
   }
-
 ];
 
 @NgModule({
