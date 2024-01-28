@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+import { AlertController,LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -10,17 +11,38 @@ import { LoadingController } from '@ionic/angular';
 })
 export class ScanBoxLookupPage implements OnInit {
 
+  isSupported = false;
+  barcodes: Barcode[] = [];
+  barcode:any="";
+
   constructor(
     private router: Router,
     private loadingController: LoadingController,
+    private alertController: AlertController
   ) { }
 
   firstSearch:boolean = true;
 
   ngOnInit() {
+    if(!BarcodeScanner.isGoogleBarcodeScannerModuleAvailable()){
+      BarcodeScanner.installGoogleBarcodeScannerModule();
+    }
+    BarcodeScanner.installGoogleBarcodeScannerModule();
+    BarcodeScanner.isSupported().then((result) => {
+      this.isSupported = result.supported;
+    });
   }
 
   async result(){
+
+    if (this.barcode == '1234') {
+      document.getElementById('inUse').style.display = "none";
+      document.getElementById('available').style.display = "block";
+    } else {
+      document.getElementById('inUse').style.display = "block";
+      document.getElementById('available').style.display = "none";
+    }
+
     const search = document.getElementById('search');
     
     // if(search.style.display == 'none'){
@@ -52,6 +74,31 @@ export class ScanBoxLookupPage implements OnInit {
     
 
     // this.router.navigate(['/scan-box-result-lookup']);    
+  }
+
+  async scan(): Promise<void> {
+    const granted = await this.requestPermissions();
+    if (!granted) {
+      this.presentAlert();
+      return;
+    }
+    const { barcodes } = await BarcodeScanner.scan();
+    this.barcodes.push(...barcodes);
+    this.barcode = barcodes[0].rawValue;
+  }
+
+  async requestPermissions(): Promise<boolean> {
+    const { camera } = await BarcodeScanner.requestPermissions();
+    return camera === 'granted' || camera === 'limited';
+  }
+
+  async presentAlert(): Promise<void> {
+    const alert = await this.alertController.create({
+      header: 'Permission denied',
+      message: 'Please grant camera permission to use the barcode scanner.',
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
   

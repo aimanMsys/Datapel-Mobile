@@ -26,6 +26,10 @@ export class StockLookupPage implements OnInit {
     private loadingController: LoadingController) {}
 
   ngOnInit() {
+    if(!BarcodeScanner.isGoogleBarcodeScannerModuleAvailable()){
+      BarcodeScanner.installGoogleBarcodeScannerModule();
+    }
+    BarcodeScanner.installGoogleBarcodeScannerModule();
     BarcodeScanner.isSupported().then((result) => {
       this.isSupported = result.supported;
     });

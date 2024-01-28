@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
+import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+import { AlertController,LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -10,10 +12,14 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class ScanBoxCollectPage implements OnInit {
 
   nextBox:boolean = false;
+  isSupported = false;
+  barcodes: Barcode[] = [];
+  barcode:any="";
   
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {    
@@ -23,10 +29,43 @@ export class ScanBoxCollectPage implements OnInit {
           // this.getDetail();
       }
     });
+
+    if(!BarcodeScanner.isGoogleBarcodeScannerModuleAvailable()){
+      BarcodeScanner.installGoogleBarcodeScannerModule();
+    }
+    BarcodeScanner.installGoogleBarcodeScannerModule();
+    BarcodeScanner.isSupported().then((result) => {
+      this.isSupported = result.supported;
+    });
   }
 
   confirm(){
     this.router.navigate(['/confirm-box-collect']);    
+  }
+
+  async scan(): Promise<void> {
+    const granted = await this.requestPermissions();
+    if (!granted) {
+      this.presentAlert();
+      return;
+    }
+    const { barcodes } = await BarcodeScanner.scan();
+    this.barcodes.push(...barcodes);
+    this.barcode = barcodes[0].rawValue;
+  }
+
+  async requestPermissions(): Promise<boolean> {
+    const { camera } = await BarcodeScanner.requestPermissions();
+    return camera === 'granted' || camera === 'limited';
+  }
+
+  async presentAlert(): Promise<void> {
+    const alert = await this.alertController.create({
+      header: 'Permission denied',
+      message: 'Please grant camera permission to use the barcode scanner.',
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
 
