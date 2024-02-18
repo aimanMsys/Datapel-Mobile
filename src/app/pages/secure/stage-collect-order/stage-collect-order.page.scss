@@ -64,8 +64,8 @@ ion-card{
     
 }
 
-ion-content {
-    -background:#fff;
+ion-content{
+    --background : #fff;
 }
 
 
@@ -124,6 +124,9 @@ ion-modal {
 
 }
 
+ion-padding {
+    -background:#fff;
+}
 
 ion-toolbar {
  

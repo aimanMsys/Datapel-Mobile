@@ -19,12 +19,11 @@
 
     <ion-list-header>
       <ion-toolbar>
-        <ion-label color="dark" style="text-align: left;">
-          <div *ngIf="firstSearch" class="col col-50">
-            &nbsp;Scan Box Number
+        <ion-label color="dark"><span style="color: #4471ee">|</span> <div *ngIf="firstSearch" >
+            Scan Box Number
           </div>
-          <div *ngIf="!firstSearch" class="col col-50">
-            &nbsp;Scan Next Box Number
+          <div *ngIf="!firstSearch">
+            Scan Next Box Number
           </div>
         </ion-label>
         <ion-buttons slot="primary">

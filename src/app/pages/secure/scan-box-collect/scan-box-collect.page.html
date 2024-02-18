@@ -24,6 +24,14 @@
           &nbsp;Scan First Box to Collect
         </div>
       </ion-label>
+      <ion-label color="dark"><span style="color: #4471ee">|</span> 
+        <div *ngIf="nextBox">
+          &nbsp;Scan Next Box to Collect
+        </div>
+        <div *ngIf="!nextBox">
+          &nbsp;Scan First Box to Collect
+        </div>
+      </ion-label>
       <ion-buttons slot="primary">
         <ion-icon style="color:  #e87100;" id="open-modal" name="alert-circle-outline"></ion-icon>
       </ion-buttons>
