@@ -1,78 +1,94 @@
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button>
-          <ion-back-button  defaultHref="/home2"></ion-back-button>
-         
-        </ion-button>
-      </ion-buttons>
-      <ion-title class="title-center" >Transfer</ion-title>
-      <ion-buttons slot="primary">
-        <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/binrefills"></ion-back-button>
     </ion-buttons>
-      </ion-buttons>
-    </ion-toolbar> 
-  </ion-header>
 
-  <div class="ion-padding">
+    <div class="ion-page" id="main-content1">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+            Transfer
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+  </ion-toolbar>
+</ion-header>
 
+
+
+
+
+
+<ion-content  [fullscreen]="true"  class="ion-padding">
+
+  <ion-list-header>
     <ion-toolbar>
-      <ion-title class="title-left"><span style="color: #eddc00">|</span>Select Refill Location</ion-title>
-      
-    </ion-toolbar> 
+      <ion-label color="dark" style="text-align: left;">
+        <div class="col col-50">
+          &nbsp; Select Refills Location
+        </div>
+      </ion-label>
+      <!-- <ion-buttons slot="end">
+        <ion-icon style="color:  #e87100;" id="open-modal4" name="alert-circle-outline" class="enlargeicon"></ion-icon>
+      </ion-buttons> -->
+    </ion-toolbar>
+  </ion-list-header>
 
 
-    <ion-row>
-      <ion-col size="12">
-        <ion-item  class="yellow-card" (click)="showLoading()">
-          <ion-label>
-            <h2>01 &nbsp; PWHS</h2>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-      <ion-col size="12">
-        <ion-item  class="yellow-card" >
-          <ion-label>
-            <h2>02 &nbsp; </h2>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-      <ion-col size="12">
-        <ion-item  class="yellow-card" >
-          <ion-label>
-            <h2>03 &nbsp; </h2>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-      <ion-col size="12">
-        <ion-item  class="yellow-card" >
-          <ion-label>
-            <h2>04 &nbsp; </h2>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-      <ion-col size="12">
-        <ion-item  class="yellow-card" >
-          <ion-label>
-            <h2>05 &nbsp; </h2>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-      <ion-col size="12">
-        <ion-item  class="yellow-card" (click)="gotobinrefill()">
-          <ion-label>
-            <h2>EXIT </h2>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </div>
+
+    
+      <ion-row>
+        <ion-col size="12">
+          <ion-item  class="yellow-card" (click)="showLoading()">
+            <ion-label>
+              <h3>PHWS</h3>
+            </ion-label>
+            <ion-icon  name="arrow-forward-outline"></ion-icon>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item  class="yellow-card" (click)="transferBin()">
+            <ion-label>
+              <h3> </h3>
+            </ion-label>
+            <ion-icon  name="arrow-forward-outline"></ion-icon>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item  class="yellow-card" (click)="stageCollect()">
+            <ion-label>
+              <h3> </h3>
+            </ion-label>
+            <ion-icon  name="arrow-forward-outline"></ion-icon>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item  class="yellow-card" (click)="browse()">
+            <ion-label>
+              <h3> </h3>
+            </ion-label>
+            <ion-icon  name="arrow-forward-outline"></ion-icon>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item  class="yellow-card" (click)="browse()">
+            <ion-label>
+              <h3> </h3>
+            </ion-label>
+            <ion-icon  name="arrow-forward-outline"></ion-icon>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
 </ion-content>
+
+<ion-footer class="ion-no-border">
+
+  <ion-button mode="md" style="margin-top: 10px;" class="btn btn-dark"  (click)="home()">Exit</ion-button>
+</ion-footer>

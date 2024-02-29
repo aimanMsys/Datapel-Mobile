@@ -19,15 +19,11 @@ export class UrgentbinrefillPage implements OnInit {
   async showLoading() {
     const loading = await this.loadingCtrl.create({
       
-      cssClass:'default-loading',
-      message: "<b>Checking...</b><br>Please wait....",
-      duration: 3000,
-      spinner:"crescent",
+      cssClass: 'default-loading',
+      message: '<p>Checking</p><span>Please wait...</span>',
+      spinner: 'crescent'
             
     });
-
-       
-
      await loading.present();
      setTimeout(() => {
       loading.dismiss();
@@ -45,5 +41,10 @@ export class UrgentbinrefillPage implements OnInit {
   }
   ngOnInit() {
   }
+
+  home(){
+    this.router.navigate (['/binrefills'])
+  }
+
 
 }
