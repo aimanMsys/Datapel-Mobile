@@ -1,78 +1,92 @@
-<ion-header [translucent]="true">
+<ion-header collapse="fade" [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/transfer3"></ion-back-button>
+      <ion-back-button defaultHref="/home2"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Transfer
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+
+    <div class="ion-page" id="main-content1">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+            Transfer
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+
+
   </ion-toolbar>
 </ion-header>
 
-<!-- <div class="ion-padding"> -->
+<ion-content class="ion-padding">
+    <ion-list-header>    
+      <ion-toolbar>
+        <ion-label color="dark" style="text-align: left;"> 
+          <div class="col col-50">
+          &nbsp; Select Source Location
+          </div>  </ion-label>
+        <ion-buttons slot="end">
+          <ion-icon style="color:  #e87100;" id="open-modal6"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
+          </ion-buttons>
+      </ion-toolbar>
+        </ion-list-header>
 
-  <!-- <ion-list-header>
-    <ion-label color="dark"><span style="color: #1f3777">|</span> Select Task</ion-label>
-  </ion-list-header> -->
 
-  <!-- <ion-toolbar>
-    <ion-title class="title-left"><span style="color: #eddc00">|</span> Select Task</ion-title>
-    <ion-button fill="none" id="open-modal" slot="primary">
-      <ion-icon slot="icon-only"  color="primary" name="alert-circle-outline"></ion-icon>
-    </ion-button>
-  </ion-toolbar>  -->
 
-  <!-- <ion-row>
-    <ion-col size="12">
-      <ion-item  class="yellow-card" >
-        <ion-label>
-          <h3>Start Transfer</h3>
-        </ion-label>
-        <ion-icon  name="arrow-forward-outline"></ion-icon>
-      </ion-item>
-    </ion-col>
-    <ion-col size="12">
-      <ion-item  class="yellow-card" (click)="transferBin()">
-        <ion-label>
-          <h3>Transfer Bin</h3>
-        </ion-label>
-        <ion-icon  name="arrow-forward-outline"></ion-icon>
-      </ion-item>
-    </ion-col>
-    <ion-col size="12">
-      <ion-item  class="yellow-card" >
-        <ion-label>
-          <h3>Bin Refills</h3>
-        </ion-label>
-        <ion-icon  name="arrow-forward-outline"></ion-icon>
-      </ion-item>
-    </ion-col>
-  </ion-row> -->
 
-  <!-- <ion-list class="list-custom" lines="full">
-    <ion-item button class="blue-card" (click)="browse()">
-      <ion-label>
-        <h3>Browse Order</h3>
-      </ion-label>
-    </ion-item>
-    <ion-item button class="blue-card" (click)="search()">
-      <ion-label>
-        <h3>Search Order</h3>
-      </ion-label>
-    </ion-item>
-    <ion-item button  class="blue-card" routerLink="/stage-collect-order">
-      <ion-label>
-        <h3>Stage & Collect Order</h3>
-      </ion-label>
-    </ion-item>
-  </ion-list> -->
-<!-- </div> -->
 
-<!--TO DISPLAY MODAL-->
-<ion-modal #modal trigger="opentransfer1">
+    <ion-row>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="transferThis()">
+          <ion-label>
+            <h3>Photo-Inwards</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="transferBin()">
+          <ion-label>
+            <h3>Photo-Main</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="stageCollect()">
+          <ion-label>
+            <h3>Photo-transit</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="browse()">
+          <ion-label>
+            <h3>Test-Main</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="browse()">
+          <ion-label>
+            <h3>WH-ABC</h3>
+          </ion-label>
+          <ion-icon  name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  
+ 
+
+</ion-content>
+
+ <!--TO DISPLAY MODAL-->
+ <ion-modal #modal trigger="open-modal6">
   <ng-template>
     <ion-content class="ion-padding">
     <ion-header >
@@ -82,34 +96,33 @@
     </ion-header>
 
   
-    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-      <ion-row style="color: black;">
-        <ion-col size="3" style="text-align: center"><p class="">*9</p></ion-col>
-        <ion-col><h6 >Broken Barcode (Accept)</h6></ion-col>
-      </ion-row>
-    </ion-grid>
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row style="color: black;">
+            <ion-col size="3" style="text-align: center"><p class="">*9</p></ion-col>
+            <ion-col><h6 >Broken Barcode (Accept)</h6></ion-col>
+          </ion-row>
+        </ion-grid>
 
-    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-      <ion-row  style="color: black;">
-        <ion-col size="3" style="text-align: center"><p class="">*1</p></ion-col>
-        <ion-col><h6>Skip Next Item</h6></ion-col>
-      </ion-row>
-    </ion-grid>
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row  style="color: black;">
+            <ion-col size="3" style="text-align: center"><p class="">*1</p></ion-col>
+            <ion-col><h6>Skip Next Item</h6></ion-col>
+          </ion-row>
+        </ion-grid>
 
-    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-      <ion-row  style="color: black;" >
-        <ion-col size="3" style="text-align: center"><p class="">*0</p></ion-col>
-        <ion-col><h6> Stock Out zero line </h6></ion-col>
-      </ion-row>
-    </ion-grid>
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row  style="color: black;" >
+            <ion-col size="3" style="text-align: center"><p class="">*0</p></ion-col>
+            <ion-col><h6> Stock Out Zero Line </h6></ion-col>
+          </ion-row>
+        </ion-grid>
 
-    <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
-      <ion-row style="color:black;">
-        <ion-col size="3" style="text-align: center"><p class="">*</p></ion-col>
-        <ion-col><h6 >None-stock item (accept)</h6></ion-col>
-      </ion-row>
-    </ion-grid>
-
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row style="color:black;">
+            <ion-col size="3" style="text-align: center"><p class="">*</p></ion-col>
+            <ion-col><h6 >None-Stock Item (Accept)</h6></ion-col>
+          </ion-row>
+        </ion-grid>
 
         <ion-button class="" expand="block" (click)="modal.dismiss()">Back</ion-button>
       
@@ -123,100 +136,3 @@
   </ng-template>
 </ion-modal>
 
-
-
-
-<!-- {{ selectedSourceLocation }} -->
-    
-<ion-content  class="ion-padding">
- <ion-toolbar>
-    
-  <ion-list-header>    
-    <ion-toolbar>
-      <!-- <ion-label color="dark" style="text-align: left;"> 
-        <div class="col col-50">
-        &nbsp;{{ selectedSourceLocation }}
-        </div>  </ion-label> -->
-        <ion-label color="dark"><span style="color: #ffff00">|</span> {{ selectedSourceLocation }}</ion-label>
-      <ion-buttons slot="end">
-        <ion-icon style="color:  #e87100;" id="opentransfer1"name="alert-circle-outline" class="enlargeicon"></ion-icon>
-        </ion-buttons>
-    </ion-toolbar>
-      </ion-list-header>
-
-
-   
-            <div *ngIf="!hideText1" style="padding-left: 8px;">
-              <ion-row>
-                <ion-col style="color: gray" >Source</ion-col>
-              </ion-row>
-              
-          
-              <ion-row>
-                <ion-col style="color:black">Photo Inwards</ion-col>
-              </ion-row>
-            </div>
-      
-
-  <ion-row>
-    <ion-col size="12">
-      <ion-item  class="yellow-card" (click)="toggleText1()" [class.active]="!hideText1">
-        <ion-label>
-          <h3>01 &nbsp; PHOTO-INWARDS</h3>
-        </ion-label>
-        <ion-icon  name="arrow-forward-outline"></ion-icon>
-      </ion-item>
-    </ion-col>
-    </ion-row>
-
-
-
-    <ion-row>
-      <ion-col size="12">
-        <ion-item  class="yellow-card" (click)="scanpickbin()" [class.active]="!hideText1">
-          <ion-label>
-            <h3>02 &nbsp; PHOTO-MAIN</h3>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-      </ion-row>
-     
-    <ion-row>
-      <ion-col size="12">
-        <ion-item  class="yellow-card"  [class.active]="!hideText1">
-          <ion-label>
-            <h3>03 &nbsp; PHOTO-TRANSIT  </h3>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-      </ion-row>
-      
-      
-    <ion-row>
-      <ion-col size="12">
-        <ion-item  class="yellow-card"  [class.active]="!hideText1">
-          <ion-label>
-            <h3>04 &nbsp; TEST MAIN</h3>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-      </ion-row>
-    
-      
-    <ion-row>
-      <ion-col size="12">
-        <ion-item  class="yellow-card" (click)="scanpickbin()" [class.active]="!hideText1">
-          <ion-label>
-            <h3>05 &nbsp; WH-ABC</h3>
-          </ion-label>
-          <ion-icon  name="arrow-forward-outline"></ion-icon>
-        </ion-item>
-      </ion-col>
-      </ion-row>
- 
-
-</ion-toolbar>
-</ion-content>
