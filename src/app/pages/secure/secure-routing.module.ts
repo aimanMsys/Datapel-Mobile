@@ -31,10 +31,6 @@ const routes: Routes = [
     loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
   },
   {
-    path: 'transer-scanpickbin',
-    loadChildren: () => import('./transer-scanpickbin/transer-scanpickbin.module').then( m => m.TranserScanpickbinPageModule)
-  },
-  {
     path: 'binrefills',
     loadChildren: () => import('./binrefills/binrefills.module').then( m => m.BinrefillsPageModule)
   },
@@ -330,7 +326,8 @@ const routes: Routes = [
   {   
     path: 'item3',
     loadChildren: () => import('./item3/item3.module').then( m => m.Item3PageModule)
-  },  {
+  },
+  {
     path: 'trans-destination',
     loadChildren: () => import('./trans-destination/trans-destination.module').then( m => m.TransDestinationPageModule)
   }
