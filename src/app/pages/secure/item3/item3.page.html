@@ -1,20 +1,29 @@
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button>
-          <ion-back-button  defaultHref="/item2"></ion-back-button>
-         
-        </ion-button>
-      </ion-buttons>
-      <ion-title class="title-center" >Bin Detail</ion-title>
-      <ion-buttons slot="primary">
-        <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/binrefills"></ion-back-button>
     </ion-buttons>
-      </ion-buttons>
-    </ion-toolbar>  
-  </ion-header>
+
+    <div class="ion-page" id="main-content1">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+            Transfer
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+
+<ion-content [fullscreen]="true">
 <br>
 
   <ion-list>
