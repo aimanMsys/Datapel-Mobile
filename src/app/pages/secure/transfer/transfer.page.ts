@@ -33,27 +33,35 @@ export class TransferPage implements OnInit {
   }
 
   toggleText1() {
-   
     if (!this.hideText1) {
+      // If hideText1 is false (visible), set selectedSourceLocation and navigate to the next page
       this.selectedSourceLocation = 'Select Source Location';
-    } else {
-      this.selectedSourceLocation = 'Select Destination Location';
       this.router.navigate(['/next-page']);
-
+  
       this.ngZone.run(() => {
         // Your code goes here
       });
+    } else {
+      // If hideText1 is true (hidden), set selectedSourceLocation to 'Select Destination Location'
+      this.selectedSourceLocation = 'Select Destination Location';
     }
-
+  
+    // Toggle hideText1
     this.hideText1 = !this.hideText1;
-
+  
     // Manually trigger change detection
     this.cdr.detectChanges();
-
+  
+    // Save hideText1 state in localStorage
     localStorage.setItem('hideText1', this.hideText1.toString());
   }
+  
 
   scanpickbin() {
     this.router.navigate(['/trans-scanpickbin']);
+  }
+  
+  transferThis(){
+    this.router.navigate (['/trans-destination'])
   }
 }
