@@ -330,7 +330,11 @@ const routes: Routes = [
   {   
     path: 'item3',
     loadChildren: () => import('./item3/item3.module').then( m => m.Item3PageModule)
+  },  {
+    path: 'trans-destination',
+    loadChildren: () => import('./trans-destination/trans-destination.module').then( m => m.TransDestinationPageModule)
   }
+
 ];
 
 @NgModule({
