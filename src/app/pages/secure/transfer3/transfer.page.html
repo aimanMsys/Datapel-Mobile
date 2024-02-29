@@ -29,6 +29,8 @@
         </ion-toolbar>
       </ion-header>
     </div>
+
+
   </ion-toolbar>
 </ion-header>
 
@@ -42,7 +44,10 @@
     
     <ion-list-header>    
       <ion-toolbar>
-          <ion-label color="dark"><span style="color: #ffff00">|</span> Select Task </ion-label>
+        <ion-label color="dark" style="text-align: left;"> 
+          <div class="col col-50">
+          &nbsp; Select Task 
+          </div>  </ion-label>
         <ion-buttons slot="end">
           <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
           </ion-buttons>
@@ -53,7 +58,7 @@
       <ion-col size="12">
         <ion-item  class="yellow-card" (click)="transfer()">
           <ion-label>
-            <h3>Start Transfer</h3>
+            <h3>Transfer Order</h3>
           </ion-label>
           <ion-icon  name="arrow-forward-outline"></ion-icon>
         </ion-item>
@@ -69,7 +74,7 @@
       <ion-col size="12">
         <ion-item  class="yellow-card" (click)="binRefill()">
           <ion-label>
-            <h3>Bin Refills</h3>
+            <h3>Transfer Bin Refills</h3>
           </ion-label>
           <ion-icon  name="arrow-forward-outline"></ion-icon>
         </ion-item>
@@ -125,14 +130,14 @@
         <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
           <ion-row  style="color: black;" >
             <ion-col size="3" style="text-align: center"><p class="">*0</p></ion-col>
-            <ion-col><h6> Stock Out zero line </h6></ion-col>
+            <ion-col><h6> Stock Out Zero Line </h6></ion-col>
           </ion-row>
         </ion-grid>
 
         <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
           <ion-row style="color:black;">
             <ion-col size="3" style="text-align: center"><p class="">*</p></ion-col>
-            <ion-col><h6 >None-stock item (accept)</h6></ion-col>
+            <ion-col><h6 >None-Stock Item (Accept)</h6></ion-col>
           </ion-row>
         </ion-grid>
 
