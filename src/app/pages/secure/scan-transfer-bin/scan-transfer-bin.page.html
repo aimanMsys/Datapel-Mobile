@@ -15,13 +15,18 @@
   </ion-toolbar>  
 </ion-header>
 
-  <ion-content class="ion-padding">
-    <ion-toolbar>
-      <ion-title class="title-left"><span style="color: #C4DBF2">|</span>Select Pick Bin</ion-title>
-      <!-- <ion-button fill="none" id="open-modal" slot="primary">
-        <ion-icon slot="icon-only"  color="primary" name="alert-circle-outline"></ion-icon>
-      </ion-button> -->
-    </ion-toolbar>         
+  <ion-content class="ion-padding">        
+
+    <ion-list-header>    
+      <ion-toolbar>
+          <ion-label color="dark"><span style="color: #ffff00">| </span> Select Pick Bin </ion-label>
+        <ion-buttons slot="end">
+          <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
+          </ion-buttons>
+      </ion-toolbar>
+    </ion-list-header>
+
+    
 
     <div class="ion-padding">
       <form class="form-default" >
@@ -29,7 +34,7 @@
         <ion-list class="item-card-list" lines="none">
           <ion-item>
             <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
-            <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+            <ion-input  placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" ></ion-input>
           </ion-item>
         </ion-list>
   

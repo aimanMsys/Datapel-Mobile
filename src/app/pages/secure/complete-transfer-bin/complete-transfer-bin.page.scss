@@ -31,6 +31,12 @@
 .blue-bg{
     --background:#e9f1fe
 }
+
+.yellow-card{
+    --background:#FCF8C2;
+    margin-inline: 0px;
+}
+
 .blue-text{
     color:#C4DBF2
 }
@@ -97,22 +103,30 @@ ion-col{
     margin-inline: 0px;
 }
 
-ion-card{
+ion-card {
     color: #000;
 
-    ion-card-title{
+    ion-card-title {
         font-size: 1.4rem;
-        text-align: center;
         font-weight: bold;
     }
 
-    ion-button{
+    ion-button {
         // font-size: 1.8rem;
         font-weight: bold;
-        color:#4471ee;
+        color: #4471ee;
         float: right;
         align-self: center;
     }
+
+}
+
+.col {
+    border: 3px solid yellow;
+    ;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
 
 }
 

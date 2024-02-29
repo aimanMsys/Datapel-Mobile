@@ -36,8 +36,8 @@ export class ScanPutawayTransferBinPage implements OnInit {
   async continue() {
     const alert = await this.alertController.create({
       cssClass: 'custom-alert',
-      header: 'Bin has STOCK ITEMS! Use it anyway',
-      message: 'This action cannot be undone.',
+      header: 'System Alert',
+      message: 'Bin has Stock Items. Use it anyway?',
       buttons: [
         {
           text: 'Yes',
@@ -74,7 +74,7 @@ export class ScanPutawayTransferBinPage implements OnInit {
     // Proceed with loading overlay
     const loading = await this.loadingController.create({
       cssClass: 'default-loading',
-      message: '<p>Processing Order...</p><span>Please wait...</span>',
+      message: '<p>Processing Order</p><span>Please wait...</span>',
       spinner: 'crescent'
     });
     await loading.present();
@@ -130,8 +130,8 @@ export class ScanPutawayTransferBinPage implements OnInit {
 
     async showAlert() {  
       const alert = await this.alertController.create({  
-        header: 'Alert',  
-        subHeader: 'Action Failure!',  
+        header: 'System alert',  
+        // subHeader: 'Action Failure!',  
         message: 'No Stock Found or Articles OnHOLD!',  
         buttons: ['OK']  
       });  

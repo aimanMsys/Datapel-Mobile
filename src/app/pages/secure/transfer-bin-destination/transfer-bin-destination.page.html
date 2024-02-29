@@ -31,34 +31,39 @@
 
   <div class="ion-padding">
 
-    <!-- <ion-list-header>
-      <ion-label color="dark"><span style="color: #1f3777">|</span> Select Task</ion-label>
-    </ion-list-header> -->
     <ion-list-header>    
       <ion-toolbar>
-        <ion-label color="dark" style="text-align: left;"> 
-          <div class="col col-50">
-          &nbsp; Select Destination Location
-          </div>  </ion-label>
+          <ion-label color="dark"><span style="color: #ffff00">| </span> Select Destination Location </ion-label>
         <ion-buttons slot="end">
-          <ion-icon style="color:  #e87100;" id="open-modal7"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
+          <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
           </ion-buttons>
       </ion-toolbar>
-        </ion-list-header>
+    </ion-list-header>
 
-
-        <ion-row>
-          <ion-col style="color:gray">Source</ion-col>
+    <!-- <ion-grid>
+      <ion-row>
+        <ion-col>
+          <label>Source</label>
+          <p>PHOTO-INWARDS</p>
+        </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col style="color:black">Bayswater</ion-col>
-        </ion-row>
+    </ion-grid> -->
 
+    <div  style="padding-left: 8px;">
+      <ion-row>
+        <ion-col style="color: gray" >Source</ion-col>
+      </ion-row>
+      
+  
+      <ion-row>
+        <ion-col style="color:black">Photo-Inwards</ion-col>
+      </ion-row>
+    </div>
 
 
     <ion-row>
       <ion-col size="12">
-        <ion-item  class="grey-card" (click)="browse()">
+        <ion-item  class="yellow-card" (click)="browse()">
           <ion-label>
             <h3>Bayswater</h3>
           </ion-label>

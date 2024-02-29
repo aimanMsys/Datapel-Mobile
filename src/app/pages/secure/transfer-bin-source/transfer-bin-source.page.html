@@ -25,18 +25,14 @@
 
   <div class="ion-padding">
 
-     <ion-list-header>    
+    <ion-list-header>    
       <ion-toolbar>
-        <ion-label color="dark" style="text-align: left;"> 
-          <div class="col col-50">
-          &nbsp; Select Source Location
-          </div>  </ion-label>
-        <!-- <ion-buttons slot="end">
-          <ion-icon style="color:  #e87100;" id="open-modal6"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
-          </ion-buttons> -->
+          <ion-label color="dark"><span style="color: #ffff00">| </span> Select Source Location </ion-label>
+        <ion-buttons slot="end">
+          <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
+          </ion-buttons>
       </ion-toolbar>
-        </ion-list-header>
-
+    </ion-list-header>
 
     <ion-row>
       <ion-col size="12">
@@ -48,7 +44,7 @@
         </ion-item>
       </ion-col>
       <ion-col size="12">
-        <ion-item  class="yellow-card" (click)="transferBin()">
+        <ion-item  class="yellow-card" >
           <ion-label>
             <h3>Bendotti</h3>
           </ion-label>
@@ -56,7 +52,7 @@
         </ion-item>
       </ion-col>
       <ion-col size="12">
-        <ion-item  class="yellow-card" (click)="stageCollect()">
+        <ion-item  class="yellow-card">
           <ion-label>
             <h3>Cold Store</h3>
           </ion-label>
@@ -64,15 +60,15 @@
         </ion-item>
       </ion-col>
       <ion-col size="12">
-        <ion-item  class="yellow-card" (click)="browse()">
+        <ion-item  class="yellow-card">
           <ion-label>
             <h3>FO</h3>
           </ion-label>
           <ion-icon  name="arrow-forward-outline"></ion-icon>
         </ion-item>
       </ion-col>
-      <ion-col size="12">
-        <ion-item  class="yellow-card" (click)="browse()">
+     <ion-col size="12">
+        <ion-item  class="yellow-card" (click)="transfer3()">
           <ion-label>
             <h3>ISA</h3>
           </ion-label>

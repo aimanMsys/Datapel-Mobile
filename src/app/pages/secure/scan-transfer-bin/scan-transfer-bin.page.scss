@@ -13,6 +13,15 @@
 
 }
 
+form.form-default ion-list.item-card-list ion-item{
+    padding: 6px;
+    border-width: 2px;
+}
+
+form.form-default ion-list.item-card-list ion-item.item-has-focus {
+    border-width: 2px;
+}
+
 ion-footer {
     padding: 20px;
     background: #fff;
