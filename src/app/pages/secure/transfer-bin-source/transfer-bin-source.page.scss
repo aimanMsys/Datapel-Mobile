@@ -1,4 +1,6 @@
-
+ion-header{
+    border-bottom: 1px solid #ccc;
+}
 
 .ion-item-button{
 
@@ -111,3 +113,13 @@ ion-toolbar {
 }
 
 ion-item{ --border-color: #FFF; }
+
+
+.col{
+    border: 3px solid  yellow;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+  
+
+}
