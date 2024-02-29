@@ -1,54 +1,66 @@
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button>
-          <ion-back-button  defaultHref="/transfer"></ion-back-button>
-          <!-- <ion-icon  defaultHref="/despatch" slot="icon-only" name="arrow-back"></ion-icon> -->
-        </ion-button>
-      </ion-buttons>
-      <ion-title class="title-center" >Transfer</ion-title>
-      <ion-buttons slot="primary">
-        <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/transfer-bin-source"></ion-back-button>
     </ion-buttons>
-      </ion-buttons>
-    </ion-toolbar>  
-  </ion-header>
+
+    <div class="ion-page" id="main-content1">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+            Transfer
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+
+
+<ion-content [fullscreen]="true">
+
 
   <div class="ion-padding">
 
     <!-- <ion-list-header>
       <ion-label color="dark"><span style="color: #1f3777">|</span> Select Task</ion-label>
     </ion-list-header> -->
+    <ion-list-header>    
+      <ion-toolbar>
+        <ion-label color="dark" style="text-align: left;"> 
+          <div class="col col-50">
+          &nbsp; Select Destination Location
+          </div>  </ion-label>
+        <ion-buttons slot="end">
+          <ion-icon style="color:  #e87100;" id="open-modal7"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
+          </ion-buttons>
+      </ion-toolbar>
+        </ion-list-header>
 
-    <ion-toolbar>
-      <ion-title class="title-left"><span style="color: #eddc00">|</span> Select Source Destination</ion-title>
-      <!-- <ion-button fill="none" id="open-modal" slot="primary">
-        <ion-icon slot="icon-only"  color="primary" name="alert-circle-outline"></ion-icon>
-        <ion-icon slot="icon-only"  name="menu-outline"></ion-icon>
-      </ion-button> -->
-    </ion-toolbar> 
 
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <label>Source</label>
-          <p>PHOTO-INWARDS</p>
-        </ion-col>
-        <!-- <ion-col>
-          <label>Box#</label>
-          <p>40000004</p>
-        </ion-col> -->
+        <ion-row>
+          <ion-col style="color:gray">Source</ion-col>
         </ion-row>
-    </ion-grid>
+        <ion-row>
+          <ion-col style="color:black">Bayswater</ion-col>
+        </ion-row>
+
 
 
     <ion-row>
       <ion-col size="12">
         <ion-item  class="grey-card" (click)="browse()">
           <ion-label>
-            <h3>PHOTO-INWARDS</h3>
+            <h3>Bayswater</h3>
           </ion-label>
           <ion-icon  name="arrow-forward-outline"></ion-icon>
         </ion-item>
@@ -56,7 +68,7 @@
       <ion-col size="12">
         <ion-item  class="yellow-card" (click)="transferDestination()">
           <ion-label>
-            <h3>PHOTO-MAIN</h3>
+            <h3>Bendotti</h3>
           </ion-label>
           <ion-icon  name="arrow-forward-outline"></ion-icon>
         </ion-item>
@@ -64,7 +76,7 @@
       <ion-col size="12">
         <ion-item  class="yellow-card" (click)="stageCollect()">
           <ion-label>
-            <h3>PHOTO-TRANSIT</h3>
+            <h3>Cold Store</h3>
           </ion-label>
           <ion-icon  name="arrow-forward-outline"></ion-icon>
         </ion-item>
@@ -72,7 +84,7 @@
       <ion-col size="12">
         <ion-item  class="yellow-card" (click)="browse()">
           <ion-label>
-            <h3>TEST MAIN</h3>
+            <h3>FO</h3>
           </ion-label>
           <ion-icon  name="arrow-forward-outline"></ion-icon>
         </ion-item>
@@ -80,7 +92,7 @@
       <ion-col size="12">
         <ion-item  class="yellow-card" (click)="browse()">
           <ion-label>
-            <h3>WH-ABC</h3>
+            <h3>ISA</h3>
           </ion-label>
           <ion-icon  name="arrow-forward-outline"></ion-icon>
         </ion-item>
