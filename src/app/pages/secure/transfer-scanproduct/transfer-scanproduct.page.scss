@@ -1,6 +1,11 @@
 ion-content{
     --background : #fff;
 }
+
+ion-header{
+    border-bottom: 1px solid  #ccc;
+}
+
 .bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
 .mt-5{
     margin-top: 5px;
@@ -8,23 +13,45 @@ ion-content{
 .mt-10{
     margin-top: 15px;
 }
-
-ion-header{
-    border-bottom: 2px solid #ccc;
-}
-
 .col{
-    border:  3px solid   yellow;
+    border: 3px solid   yellow;
     border-bottom: none;
     border-top: none;
     border-right: none;
 
 }
-ion-footer {
+
+ion-card{
+    padding: 10px;
+    border-radius: 0px;
+    border: 2px solid black;
+}
+
+
+form.form-default ion-list.item-card-list ion-item{
+    padding: 6px;
+    border-width: 2px;
+}
+
+form.form-default ion-list.item-card-list ion-item.item-has-focus {
+    border-width: 2px;
+}
+
+ion-row{
+    color: gray;
+}
+
+.end-button {
+    display: flex;
+    justify-content: flex-end;
+  
+  }
+  ion-footer {
     padding: 20px;
     background: #fff;
 }
 
+  
 ion-modal {
     --height: 90%;
 }
@@ -57,17 +84,73 @@ ion-toolbar {
     }
 }
 
-.enlargeicon{
+.color{
+    color: black;
+}
+
+.selected-card {
+    font-weight: bold;
+    opacity: 0.5;
+  }
+  
+  .custom-alert-header {
+    font-size: 24px;
+    color: #ff5722; /* Example color (Orange) */
+    background-color: #f4f4f4; /* Example background color (Light Gray) */
+  }
+
+  .enlargeicon{
     font-size: 24px;
 }
 
+.grid-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping of items */
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
+  }
 
+  .ion-grid {
+    flex: 0 0 auto; /* Reset flex to initial values */
+    width: auto; /* Set width to auto */
+    white-space: nowrap; /* Prevent wrapping of grid elements */
+    overflow: auto; /* Enable scrolling if necessary */
+  }
 
-.title-center{
-    text-align: center;
-    font-family: Lato, sans-serif;
-    font-size: 20px;
-    font-weight: 700;
+  .ion-col {
+    white-space: nowrap; /* Prevent wrapping of column content */
+    display: inline-block; /* Display columns inline */
+  }
+
+  ion-input{
+    font-size: 1.5rem;
+    margin-top: 10px;
 }
 
+.grid-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  
+  .ion-grid {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
+    overflow: auto;
+  }
+  
+  .ion-col {
+    white-space: nowrap;
+    display: inline-block;
+  }
+  
 
+
+
+
+
+
+
+
+
+  

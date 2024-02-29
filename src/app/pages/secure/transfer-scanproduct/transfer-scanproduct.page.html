@@ -1,16 +1,101 @@
-<ion-header   [translucent]="true">
+<ion-header collapse="fade" [translucent]="true">
   <ion-toolbar>
-  
     <ion-buttons slot="start">
-      <ion-back-button  defaultHref="/trans-scanpickbin"></ion-back-button>
+      <ion-back-button defaultHref="/trans-scanpickbin"></ion-back-button>
     </ion-buttons>
-   
-    <ion-title>
-      Transfer
-    </ion-title>
-  
+
+    <div class="ion-page" id="main-content1">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+            Transfer
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+
+
   </ion-toolbar>
 </ion-header>
+
+
+<ion-content class="ion-padding">
+  
+  <div >
+    <ion-list-header>    
+      <ion-toolbar>
+        <ion-label color="dark" style="text-align: left;"> 
+          <div class="col col-50">
+          &nbsp; Scan Product 
+          </div>  </ion-label>
+        <ion-buttons slot="end">
+          <ion-icon style="color:  #e87100;" id="open-modal3"name="alert-circle-outline" class="enlargeicon"></ion-icon>
+          </ion-buttons>
+      </ion-toolbar>
+        </ion-list-header>
+
+      <form class="form-default" >
+        <ion-list class="item-card-list" lines="none">
+          <ion-item>
+            <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
+            <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+          </ion-item>
+        </ion-list>
+      </form>
+  </div>
+  
+  <ion-row>
+    <ion-col style="color: gray">Source</ion-col>
+    <ion-col  style="color: gray"> Destination</ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col style="color:black">Photo-Inwards</ion-col>
+    <ion-col style="color:black"> Photo-Main</ion-col>
+  </ion-row>
+   <br>
+   <!-- <ion-row style="display: inline-flex; align-items: center;">
+    <ion-col style="color: gray; white-space: nowrap;">
+        Picking<br>from BIN <h1 style="display: inline; color: black;"> &nbsp; A-20</h1>
+    </ion-col>
+    </ion-row> -->
+
+    <!-- <ion-row>
+      <ion-col>
+        <label style="color: black;">Picking<br>from Bin</label> <h1>A-20</h1>
+      </ion-col>
+    </ion-row> -->
+    
+    <ion-row>
+      <ion-col>
+        <label style="color: black; display: inline-block;">Picking<br>from Bin</label>
+        <h1 style="display: inline-block; color: black;"> &nbsp; &nbsp; A-20</h1>
+      </ion-col>
+    </ion-row>
+    
+
+
+    <!-- <h1 style="display: inline; color: black; margin-left: 30px;">A-20</h1> -->
+</ion-content>
+
+<!-- <ion-footer class="ion-no-border" style="position: fixed; bottom: 0; width: 100%;">
+  <ion-button mode="md" style="width: 49%;margin-right: 2%; margin-top: 10px;" class="btn" (click)="scan()" [disabled]="!isSupported"> <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan</ion-button>
+  <ion-button mode="md" class="btn btn-dark" style="width: 100%; width: 49%; margin-top: 10px;" (click)="next()">Continue</ion-button>
+</ion-footer> -->
+
+
+<ion-footer class="ion-no-border ion-padding">
+  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> 
+    <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan
+  </ion-button>
+  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" (click)="next()">
+    Continue
+  </ion-button>
+</ion-footer>
+
 
 
 <!--TO DISPLAY MODAL-->
@@ -38,20 +123,20 @@
       </ion-row>
     </ion-grid>
 
+    
     <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
       <ion-row  style="color: black;" >
         <ion-col size="3" style="text-align: center"><p class="">*0</p></ion-col>
-        <ion-col><h6> Stock Out zero line </h6></ion-col>
+        <ion-col><h6> Stock Out Zero Line </h6></ion-col>
       </ion-row>
     </ion-grid>
 
     <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
       <ion-row style="color:black;">
         <ion-col size="3" style="text-align: center"><p class="">*</p></ion-col>
-        <ion-col><h6 >None-stock item (accept)</h6></ion-col>
+        <ion-col><h6 >None-Stock Item (Accept)</h6></ion-col>
       </ion-row>
     </ion-grid>
-
 
         <ion-button class="" expand="block" (click)="modal.dismiss()">Back</ion-button>
       
@@ -64,48 +149,3 @@
     </ion-content>
   </ng-template>
 </ion-modal>
-
-
-<ion-content class="ion-padding">
-  
-    <div >
-      <ion-list-header>    
-        <ion-toolbar>
-          <ion-label color="dark"><span style="color: #ffff00">|</span> Scan Product</ion-label>
-          <ion-buttons slot="end">
-            <ion-icon style="color:  #e87100;" id="open-modal3"name="alert-circle-outline" class="enlargeicon"></ion-icon>
-            </ion-buttons>
-        </ion-toolbar>
-          </ion-list-header>
-  
-        <form class="form-default" >
-          <ion-list class="item-card-list" lines="none">
-            <ion-item>
-              <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
-              <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
-            </ion-item>
-          </ion-list>
-        </form>
-    </div>
-    
-    <ion-row>
-      <ion-col style="color: gray">Source</ion-col>
-      <ion-col  style="color: gray"> Destination</ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col style="color:black">Photo-Inwards</ion-col>
-      <ion-col style="color:black"> Photo Main</ion-col>
-    </ion-row>
-     <br>
-     <ion-row style="display: inline-flex; align-items: center;">
-      <ion-col style="color: gray; white-space: nowrap;">
-          Picking <br>From BIN <h1 style="display: inline; color: black;"> &nbsp; A-20</h1>
-      </ion-col>
-  </ion-row>
-</ion-content>
-
-
-<ion-footer class="ion-no-border" style="position: fixed; bottom: 0; width: 100%;">
-  <ion-button mode="md" class="btn btn-dark" style="width: 100%;" (click)="next()">Continue</ion-button>
-</ion-footer>
