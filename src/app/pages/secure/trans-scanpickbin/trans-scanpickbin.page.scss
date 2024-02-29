@@ -3,7 +3,7 @@ ion-content{
 }
 
 ion-header{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid  #ccc;
 }
 
 .bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
@@ -25,7 +25,14 @@ ion-card{
     padding: 10px;
     border-radius: 0px;
     border: 2px solid black;
+    border-width: 2px;
 }
+
+ion-input{
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
 
 
 form.form-default ion-list.item-card-list ion-item{
@@ -102,3 +109,30 @@ ion-toolbar {
   .enlargeicon{
     font-size: 24px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+ 
+
+
+
+
+
+
+

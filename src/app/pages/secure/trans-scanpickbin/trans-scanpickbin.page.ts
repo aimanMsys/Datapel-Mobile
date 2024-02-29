@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular'; // Import AlertController
+import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+import { LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-trans-scanpickbin',
@@ -9,36 +11,40 @@ import { AlertController } from '@ionic/angular'; // Import AlertController
 })
 export class TransScanpickbinPage {
 
-  constructor(private router: Router, private alertController: AlertController){}
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+    private loadingController: LoadingController
+  ) {}
 
- async nextPage(){
-  // Validate barcode
-  if (!this.barcode || !this.isValidBarcode(this.barcode)) {
-    const alert = await this.alertController.create({
-      header: 'ACTION FAILURE!',
-      message: 'Scanned Bin Is Unkown',
-      buttons: ['Continue'],
-      cssClass: 'error-alert'
-    });
-    await alert.present();
-    return;
+  async nextPage() {
+    // Validate barcode
+    if (!this.barcode || !this.isValidBarcode(this.barcode)) {
+      const alert = await this.alertController.create({
+        header: 'ACTION FAILURE!',
+        message: 'Scanned Bin Is Unknown',
+        buttons: ['Continue'],
+        cssClass: 'error-alert'
+      });
+      await alert.present();
+      return;
+    }
+
+    console.log('Navigating to /transfer');
+    this.router.navigate(['/transfer-scanproduct']);
   }
-
-  console.log('Navigating to /transfer');
-  this.router.navigate(['/transfer-scanproduct']);
-}
 
   isValidBarcode(barcode: string) {
     // Define the correct values (add more if needed)
-    const validValues = ['0304', '1234', '5678']; 
+    const validValues = ['0304', '1234', '5678'];
 
     return validValues.includes(barcode);
   }
 
-  barcode: string; 
-  binButtonsEnabled: boolean[] = [true, true, true]; 
+  barcode: string;
+  binButtonsEnabled: boolean[] = [true, true, true];
   continueButtonEnabled = false;
-  
+
   selectedBinIndex: number = null; // Property to track selected bin
 
   toggleButton(index: number) {
@@ -50,5 +56,41 @@ export class TransScanpickbinPage {
     this.continueButtonEnabled = true;
 
     this.selectedBinIndex = index; // Set selected bin index
+  }
+
+  async checkBarcodeInput() {
+    console.log('Barcode entered:', this.barcode);
+    if (this.barcode === '0304') {
+      console.log('Valid barcode. Showing loading...');
+      const loading = await this.loadingController.create({
+        cssClass: 'default-loading',
+        message: '<p><ion-icon name="search-circle-outline" style="margin-right: 5px;"></ion-icon> Searching</p><span>Please wait...</span>',
+        spinner: 'crescent'
+      });
+      await loading.present();
+
+      setTimeout(() => {
+        loading.dismiss();
+        console.log('Loading dismissed. Navigating to the next page...');
+        this.router.navigate(['/transfer-scanproduct']);
+      }, 2000);
+    } else {
+      console.log('Invalid barcode. Showing alert...');
+      const alert = await this.alertController.create({
+        header: 'System Alert',
+        message: 'Scanned Bin is unknown!',
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+              console.log('Back button clicked in the alert.');
+            }
+          }
+        ],
+        cssClass: 'light-red-alert',
+      });
+
+      await alert.present();
+    }
   }
 }
