@@ -28,8 +28,8 @@ ion-footer {
 
 .yellow-card{
     --background:#FCF8C2;
-    width: 100%;
-    margin-left:auto;
+    
+    margin-inline: 0px;
     
 }
 
@@ -38,9 +38,7 @@ ion-col{
         color:#7c8086;
     }
     
-    p{
-        font-weight: bold;
-    }
+ 
 }
 
 .blue-bg{
@@ -122,3 +120,40 @@ ion-card-title{
    .enlargeicon{
     font-size: 24px;
 }
+
+.grid-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping of items */
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
+  }
+
+  .ion-grid {
+    flex: 0 0 auto; /* Reset flex to initial values */
+    width: auto; /* Set width to auto */
+    white-space: nowrap; /* Prevent wrapping of grid elements */
+    overflow: auto; /* Enable scrolling if necessary */
+  }
+
+  .ion-col {
+    white-space: nowrap; /* Prevent wrapping of column content */
+    display: inline-block; /* Display columns inline */
+  }
+
+  ion-input{
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+form.form-default ion-list.item-card-list ion-item{
+    padding: 6px;
+    border-width: 2px;
+}
+
+form.form-default ion-list.item-card-list ion-item.item-has-focus {
+    border-width: 2px;
+}
+
+
+////////////////////////
+/// 
+
