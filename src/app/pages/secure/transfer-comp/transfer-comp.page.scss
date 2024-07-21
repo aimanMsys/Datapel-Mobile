@@ -1,100 +1,164 @@
-.icon-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  ion-content{
-    --background: white;
-  }
-  .icon-row {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-  }
-  
-  .box-icon {
-    font-size: 3rem; /* Adjust the size as needed */
-    margin:  0rem; /* Adjust the margin as needed for spacing */
-    color: #c1c120c2;
-  }
-  
-  .arrow-icon {
-    font-size: 3rem; /* Adjust the size as needed */
-    margin:  0rem; /* Adjust the margin as needed for spacing */
-    color: #c1c120c2;
+.ion-item-button{
+
+  border:0.2rem solid #C4DBF2;
+  margin:20px auto;
+ 
+  h3{
+      font-weight: 600;
+      font-size: 1.8rem;
   }
 
- .text-center{
-    text-align: center;
-    padding-bottom: 1rem;
- } 
-  
 
-  
- ion-title {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1rem; /* Adjust the font size as needed */
+  ion-label{
+      margin: 24px 0;
   }
-  
-  ion-title:nth-child(2) {
-    margin-top: 1rem; /* Adjust the margin to control the space between titles */
-  }
-
-.bold-text{
-  font: bold;
-  color: gray;
-}
-.green-background {
-  background-color: #90ee90;
-  color: #008000; /* Optional: Set the text color to white for better visibility */
-  padding: 5px; /* Optional: Add padding to give some space around the text */
-  display: inline-block;
-}
-.black-text{
-  color: black;
-  font: bold;
 }
 
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* Vertically align buttons in the container */
-  width: 100%;
-  padding: 10px; /* Add padding to create space at the start and end */
+.text-large{
+  font-weight: 600;
+  font-size: 1.8rem;
+  padding-block: 10px;
 }
 
-/* Style the Yes button */
-.yes-button {
-  background-color: black;
-  color: white;
-  flex-grow: 1; /* Allow the button to grow to fill available space */
-  margin-right: 5px; /* Add margin between the buttons */
+.orange-card{
+  --background:#F8DABD;
+  --padding-bottom:0.4vw
+}
+.blue-card{
+  --background:#C4DBF2
 }
 
-/* Style the No button */
-.no-button {
-  background-color: white;
-  color: black;
-  border: 2px solid black; /* Add a black border */
-  --ion-color-base: black; /* Set the background color */
-  --ion-color-contrast: white; /* Set the text color */
-  flex-grow: 1;
-  margin-left: 5px;
-  --background: white;
+.blue-bg{
+  --background:#e9f1fe
 }
 
-.col {
-  background-color: transparent; /* Set background color to transparent */
-  border: solid 1px #000; /* Set border color to black */
-  color: #000; /* Set text color to black */
+.yellow-card{
+  --background:#FCF8C2;
+  margin-inline: 0px;
+}
+
+.blue-text{
+  color:#C4DBF2
+}
+ion-list.item-card-list ion-item{
+  --border-radius: 0px !important;
+  margin: 0px;
+}
+
+.title-center{
   text-align: center;
 }
 
-/* Add margin or padding to rows with the "row-with-line-break" class */
-.row-with-line-break {
-  margin-bottom: 10px; /* Adjust the value as needed to control the spacing */
+ion-modal {
+  --height: 90%;
+}
+
+.info-button{
+  border: 0px !important;
+  border-bottom-color: transparent !important;
+  background-image: none !important;
+  border-bottom: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+ion-fab-button {
+  --background:  #4471ee;
+  --border-radius: 15px;    
+}
+
+
+
+.fab-horizontal-center {
+  margin-left: unset;
+  margin-inline-start: -50px !important;
+}
+
+ion-toolbar {
+  .title-left {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    text-align: left;
+
+  }
+}
+
+
+ion-content{
+  --background : #fff;
+}
+
+ion-col{
+  label{        
+      color:#7c8086;
+  }
+  
+  p{
+      font-weight: bold;
+  }
+}
+
+.blue-bg{
+  --background:#e9f1fe;
+  margin-inline: 0px;
+}
+
+ion-card{
+  color: #000;
+  margin: 0px;
+  margin-bottom: 20px;
+  
+  ion-card-title{
+      font-size: 1.4rem;
+      font-weight: bold; 
+  }
+  
+  padding: 10px;
+  border-radius: 10px;
+  --background:#fdfbe6;
+}
+
+.col {
+  border: 3px solid yellow;
+  ;
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+
+}
+
+.bar-green{
+  background-color:#dbfeda;
+  text-align: center;
+  color:#317522;
+}
+
+.bar-yellow{
+  background-color:#faecd1;
+  text-align: center;
+  color:#C28632;
+}
+
+.icon-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+ion-footer {
+  padding: 20px;
+  background: #fff;
+}
+
+.btn-white{
+  // font-size: 1.8rem;
+  font-weight: bold;
+  color:#000;
+  --background: #ffffff !important;
+  border: 2px solid #000;
+}
+
+.text-dark{
+  color:#000;
 }

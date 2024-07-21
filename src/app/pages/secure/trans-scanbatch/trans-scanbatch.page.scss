@@ -29,7 +29,7 @@ ion-footer {
 .yellow-card{
     --background:#FCF8C2;
     
-    margin-inline: 0px;
+    margin: 0px;
     
 }
 
@@ -48,21 +48,18 @@ ion-col{
 
 ion-card{
     color: #000;
-
+    margin: 0px;
+    margin-bottom: 20px;
+    
     ion-card-title{
         font-size: 1.4rem;
         font-weight: bold; 
     }
-
-    ion-button{
-        // font-size: 1.8rem;
-        font-weight: bold;
-        color:#4471ee;
-        float: right;
-        align-self: center;
-    }
-
-}
+    
+    padding: 10px;
+    border-radius: 10px;
+    --background:#fdfbe6;
+  }
 
 ion-modal {
     --height: 90%;
@@ -107,19 +104,6 @@ ion-footer {
     border: 2px solid #000; /* Set the border color and style */
   }
 
-  ion-card{
-    padding: 15px;
-    border-radius: 10px;
-
-}
-
-ion-card-title{
-    padding-left: 15px;
-   }
-
-   .enlargeicon{
-    font-size: 24px;
-}
 
 .grid-container {
     display: flex;

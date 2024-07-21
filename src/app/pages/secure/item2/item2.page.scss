@@ -13,20 +13,6 @@ ion-list{
 }
 
 
-
-ion-list{
-    background: transparent !important;
-    transition: 0 !important;
-}
-.col1{
-    background-color: white;
-}
-.yellow-card{
-    --background:#FCF8C2;
-    --color: black;
-}
-
-
 ion-content{
     --background : #fff;
 }
@@ -71,25 +57,6 @@ ion-header{
 
   ion-modal {
     --height: 90%;
-}
-
-.ion-item-button{
-
-    border:0.2rem solid #C4DBF2;
-    margin:20px auto;
-   
-
-    ion-col{
-        display: flex;
-        // text-align: center;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    ion-label{
-        margin: 24px 0;
-    }
-
 }
 
 ion-toolbar {
@@ -175,22 +142,22 @@ ion-list.item-card-list ion-item{
     margin: 0px;
 }
 
-ion-card{
+ion-card {
     color: #000;
-    margin: 0px;
-    // box-shadow: 0px 5px 5px 0px #32409A;
-    text-align: center;
 
-    ion-card-content{
-        padding: 15px 13px;
+    ion-card-title {
+        font-size: 1.4rem;
+        font-weight: bold;
     }
 
-    h6{
-        font-weight: normal;
-        // font-size: 0.8rem;
-        letter-spacing: 1px;
+    ion-button {
+        // font-size: 1.8rem;
+        font-weight: bold;
+        color: #4471ee;
+        float: right;
+        align-self: center;
     }
-    
+
 }
 
 .title-center{
@@ -231,15 +198,6 @@ ion-item{ --border-color: #FFF; }
 }
 
 
-
-
-///
-
-
-
-
-
-
   .custom-butt {
     --background: #FFCD41; /* Set the default background color */
     --background-activated: black; /* Set the color when button is active (clicked) */
@@ -248,46 +206,76 @@ ion-item{ --border-color: #FFF; }
     /* Additional styling for text color, border, etc. can be added here */
   }
   
-
-
-
-
-
-
-
-
-
-
-
-
 ion-footer {
     padding: 20px;
     background: #fff;
 }
 
-.ion-item-button{
 
-    border:0.2rem solid #C4DBF2;
-    margin:20px auto;
-   
 
-    ion-col{
-        display: flex;
-        // text-align: center;
-        justify-content: space-around;
-        align-items: center;
-        color: black;
+.col{
+    border-left: 3px solid   yellow;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
     }
 
-    ion-label{
-        margin: 24px 0;
-    }
-
+ion-content{
+    --background: white;
 }
 
+.bg-orange{
+    background:  #fdfbe6;
+}
 
+.bold-text {
+  font-size: larger;
+  color: #000000;
+  }
 
+  .bold-text1{
+    color: gray;
+  }
+.shadow {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
+  }
+ion-card {
+    padding: 10px;
+    border-radius: 10px;
+  }
 
+  .custom-width{
+    width: 100%;
+    margin-left: auto;
+  }
 
+  .row{
+    margin-top: -5px;
+  }
+  ion-toolbar {
+    .title-left {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      text-align: left;
+    }
+}
 
-  
+.col1 {
+    background-color: transparent; /* Set background color to transparent */
+    border: solid 1px #000; /* Set border color to black */
+    color: #000; /* Set text color to black */
+    text-align: center;
+  }
+
+   /* Add margin or padding to rows with the "row-with-line-break" class */
+   .row-with-line-break {
+    margin-bottom: 10px; /* Adjust the value as needed to control the spacing */
+  }
+
+  .btn-yellow{
+    --background:#FCF8C2;
+    --color: black;
+  }

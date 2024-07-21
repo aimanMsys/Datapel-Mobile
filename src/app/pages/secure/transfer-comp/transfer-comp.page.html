@@ -1,62 +1,64 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>transfer-comp</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <!-- Icon Container -->
-  <div class="icon-container">
-    <div class="icon-row">
-      <ion-icon name="square" class="box-icon"></ion-icon>
-      <ion-icon name="arrow-forward" class="arrow-icon"></ion-icon>
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button>
+            <ion-back-button  defaultHref="/scan-putaway-transfer-bin"></ion-back-button>
+            <!-- <ion-icon  defaultHref="/despatch" slot="icon-only" name="arrow-back"></ion-icon> -->
+          </ion-button>
+        </ion-buttons>
+        <ion-title class="title-center" >Transfer</ion-title>
+        <ion-buttons slot="primary">
+          <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+        </ion-buttons>
+      </ion-toolbar>  
+    </ion-header>
+    
+    <div class="ion-padding">
+      <div class="icon-div">
+        <div class="icon-container">
+          <div class="icon-row">
+            <ion-icon style="font-size: 3.5rem;text-align: center;color:#4471ee" name="square" class="box-icon"></ion-icon>
+            <ion-icon style="font-size: 3.5rem;text-align: center;color:#4471ee" name="arrow-forward" class="arrow-icon"></ion-icon>
+          </div>
+          <div class="icon-row">
+            <ion-icon style="font-size: 3.5rem;text-align: center;color:#4471ee" name="arrow-back" class="arrow-icon"></ion-icon>
+            <ion-icon style="font-size: 3.5rem;text-align: center;color:#4471ee" name="square" class="box-icon"></ion-icon>
+          </div>
+        </div>
+        <!-- <ion-card-header> -->
+          <ion-card-title style="text-align: center;">Transfer Order Complete</ion-card-title>
+      </div>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-label class="borderLeftYellow" color="dark" style="font-weight: bolder;font-size: 16px;">Hasselbald 500 C/M</ion-label>
+        </ion-card-header>
+    
+        <ion-card-content style="padding-inline: 10px;" class="yellow-card">
+          <ion-row>
+            <ion-col size="12" style="color: gray;">Reference<br />
+              <div class="text-dark mt-5">T0-0431-7311r</div>
+            </ion-col>
+            <ion-col size="12" style="color: gray;">Status<br />
+              <div class="text-dark mt-5">Closed</div>
+            </ion-col>
+            
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      
+        
+     
+      
     </div>
-    <div class="icon-row">
-      <ion-icon name="arrow-back" class="arrow-icon"></ion-icon>
-      <ion-icon name="square" class="box-icon"></ion-icon>
-    </div>
-  </div>
+    
 
-  <!-- Transfer Order Complete Title -->
-  <ion-toolbar>
-    <ion-title class="text-center">Transfer Order</ion-title>
-    <ion-title class="text-center">Complete</ion-title>
-  </ion-toolbar>
-
-  <!-- References and Code -->
-  <ion-toolbar>
-    <ion-row>
-      <ion-col class="bold-text">References</ion-col>
-      <ion-col></ion-col>
-      <ion-col><span class="green-background">CLOSED</span></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="black-text">10-0300-9754</ion-col>
-    </ion-row>
-  </ion-toolbar>
-
-  <!-- Source and Destination Information -->
-  <ion-toolbar>
-    <ion-row>
-      <ion-col class="bold-text">Source</ion-col>
-      <ion-col></ion-col>
-      <ion-col class="bold-text">Destination</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="black-text">Photo-Inwards</ion-col>
-      <ion-col></ion-col>
-      <ion-col class="black-text">Photo-Main</ion-col>
-    </ion-row>
-  </ion-toolbar>
-</ion-content>
-
-<ion-footer class="ion-no-border">
-  <div class="button-container">
-    <ion-button mode="md" class="btn btn-dark yes-button" (click)="transfer()">
-      New Transfer
-    </ion-button>
-    <ion-button mode="md" class="btn btn-light no-button" (click)="home()">
-      Main Menu
-    </ion-button>
-  </div>
-</ion-footer>
+<!-- </ion-content> -->
+  </ion-content>
+  <ion-footer class="ion-no-border">
+    <ion-button mode="md" style="width: 100%;margin-right: 2%;" class="btn btn-dark" (click)="home()">Continue</ion-button>
+  </ion-footer>

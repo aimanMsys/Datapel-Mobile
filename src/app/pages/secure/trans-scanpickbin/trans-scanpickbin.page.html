@@ -77,20 +77,18 @@
 
 
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-list-header>    
-    <ion-toolbar>
-      <ion-label color="dark" style="text-align: left;"> 
-        <div class="col col-50">
-        &nbsp; Scan Pick Bin
-        </div> 
-      </ion-label>
+<ion-content [fullscreen]="true">
+  <div  class="ion-padding">
 
-      <ion-buttons slot="end">
-        <ion-icon style="color:  #e87100;" id="open-modal2"name="alert-circle-outline" class="enlargeicon"></ion-icon>
-        </ion-buttons>
-    </ion-toolbar>
-      </ion-list-header>
+      <ion-list-header>
+        <ion-toolbar>
+          <ion-label color="dark" class="borderLeftYellow" style="text-align: left;">Scan Pick Bin</ion-label>
+          <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scan Product</ion-label> -->
+          <ion-buttons slot="end">
+            <ion-icon style="color:  #e87100;" id="open-modal2" name="alert-circle-outline" class="enlargeicon"></ion-icon>
+            </ion-buttons>
+        </ion-toolbar>
+      </ion-list-header> 
 
       <form class="form-default" >
         <ion-list class="item-card-list" lines="none">
@@ -98,8 +96,19 @@
             <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
             <ion-input  placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" ></ion-input>
           </ion-item>
+          </ion-list>
+        </form>
 
-          <ion-grid class="ion-padding">
+        <ion-row>
+          <ion-col style="color: gray">Source</ion-col>
+          <ion-col  style="color: gray"> Destination</ion-col>
+        </ion-row>
+      
+        <ion-row>
+          <ion-col style="color:black">Photo-Inwards</ion-col>
+          <ion-col style="color:black"> Photo-Main</ion-col>
+        </ion-row>
+          <!-- <ion-grid class="ion-padding">
             <ion-row>
               <ion-col>Source</ion-col>
               <ion-col> Destination</ion-col>
@@ -109,16 +118,17 @@
               <ion-col style="color:black">Photo-Inwards</ion-col>
               <ion-col style="color:black"> Photo-Main</ion-col>
             </ion-row>
-          </ion-grid>
+          </ion-grid> -->
           
         <!-- Default Bin Card -->
+         <ion-list class="item-card-list" lines="none">
         <ion-card   [class.selected-card]="selectedBinIndex === 0">
           <ion-grid>
             <ion-row>
               <ion-col size="6">Default BIN<br/> <div class="bold mt-5">A-20</div></ion-col>
               <ion-col size="6" class="ion-text-end">
-                <ion-button mode="md" style="width: 100px;" class="btn btn-dark"
-                  (click)="toggleButton(0)" [disabled]="!binButtonsEnabled[0]">
+                <ion-button mode="md" style="width: 100px;" class="btn"
+                  (click)="toggleButton(0)" class="btn" [ngClass]="selectedBinIndex == 0 ? 'btn-dark' : 'btn-gray'">
                   Use Bin
                 </ion-button>
               </ion-col>
@@ -132,8 +142,12 @@
               <ion-row>
                 <ion-col size="6">Bulk BIN<br/> <div class="bold mt-5">R-500</div></ion-col>
                 <ion-col size="6" class="ion-text-end">
-                  <ion-button mode="md" style="width: 100px;" class="btn btn-dark"
+                  <!-- <ion-button mode="md" style="width: 100px;" class="btn btn-dark"
                     (click)="toggleButton(1)" [disabled]="!binButtonsEnabled[1]">
+                    Use Bin
+                  </ion-button> -->
+                  <ion-button mode="md" style="width: 100px;" class="btn" [ngClass]="selectedBinIndex == 1 ? 'btn-dark' : 'btn-gray'"
+                    (click)="toggleButton(1)" >
                     Use Bin
                   </ion-button>
                 </ion-col>
@@ -147,8 +161,8 @@
               <ion-row>
                 <ion-col size="6">Receive BIN<br/> <div class="bold mt-5">A-800</div></ion-col>
                 <ion-col size="6" class="ion-text-end">
-                  <ion-button mode="md" style="width: 100px;" class="btn btn-dark"
-                    (click)="toggleButton(2)" [disabled]="!binButtonsEnabled[2]">
+                  <ion-button mode="md" style="width: 100px;" class="btn"
+                    (click)="toggleButton(2)" class="btn" [ngClass]="selectedBinIndex == 2 ? 'btn-dark' : 'btn-gray'">
                     Use Bin
                   </ion-button>
                 </ion-col>
@@ -158,9 +172,9 @@
           
 </ion-list>
   
-</form>
 
 
+</div>
 </ion-content>
 
 

@@ -20,7 +20,7 @@ export class UrgentbinrefillPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       
       cssClass:'default-loading',
-      message: "<b>Checking</b><br>Please wait...",
+      message: "<p>Checking</p><span>Please wait...</span>",
       duration: 3000,
       spinner:"crescent",
             

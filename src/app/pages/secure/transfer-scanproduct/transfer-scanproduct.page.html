@@ -22,20 +22,19 @@
 </ion-header>
 
 
-<ion-content class="ion-padding">
+<ion-content >
   
-  <div >
-    <ion-list-header>    
+  <div class="ion-padding">
+
+    <ion-list-header>
       <ion-toolbar>
-        <ion-label color="dark" style="text-align: left;"> 
-          <div class="col col-50">
-          &nbsp; Scan Product 
-          </div>  </ion-label>
+        <ion-label color="dark" class="borderLeftYellow" style="text-align: left;">Scan Product</ion-label>
+        <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scan Product</ion-label> -->
         <ion-buttons slot="end">
-          <ion-icon style="color:  #e87100;" id="open-modal3"name="alert-circle-outline" class="enlargeicon"></ion-icon>
+          <ion-icon style="color:  #e87100;" id="open-modal3" name="alert-circle-outline" class="enlargeicon"></ion-icon>
           </ion-buttons>
       </ion-toolbar>
-        </ion-list-header>
+    </ion-list-header>
 
       <form class="form-default" >
         <ion-list class="item-card-list" lines="none">
@@ -45,7 +44,6 @@
           </ion-item>
         </ion-list>
       </form>
-  </div>
   
   <ion-row>
     <ion-col style="color: gray">Source</ion-col>
@@ -71,13 +69,13 @@
     
     <ion-row>
       <ion-col>
-        <label style="color: black; display: inline-block;">Picking<br>from Bin</label>
+        <label style="color: black; display: inline-block;">Picking<br>from BIN</label>
         <h1 style="display: inline-block; color: black;"> &nbsp; &nbsp; A-20</h1>
       </ion-col>
     </ion-row>
     
 
-
+  </div>
     <!-- <h1 style="display: inline; color: black; margin-left: 30px;">A-20</h1> -->
 </ion-content>
 

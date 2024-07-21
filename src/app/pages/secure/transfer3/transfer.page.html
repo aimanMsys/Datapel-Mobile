@@ -13,13 +13,13 @@
 
 <ion-header collapse="fade" [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home2"></ion-back-button>
-    </ion-buttons>
 
     <div class="ion-page" id="main-content1">
       <ion-header>
         <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="/home2"></ion-back-button>
+          </ion-buttons>
           <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
           </ion-buttons>
@@ -35,24 +35,19 @@
 </ion-header>
 
 
-  <ion-content class="ion-padding">
 
-    <!-- <ion-list-header>
-      <ion-label color="dark"><span style="color: #1f3777">|</span> Select Task</ion-label>
-    </ion-list-header> -->
+  <ion-content>
+    <div  class="ion-padding">
 
-    
-    <ion-list-header>    
+    <ion-list-header>
       <ion-toolbar>
-        <ion-label color="dark" style="text-align: left;"> 
-          <div class="col col-50">
-          &nbsp; Select Task 
-          </div>  </ion-label>
+        <ion-label color="dark" class="borderLeftYellow" style="text-align: left;">Select Task</ion-label>
+        <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scan Product</ion-label> -->
         <ion-buttons slot="end">
-          <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
+          <ion-icon style="color:  #e87100;" id="open-modal" name="alert-circle-outline" class="enlargeicon"></ion-icon>
           </ion-buttons>
       </ion-toolbar>
-        </ion-list-header>
+    </ion-list-header> 
 
     <ion-row>
       <ion-col size="12">
@@ -98,7 +93,9 @@
         </ion-label>
       </ion-item>
     </ion-list> -->
-  </ion-content>
+
+  </div>
+</ion-content>
 
   
 
@@ -108,7 +105,7 @@
     <ion-content class="ion-padding">
     <ion-header >
       <ion-toolbar>
-        <ion-title class="title-left"><span>| </span>Barcode Shortcuts & Description</ion-title>
+        <ion-title class="title-left"><span>| </span>Barcode Shortcut Codes</ion-title>
       </ion-toolbar>
     </ion-header>
 

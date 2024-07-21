@@ -11,7 +11,7 @@
             <ion-menu-button></ion-menu-button>
           </ion-buttons>
           <ion-title>
-            Transfer
+            Transfer Order
           </ion-title>
         </ion-toolbar>
       </ion-header>
@@ -21,12 +21,13 @@
 
 <ion-content  [fullscreen]="true"  class="ion-padding">
 
-  <ion-list-header>    
+  <ion-list-header>
     <ion-toolbar>
-        <ion-label color="dark"><span style="color: #ffff00">|</span> Select Refill Location </ion-label>
+      <ion-label class="borderLeftYellow" color="dark" style="text-align: left;">Select Refill Location</ion-label>
+      <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scanned Products</ion-label> -->
       <ion-buttons slot="end">
-        <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
-        </ion-buttons>
+        <ion-icon style="color:  #e87100;" name="alert-circle-outline" id="open-modal" class="enlargeicon"></ion-icon>
+      </ion-buttons>
     </ion-toolbar>
   </ion-list-header>
 
