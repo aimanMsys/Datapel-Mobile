@@ -1,9 +1,16 @@
 {
 	"appId": "io.ionic.starter",
-	"appName": "Banking One",
+	"appName": "Mobility",
 	"webDir": "www",
 	"bundledWebRuntime": false,
 	"ios": {
 		"scheme": "App"
+	},
+	"server": {
+		"allowNavigation": [
+			"https://mobility.datapelapi.net/*",
+			"*"
+		],
+		"cleartext": true
 	}
 }

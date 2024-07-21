@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 31
+
+  namespace 'io.ionic.starter'
+  compileSdk 31
     defaultConfig {
         applicationId "io.ionic.starter"
       minSdk 22

@@ -1,7 +1,8 @@
 {
-  "name": "Banking One",
+  "name": "Mobility",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
