@@ -64,9 +64,14 @@ ion-col ion-label {
   
   
 .bold-text{
-    font: bold;
-    color: #7c8086;
+    // font: bold;
+    color: #000;
 }
+
+ion-input{
+  font-size: 1.5rem;
+  margin-top: 10px;
+  }
 
 /* Styling ion-card-title elements within ion-card-header */
 /* Style the solid yellow inline block */
@@ -136,12 +141,6 @@ ion-col ion-label {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
   }
-
-  ion-card{
-    padding: 10px;
-    border-radius: 0px;
-}
-
 .bg-orange{
     background: #fdfbe6;
 }
@@ -154,10 +153,10 @@ ion-footer {
     background-color: #fdf1e6;
 }
 
-.bold-text {
-    font-weight: bold; /* Set the font weight to bold */
-    color: black;
-}
+// .bold-text {
+//     // font-weight: bold; /* Set the font weight to bold */
+//     color: black;
+// }
 
 .Bold{
     font-weight: bold;
@@ -232,3 +231,52 @@ $custom-secondary: #000000; // Black
     margin-right: 5px;
   }
 
+
+  ion-modal {
+    --height: 90%;
+}
+
+.ion-item-button{
+
+    border:0.2rem solid #C4DBF2;
+    margin:20px auto;
+   
+
+    ion-col{
+        display: flex;
+        // text-align: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    ion-label{
+        margin: 24px 0;
+    }
+
+}
+
+ion-col{
+  label{        
+      color:#7c8086;
+  }
+}
+
+.bold{ font-weight: 600; color: var(--ion-color-medium);font-size: 1rem;}
+.mt-5{
+    margin-top: 5px;
+}
+
+ion-card{
+  color: #000;
+  margin: 0px;
+  margin-bottom: 20px;
+  
+  ion-card-title{
+      font-size: 16px;
+      font-weight: bold; 
+  }
+  
+  padding: 10px;
+  border-radius: 10px;
+  --background:#fdfbe6;
+}
