@@ -4,39 +4,38 @@
       <ion-back-button defaultHref="/trans-scanbatch"></ion-back-button>
     </ion-buttons>
     <ion-title>Transfer</ion-title>
-    
+
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
- 
-<ion-content class="ion-padding" [fullscreen]="true">
-  <ion-toolbar>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+
     <ion-list-header>
       <ion-toolbar>
-        <ion-label color="dark" style="text-align: left;">
-          <div class="col col-50">
-            &nbsp; Scan Lot#
-            </div> 
-          </ion-label>
+        <ion-label class="borderLeftYellow" color="dark" style="text-align: left;">Scan LOT#</ion-label>
+        <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scanned Products</ion-label> -->
+        <ion-buttons slot="end">
+          <ion-icon style="color:  #e87100;" name="alert-circle-outline" id="open-modal6"
+            class="enlargeicon"></ion-icon>
+        </ion-buttons>
       </ion-toolbar>
     </ion-list-header>
-    <ion-buttons slot="end">
-      <ion-buttons slot="end">
-        <ion-icon id="open-modal6" name="alert-circle-outline" style="font-size: 24px; color: #FFA500;"></ion-icon>
-      </ion-buttons>
-    </ion-buttons>
-  </ion-toolbar>
 
-  <form class="form-default" >
-    <ion-list class="item-card-list" lines="none">
-      <ion-item>
-        <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
-        <ion-input  placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" ></ion-input>
-      </ion-item>
-    </ion-list>
+    <form class="form-default">
+      <ion-list class="item-card-list" lines="none">
+        <ion-item>
+          <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
+          <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+        </ion-item>
+      </ion-list>
 
+      
+
+    </form>
     <ion-row>
       <ion-col class="bold-text">Source</ion-col>
       <ion-col class="bold-text">Destination</ion-col>
@@ -46,54 +45,55 @@
       <ion-col>Photo-Main</ion-col>
     </ion-row>
 
-  </form>
+
+    <ion-modal #modal trigger="open-modal6" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Info</ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding">
+          <ion-toolbar>
+            <ion-title class="text-center">Barcode Shortcut Code</ion-title>
+          </ion-toolbar>
+
+          <ion-grid [fixed]="true">
+            <ion-row class="row-with-line-break">
+              <ion-col class="col1">*9 Broken barcode(Accept)</ion-col>
+            </ion-row>
+
+            <ion-row class="row-with-line-break">
+              <ion-col class="col1">*1 Skip next item</ion-col>
+            </ion-row>
+
+            <ion-row class="row-with-line-break">
+              <ion-col class="col1">*0 Stock out zero line</ion-col>
+            </ion-row>
+
+            <ion-row class="row-with-line-break">
+              <ion-col class="col1">* None-stock item (Accept)</ion-col>
+            </ion-row>
+          </ion-grid>
 
 
-  <ion-modal #modal trigger="open-modal6" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Info</ion-title>
-        </ion-toolbar>
-      </ion-header>
-  
-      <ion-content class="ion-padding">
-        <ion-toolbar>
-          <ion-title class="text-center">Barcode Shortcut Code</ion-title>
-        </ion-toolbar>
+          <ion-button (click)="modal.dismiss()" expand="block" class="modal-button">Back</ion-button>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
 
-        <ion-grid [fixed]="true">
-          <ion-row class="row-with-line-break">
-            <ion-col class="col1">*9 Broken barcode(Accept)</ion-col>
-          </ion-row>
-        
-          <ion-row class="row-with-line-break">
-            <ion-col class="col1">*1 Skip next item</ion-col>
-          </ion-row>
-        
-          <ion-row class="row-with-line-break">
-            <ion-col class="col1">*0 Stock out zero line</ion-col>
-          </ion-row>
-        
-          <ion-row class="row-with-line-break">
-            <ion-col class="col1">* None-stock item (Accept)</ion-col>
-          </ion-row>
-        </ion-grid>
-        
-  
-        <ion-button (click)="modal.dismiss()" expand="block" class="modal-button">Back</ion-button>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+  </div>
 
 </ion-content>
 
 
 <ion-footer class="ion-no-border ion-padding">
-  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> 
+  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported">
     <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan
   </ion-button>
-  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="checkBarcodeInput()">
+  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''"
+    (click)="checkBarcodeInput()">
     Continue
   </ion-button>
 </ion-footer>

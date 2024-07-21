@@ -74,7 +74,7 @@ export class ScanPutawayTransferBinPage implements OnInit {
     // Proceed with loading overlay
     const loading = await this.loadingController.create({
       cssClass: 'default-loading',
-      message: '<p>Processing Order</p><span>Please wait...</span>',
+      message: '<p>Processing order</p><span>Please wait...</span>',
       spinner: 'crescent'
     });
     await loading.present();
@@ -133,7 +133,8 @@ export class ScanPutawayTransferBinPage implements OnInit {
         header: 'System alert',  
         // subHeader: 'Action Failure!',  
         message: 'No Stock Found or Articles OnHOLD!',  
-        buttons: ['OK']  
+        buttons: ['OK'],  
+        cssClass:'custom-alert'
       });  
       await alert.present();  
       const result = await alert.onDidDismiss();  

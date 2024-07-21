@@ -11,7 +11,6 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content  [fullscreen]="true" class="white-background">
   <ion-header>
     <ion-toolbar class="header-with-underline white-background">
       <ion-buttons slot="start">
@@ -24,32 +23,30 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
+  
+<ion-content class="white-background">
 
   <div class="ion-padding">
-    <ion-list-header collapse="condense">
+    <ion-list-header>
       <ion-toolbar>
-        <!-- <ion-label color="dark" style="text-align: left;">
-          <div class="col col-50">
-            &nbsp; Bin Location
-            </div> 
-          </ion-label> -->
-          <ion-label color="dark"><span style="color: #ff0000">|</span> Bin Location</ion-label>
-        <ion-buttons slot="primary" >
-          <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" style="font-size: 24px; color: #FFA500;" ></ion-icon>
+        <ion-label color="dark" class="borderLeft" style="text-align: left;">Bin Location</ion-label>
+        <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scan Product</ion-label> -->
+        <ion-buttons slot="end">
+          <ion-icon style="color:  #e87100;" id="open-modal" name="alert-circle-outline" class="enlargeicon"></ion-icon>
           </ion-buttons>
       </ion-toolbar>
-    </ion-list-header>
+    </ion-list-header> 
     
     <ion-row>
-      <ion-col size="12">
-        <ion-item lines="none" class="red-card" (click)="nextPage()">
+      <ion-col size="12" *ngFor="let i of locationList">
+        <ion-item lines="none" class="red-card" (click)="nextPage(i.LocationCode)">
           <ion-label>
-            <h3>Jas-Main</h3>
+            <h3>{{i.LocationCode}}</h3>
           </ion-label>
           <ion-icon name="arrow-forward-outline"></ion-icon>
         </ion-item>
       </ion-col>
-      <ion-col size="12">
+      <!-- <ion-col size="12">
         <ion-item lines="none" class="red-card">
           <ion-label>
             <h3>Jas-My Stores</h3>
@@ -104,13 +101,13 @@
           </ion-label>
           <ion-icon name="arrow-forward-outline"></ion-icon>
         </ion-item>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
   </div>
   
   
   
-  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+  <!-- <ion-modal #modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
       <ion-content class="ion-padding">
       <ion-header collapse="condense">
@@ -126,5 +123,72 @@
         <ion-button (click)="modal.dismiss()" expand="block" class="modal-button" style="margin-top: 430px;">Back</ion-button>
       </ion-content>
     </ng-template>
-  </ion-modal>
+  </ion-modal> -->
+  <!--TO DISPLAY MODAL-->
+<ion-modal #modal trigger="open-modal">
+  <ng-template>
+    <ion-content class="ion-padding">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title class="title-left"><span class="blue-text">| </span>Barcode Shortcuts & Description</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row style="color: black;">
+            <ion-col size="3" style="text-align: center"><p class="">*9</p></ion-col>
+            <ion-col><h6 >Broken Barcode (Accept)</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">*5</p></ion-col>
+            <ion-col><h6>Item Search</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">*4</p></ion-col>
+            <ion-col><h6 >Bin Lookup</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">*1</p></ion-col>
+            <ion-col><h6 >Skip Item</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">*0</p></ion-col>
+            <ion-col><h6 >Zero Line</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class="">*</p></ion-col>
+            <ion-col><h6 >Pick NonStock</h6></ion-col>
+          </ion-row>
+        </ion-grid>
+        
+    
+    
+        <ion-button class="" expand="block" (click)="modal.dismiss()">Back</ion-button>
+      
+        <ion-grid class="item-has-start-slot item md item-fill-none ion-activatable ion-focusable hydrated " style="padding-top: 20px;">
+          <ion-row >
+            <ion-col size="3" style="text-align: center"><p class=""></p></ion-col>
+            <ion-col><h6 ></h6></ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+    </ion-content>
+  </ng-template>
+</ion-modal>
 </ion-content>

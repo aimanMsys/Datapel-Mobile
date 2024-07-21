@@ -1,43 +1,46 @@
-
-<ion-header collapse="condense">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button>
-        <ion-back-button defaultHref="/stage-collect-order"></ion-back-button>
-      </ion-button>
-    </ion-buttons>
-    <ion-title class="title-center" >Transfer Order</ion-title>
-    <ion-buttons slot="primary">
-      <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    </ion-buttons>
-  </ion-toolbar>  
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar> 
+    <div class="ion-page" id="main-content1">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="/scan-transfer-bin"></ion-back-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+            Transfer Order
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+  </ion-toolbar>
 </ion-header>
+
 
   <ion-content class="ion-padding">
     
-    <ion-list-header>    
+    <ion-list-header>
       <ion-toolbar>
-          <ion-label color="dark"><span style="color: #ffff00">| </span> Select Putaway Bin </ion-label>
+        <ion-label class="borderLeftYellow" color="dark" style="text-align: left;">Select Putaway Bin</ion-label>
+        <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scanned Products</ion-label> -->
         <ion-buttons slot="end">
-          <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon" ></ion-icon>
-          </ion-buttons>
+          <ion-icon style="color:  #e87100;" name="alert-circle-outline" id="open-modal" class="enlargeicon"></ion-icon>
+        </ion-buttons>
       </ion-toolbar>
     </ion-list-header>
 
-    <div class="ion-padding">
-      <form class="form-default" >
+    <form class="form-default" >
 
-        <ion-list class="item-card-list" lines="none">
-          <ion-item>
-            <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
-            <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
-          </ion-item>
-        </ion-list>
-  
-      </form>
-    </div>
+      <ion-list class="item-card-list" lines="none">
+        <ion-item>
+          <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
+          <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+        </ion-item>
+      </ion-list>
+
+    </form>
 
     
   
@@ -48,3 +51,55 @@
   </ion-footer>
 
   
+  
+
+  <!--TO DISPLAY MODAL-->
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content class="ion-padding">
+      <ion-header >
+        <ion-toolbar>
+          <ion-title class="title-left"><span>| </span>Barcode Shortcut Codes</ion-title>
+        </ion-toolbar>
+      </ion-header>
+  
+    
+          <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+            <ion-row style="color: black;">
+              <ion-col size="3" style="text-align: center"><p class="">*9</p></ion-col>
+              <ion-col><h6 >Broken Barcode (Accept)</h6></ion-col>
+            </ion-row>
+          </ion-grid>
+  
+          <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+            <ion-row  style="color: black;">
+              <ion-col size="3" style="text-align: center"><p class="">*1</p></ion-col>
+              <ion-col><h6>Skip Next Item</h6></ion-col>
+            </ion-row>
+          </ion-grid>
+  
+          <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+            <ion-row  style="color: black;" >
+              <ion-col size="3" style="text-align: center"><p class="">*0</p></ion-col>
+              <ion-col><h6> Stock Out Zero Line </h6></ion-col>
+            </ion-row>
+          </ion-grid>
+  
+          <ion-grid class="item-has-start-slot ion-item-button button item md item-fill-none ion-activatable ion-focusable hydrated ">
+            <ion-row style="color:black;">
+              <ion-col size="3" style="text-align: center"><p class="">*</p></ion-col>
+              <ion-col><h6 >None-Stock Item (Accept)</h6></ion-col>
+            </ion-row>
+          </ion-grid>
+  
+          <ion-button class="" expand="block" (click)="modal.dismiss()">Back</ion-button>
+        
+          <ion-grid class="item-has-start-slot item md item-fill-none ion-activatable ion-focusable hydrated " style="padding-top: 20px;">
+            <ion-row >
+              <ion-col size="3" style="text-align: center"><p class=""></p></ion-col>
+              <ion-col><h6 ></h6></ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>

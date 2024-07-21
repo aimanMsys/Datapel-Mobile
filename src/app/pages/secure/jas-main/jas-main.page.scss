@@ -95,12 +95,12 @@ $custom-secondary: #000000; // Black
 ion-card {
   padding: 10px;
   border-radius: 10px;
-  margin: 10px;
+  margin: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
 }
 
 .bg-orange {
-  --background: #FBD1CB;
+  --background: #FFE9E6;
 }
 
 .mt-10 {
@@ -158,4 +158,27 @@ ion-toolbar {
 .sizeW{
   width: 100%;
   margin-left: auto;
+}
+
+ion-modal {
+  --height: 90%;
+}
+
+.ion-item-button{
+
+  border:0.2rem solid #C4DBF2;
+  margin:20px auto;
+ 
+
+  ion-col{
+      display: flex;
+      // text-align: center;
+      justify-content: space-around;
+      align-items: center;
+  }
+
+  ion-label{
+      margin: 24px 0;
+  }
+
 }
