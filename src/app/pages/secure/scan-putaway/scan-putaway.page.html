@@ -24,22 +24,16 @@
 
 
 <ion-content class="ion-padding" [fullscreen]="true">
-  <ion-toolbar>
-    <ion-list-header>
-      <ion-toolbar>
-        <ion-label color="dark" style="text-align: left;">
-          <div class="col col-50">
-            &nbsp; Scan Putaway Bin
-            </div> 
-          </ion-label>
-      </ion-toolbar>
-    </ion-list-header>
-    <ion-buttons slot="end">
+  <ion-list-header>
+    <ion-toolbar>
+      <ion-label class="borderLeftYellow" color="dark" style="text-align: left;">Scan Putaway Bin</ion-label>
+      <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scanned Products</ion-label> -->
       <ion-buttons slot="end">
-        <ion-icon id="open-modal8" name="alert-circle-outline" style="font-size: 24px; color: #FFA500;"></ion-icon>
+        <ion-icon style="color:  #e87100;" name="alert-circle-outline" id="open-modal6"
+          class="enlargeicon"></ion-icon>
       </ion-buttons>
-    </ion-buttons>
-  </ion-toolbar>
+    </ion-toolbar>
+  </ion-list-header>
 
   <form class="form-default">
     <ion-list class="item-card-list" lines="none">
@@ -58,40 +52,32 @@
     <ion-col>Photo-Inwards</ion-col>
     <ion-col>Photo-Main</ion-col>
   </ion-row>
+  <br>
 
-  <ion-toolbar>
-    <div>
-      <ion-card class="ion-card-chart ion-no-margin animate__animated animate__fadeIn bg-orange mt-2 rounded-card custom-card custom-width custom-margin shadow custom-small-width">
-        <ion-list-header><div class="col col-50">&nbsp;FujiFilm X100V </div></ion-list-header>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              Item Number
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="bold-text row">
-              Item-placeholder
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              Lot#
-            </ion-col>
-            <ion-col class="bold-text">05</ion-col>
-            <ion-col>Quantity</ion-col>
-            <ion-col class="bold-text">05</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>BIN*</ion-col>
-            <ion-col class="bold-text">A-20</ion-col>
-            <ion-col></ion-col>
-            <ion-col></ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card>
-    </div>
-  </ion-toolbar>
+  <ion-card>
+    <ion-card-header>
+      <ion-label class="borderLeftYellow" color="dark" style="font-weight: bolder;font-size: 16px;">FujiFilm X100V</ion-label>
+    </ion-card-header>
+
+    <ion-card-content style="padding-inline: 10px;" class="yellow-card">
+      <ion-row>
+        <ion-col size="12" style="color: gray;">Item Number <br />
+          <div class="bold-text mt-5">Item-placeholder</div>
+        </ion-col>
+        <ion-col size="6" style="color: gray;">Lot#<br />
+          <div class="bold-text mt-5">05</div>
+        </ion-col>
+        <ion-col size="6" style="color: gray;">Quantity<br />
+          <div class="bold-text mt-5">05</div>
+        </ion-col>
+        <ion-col size="6" style="color: gray;">BIN*<br />
+          <div class="bold-text mt-5">A-20</div>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  
 
   <ion-modal #modal trigger="open-modal8" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>

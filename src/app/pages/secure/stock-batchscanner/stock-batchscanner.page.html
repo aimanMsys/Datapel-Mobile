@@ -1,7 +1,7 @@
 <ion-header collapse="fade" [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button  defaultHref="/stock-detail"></ion-back-button>
+      <ion-back-button  defaultHref="/stock-detail/{{id}}"></ion-back-button>
     </ion-buttons>
 
     <div class="ion-page" id="main-content1">
@@ -97,11 +97,8 @@
 
     <ion-list-header>    
       <ion-toolbar>
-        <!-- <ion-label color="dark" style="text-align: left;"> 
-          <div class="col col-50">
-          &nbsp;Scanned Products
-          </div>  </ion-label> -->
-        <ion-label color="dark"><span style="color: #fcc38d">|</span> Scanned Products</ion-label>
+        <ion-label color="dark" class="borderLeft">Scanned Products</ion-label>
+        <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scanned Products</ion-label> -->
         <ion-buttons slot="end">
           <ion-icon style="color:  #e87100;" id="open-modal4"name="alert-circle-outline" class="enlargeicon"></ion-icon>
           </ion-buttons>
@@ -110,15 +107,16 @@
   
           
         <ion-toolbar>
-          <ion-label color="dark" style="font-weight: bolder;"class="col col-50"> &nbsp;Fuji Films X100V</ion-label>
+          <ion-label color="dark" class="borderLeft">{{data?.ItemName}}</ion-label>
+          <!-- <ion-label color="dark" style="font-weight: bolder;"class="col col-50"> &nbsp;Fuji Films X100V</ion-label> -->
         </ion-toolbar>
   
 
     <ion-card >
       <ion-row>
-        <ion-col size="12">Item Number <br/> <div class="bold mt-5">Camera-01</div></ion-col>
-        <ion-col size="6">Barcode <br/> <div class="bold mt-5">9352297077571</div></ion-col>
-        <ion-col size="6">TQOH <br/> <div class="bold mt-5">99 /-</div></ion-col>
+        <ion-col size="12">Item Number <br/> <div class="bold mt-5">{{data?.ItemNumber}}</div></ion-col>
+        <ion-col size="6">Barcode <br/> <div class="bold mt-5">{{data?.Barcode}}</div></ion-col>
+        <ion-col size="6">TQOH <br/> <div class="bold mt-5">{{data?.Articles.length}}</div></ion-col>
       </ion-row>
     </ion-card>
     <ion-label class="center-label" style="color: grey;">Article Batch Serial Tracked</ion-label>    </div>
@@ -149,9 +147,9 @@
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn"  (click)="scan()" > <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan Again</ion-button>
+  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn"  (click)="scan()" > <ion-icon name="scan" style="margin-right: 10px;"></ion-icon>Scan</ion-button>
   <!--<ion-buttons mode="md" class="item1" (click)="nextPage()" style="margin-top: 10px;">More Details</ion-buttons> -->
-  <ion-button mode="md" style="width: 49%;" class="btn btn-dark"  (click)="  stockmore()">More Details</ion-button>
+  <ion-button mode="md" style="width: 49%;" class="btn btn-dark"  (click)="  stockmore()">Continue</ion-button>
 </ion-footer>
 
 

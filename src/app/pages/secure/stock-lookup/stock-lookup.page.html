@@ -19,14 +19,14 @@
       </div>
   </ion-toolbar> -->
   <ion-header collapse="fade" [translucent]="true">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/home2"></ion-back-button>
-      </ion-buttons>
+    <ion-toolbar> 
   
       <div class="ion-page" id="main-content1">
         <ion-header>
           <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-back-button defaultHref="/home2"></ion-back-button>
+            </ion-buttons>
             <ion-buttons slot="end">
               <ion-menu-button></ion-menu-button>
             </ion-buttons>
@@ -111,20 +111,17 @@
   </ng-template>
 </ion-modal>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content class="ion-padding">
 
- 
-
-
-  <ion-list-header>    
+  <ion-list-header>
 
     <ion-toolbar>
-      <ion-label color="dark"><span style="color: #fcc38d">|</span> Scan Products</ion-label>
+      <ion-label color="dark" class="borderLeft" style="text-align: left;">Scan Product</ion-label>
       <ion-buttons slot="end">
         <ion-icon style="color:  #e87100;" id="open-modal"name="alert-circle-outline" class="enlargeicon"></ion-icon>
         </ion-buttons>
     </ion-toolbar>
-      </ion-list-header>
+      </ion-list-header>  
 
 
 
@@ -132,34 +129,19 @@
       <ion-list class="item-card-list" lines="none">
         <ion-item>
           <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
-          <ion-input  placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" ></ion-input>
+          <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" ></ion-input>
         </ion-item>
       </ion-list>
 
     </form>
   
-        
-
-    <!-- <ion-list>
-      <ion-item *ngFor="let barcode of barcodes">
-        <ion-label position="stacked">{{ barcode.format }}</ion-label>
-        <ion-input type="text" [value]="barcode.rawValue"></ion-input>
-      </ion-item>
-    </ion-list> -->
-  
-  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
-      <ion-icon name="scan"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
-
 
 </ion-content>
 
 <ion-footer class="ion-padding">
   <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan</ion-button>
 
-  <ion-button mode="md"  style="width: 49%" class="btn btn-dark" [disabled]="barcode == ''" (click)="search()">Continue</ion-button>
+  <ion-button mode="md"  style="width: 49%" class="btn btn-dark" [disabled]="barcode == ''" (click)="search2()">Continue</ion-button>
 </ion-footer>
 
 
@@ -190,9 +172,6 @@
   </ion-footer>
 
 </ion-menu> -->
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 
 

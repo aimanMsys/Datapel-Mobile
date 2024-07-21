@@ -61,7 +61,8 @@ ion-row{
 ion-card{
     padding: 10px;
     border-radius: 10px;
-    --background:#F8DABD
+    --background:#fdf1e5;
+    box-shadow:none;
     
     
 }
@@ -194,4 +195,10 @@ ion-card{
     height: 150px; /* Set the desired height */
   }
   
-  
+  .borderLeft{
+    border-left: #fcc38d 5px solid;
+    padding-left: 5px;
+    margin-left: 0px;
+    text-align: left;
+    font-weight: bold;
+}

@@ -22,68 +22,9 @@ form.form-default ion-list.item-card-list ion-item.item-has-focus {
     border-width: 2px;
 }
 
-/*ion-modal {
-    --height: 90%;
-    --width: 50%;
-  } */
-
-  .custom-butt {
-    --background: #FFCD41; /* Set the default background color */
-    --background-activated: black; /* Set the color when button is active (clicked) */
-    --background-hover: black; /* Set the color when button is hovered */
-  
-    /* Additional styling for text color, border, etc. can be added here */
-  }
-  
-
-.fonttype{
-    margin-bottom:10px;
-    margin-inline: 30px;
-    font-weight: bold;
-}
-
-.spacing{
-    margin-left: 20px;
-}
-
-
-
- /* .custom-modal {
-    --width: 100%; 
-      }*/
-  
-
- /* .ion-item-button {
-    border: 0.2rem solid #C4DBF2;
-    margin: 20px auto;
-    
-    ion-col {
-        display: flex;
-        // text-align: center;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    ion-label {
-        margin:24px 0;
-        // margin: 0; /* Change this line */
-        // text-align: center; /* Add this line */
-    
-
-    /* ion-col:nth-child(2) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
-*/    
-    
-
-
 ion-header{
     border-bottom: 1px solid #ccc;
 }
-
 
 ion-modal {
     --height: 90%;
@@ -132,6 +73,22 @@ ion-toolbar {
     font-weight: 700;
 }
 
-.enlargeicon{
-    font-size: 24px;
+
+#alert-2-hdr.alert-title {
+    color:red !important;
 }
+
+.h2.alert-title.sc-ion-alert-ios{
+    color:red !important;
+}
+
+.borderLeft{
+    border-left: #fcc38d 5px solid;
+    padding-left: 5px;
+    margin-left: 0px;
+}
+
+// ion-header > ion-toolbar > ion-title{
+//     text-align: center;
+//     // margin-left: 48px;
+// }

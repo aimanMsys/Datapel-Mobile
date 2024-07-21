@@ -1,12 +1,13 @@
 <ion-header collapse="fade" [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/stock-batchscanner"></ion-back-button>
-    </ion-buttons>
 
     <div class="ion-page" id="main-content1">
       <ion-header>
         <ion-toolbar>
+          
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="/stock-batchscanner/{{id}}"></ion-back-button>
+          </ion-buttons>
           <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
           </ion-buttons>
@@ -96,53 +97,82 @@
     <ion-list-header>
       
       <ion-toolbar>
-        <ion-label color="dark"><span style="color: #fcc38d">|</span> More Details</ion-label>
+        <!-- <ion-label color="dark" style="text-align: left;"><div class="col col-50">&nbsp;More Details</div></ion-label> -->
+        <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> More Details</ion-label> -->
+        <ion-label color="dark" class="borderLeft">More Details</ion-label>
         <ion-buttons slot="end">
           <ion-icon style="color:  #e87100;" id="open-modal3"name="alert-circle-outline" class="enlargeicon"></ion-icon>
           </ion-buttons>
       </ion-toolbar>
         </ion-list-header>
 
-        
-        <ion-toolbar>
-          
-          <ion-label color="dark" style="font-weight: bolder;" class="col col-50"> &nbsp;Fuji Films X100V</ion-label>
-        </ion-toolbar>
-  
-        
-  <ion-card >
-    <ion-row>
-      <ion-col size="12">Item Number <br/> <div class="bold mt-5">Camera-01</div></ion-col>
-      <ion-col size="12">Item Description<br/> <div class="bold mt-5">9352297077571</div></ion-col>
-      <ion-col size="6">GTIN <br/> <div class="bold mt-5">9352297077571</div></ion-col>
-      <ion-col size="6">Supplier# <br/> <div class="bold mt-5">X100v</div></ion-col>
-      <ion-col size="6">Default Bin <br/> <div class="bold mt-5">-</div></ion-col>
-      <ion-col size="6">Overflow Bin <br/> <div class="bold mt-5">-</div></ion-col>
-      <ion-col size="6">Default Bin <br/> <div class="bold mt-5">-</div></ion-col>
-    </ion-row>
-    <ion-col size="6">MIN/MAX &nbsp; -</ion-col>
-    
-  </ion-card>  
-</div>
+        <div *ngFor="let i of data?.Details;let index=index" >
 
-<ion-label style="margin-left: 5px">UDF</ion-label>
-<br>
-  <ion-card  >
-    2020192990-4509239022020192990-4509239022020192990-4509239022020192990-450
-    923902202020192990-4509239022020192990-4509239022020192990-4509239022020192990-4509239022020192990-450923902
-  </ion-card>
-  <ion-label style="margin-left: 5px">UDF</ion-label>
-  <br>
-  <ion-card >
-    2020192990-4509239022020192990-4509239022020192990-4509239022020192990-450
-    923902202020192990-4509239022020192990-4509239022020192990-4509239022020192990-4509239022020192990-450923902
-  </ion-card>
-  <ion-label style="margin-left: 5px">UDF</ion-label>
-  <br>
-  <ion-card >
-    2020192990-4509239022020192990-4509239022020192990-4509239022020192990-450
-    923902202020192990-4509239022020192990-4509239022020192990-4509239022020192990-4509239022020192990-450923902
-  </ion-card>
+          <ion-toolbar>
+            <ion-label color="dark" class="borderLeft">{{i.ItemName}}</ion-label>
+            <!-- <ion-label color="dark" style="font-weight: bolder;" class="col col-50"> &nbsp;Fuji Films X100V</ion-label> -->
+          </ion-toolbar>
+          
+          
+          <ion-card>
+            <ion-row>
+              <ion-col size="12">Item Number <br />
+                <div class="bold mt-5">{{i.ItemNumber}}</div>
+              </ion-col>
+              <ion-col size="12">Item Description<br />
+                <div class="bold mt-5">{{i.ItemNotes}}</div>
+              </ion-col>
+              <ion-col size="6">GTIN <br />
+                <div class="bold mt-5">{{i.GTIN}}</div>
+              </ion-col>
+              <ion-col size="6">Supplier# <br />
+                <div class="bold mt-5">{{i.SupplierItemNumber}}</div>
+              </ion-col>
+              <ion-col size="6">Default Bin <br />
+                <div class="bold mt-5">{{i.DefaultBin}}</div>
+              </ion-col>
+              <ion-col size="6">Overflow Bin <br />
+                <div class="bold mt-5">{{i.OverflowBin}}</div>
+              </ion-col>
+              <!-- <ion-col size="6">Default Bin <br />
+                <div class="bold mt-5">{{i.ItemName}}</div>
+              </ion-col> -->
+            </ion-row>
+            <ion-col size="6">MIN/MAX &nbsp; {{i.MinQuantity}} / {{i.MaxQuantity}}</ion-col>
+          
+          </ion-card>
+
+          <div *ngFor="let it of udf; let udfIndex = index">
+            <div *ngIf="i['UDF' + (numbering + (udfIndex + 1))] != ''">
+              <ion-label style="margin-left: 5px">UDF{{ numbering + (udfIndex + 1) }}</ion-label>
+              <br>
+              <ion-card *ngIf="i['UDF' + (numbering + (udfIndex + 1))]">
+                {{ i['UDF' + (numbering + (udfIndex + 1))] || 'N/A' }}
+              </ion-card>
+            </div>
+            
+          </div>
+          </div>
+          
+
+          
+          
+
+          <!-- <ion-label style="margin-left: 5px">UDF</ion-label>
+          <br>
+          <ion-card>
+            2020192990-4509239022020192990-4509239022020192990-4509239022020192990-450
+            923902202020192990-4509239022020192990-4509239022020192990-4509239022020192990-4509239022020192990-450923902
+          </ion-card>
+          <ion-label style="margin-left: 5px">UDF</ion-label>
+          <br>
+          <ion-card>
+            2020192990-4509239022020192990-4509239022020192990-4509239022020192990-450
+            923902202020192990-4509239022020192990-4509239022020192990-4509239022020192990-4509239022020192990-450923902
+          </ion-card> -->
+
+        </div>
+       
 
 </ion-content>
 

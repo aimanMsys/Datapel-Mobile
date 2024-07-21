@@ -27,11 +27,11 @@ export class ScanPutawayPage implements OnInit {
 
   async checkBarcodeInput() {
     console.log('Barcode entered:', this.barcode);
-    if (this.barcode === '2200') {
+    if (this.barcode === '1234') {
       console.log('Valid barcode. Showing loading...');
       const loading = await this.loadingController.create({
         cssClass: 'default-loading',
-        message: '<p><ion-icon name="search-circle-outline" style="margin-right: 5px;"></ion-icon> Searching</p><span>Please wait...</span>',
+        message: '<p>Processing order</p><span>Please wait...</span>',
         spinner: 'crescent'
       });
       await loading.present();
@@ -57,7 +57,7 @@ export class ScanPutawayPage implements OnInit {
             },
           },
         ],
-        cssClass: 'light-red-alert',
+        cssClass: 'custom-alert',
       });
   
       await alert.present();
