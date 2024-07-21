@@ -3,9 +3,24 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // apiURL:"https://myxfox.com/api/auth",
+  // apiURLpublic:"https://myxfox.com/api/public",
+  // keyCaptcha:"6Ld0JhEoAAAAAAkbb2XBbRpYEE-rlF6auDXLKLQO",
+ 
+  apiURL:"https://mobility.datapelapi.net",
+  apiURLpublic:"https://app.theneo.io/datapel/datapel-api/datapel-api-reference",
+  timer:"120",
+  // firebase: {
+  //   apiKey: '********************************',
+  //   authDomain: '********************************',
+  //   projectId: '********************************',
+  //   storageBucket: '********************************',
+  //   messagingSenderId: '********************************',
+  //   appId: '********************************',
+  //   measurementId: '********************************',
+  // },
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

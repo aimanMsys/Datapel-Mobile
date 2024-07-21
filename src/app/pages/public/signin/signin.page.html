@@ -18,12 +18,12 @@
         Enter the registered email address and password.</p>
     </div>
 
-    <form class="form-default" [formGroup]="signin_form" (submit)="signIn()">
+    <form class="form-default" [formGroup]="signin_form" (submit)="submit()">
 
       <ion-list class="item-card-list" lines="none">
         <ion-item>
           <ion-label color="tertiary" position="stacked">Email</ion-label>
-          <ion-input formControlName="email" type="email" autocomplete="off"
+          <ion-input appAutofill  formControlName="username" autocomplete="username" name="username" type="text" autocomplete="off"
             placeholder="Your email address"></ion-input>
         </ion-item>
 
@@ -33,7 +33,7 @@
         </ion-item>
       </ion-list>
 
-      <ion-button class="ion-margin-top" type="submit" expand="block" color="primary">
+      <ion-button class="ion-margin-top" type="submit"  expand="block" color="primary">
         Sign in
       </ion-button>
 

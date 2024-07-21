@@ -27,7 +27,7 @@ const routes: Routes = [
     loadChildren: () => import('./stock-lookup/stock-lookup.module').then( m => m.StockLookupPageModule)
   },
   {
-    path: 'stock-detail',
+    path: 'stock-detail/:id',
     loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
   },
   {
@@ -51,11 +51,7 @@ const routes: Routes = [
     loadChildren: () => import('./stock-lookup/stock-lookup.module').then( m => m.StockLookupPageModule)
   },
   {
-    path: 'stock-detail',
-    loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
-  },
-  {
-    path: 'stock-moredetails',
+    path: 'stock-moredetails/:id',
     loadChildren: () => import('./stock-moredetails/stock-moredetails.module').then( m => m.StockMoredetailsPageModule)
   },
   {
@@ -67,7 +63,7 @@ const routes: Routes = [
     loadChildren: () => import('./trans-scanpickbin/trans-scanpickbin.module').then( m => m.TransScanpickbinPageModule)
   },
   {
-    path: 'stock-batchscanner',
+    path: 'stock-batchscanner/:id',
     loadChildren: () => import('./stock-batchscanner/stock-batchscanner.module').then( m => m.StockBatchscannerPageModule)
   },
   {
@@ -77,10 +73,6 @@ const routes: Routes = [
   {
     path: 'trans-scanbatch',
     loadChildren: () => import('./trans-scanbatch/trans-scanbatch.module').then( m => m.TransScanbatchPageModule)
-  },
-  {
-    path: 'stock-detail',
-    loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
   },
   {
     path: 'home',
@@ -330,7 +322,12 @@ const routes: Routes = [
   {
     path: 'trans-destination',
     loadChildren: () => import('./trans-destination/trans-destination.module').then( m => m.TransDestinationPageModule)
+  },
+  {
+    path: 'transfer-detail',
+    loadChildren: () => import('./transfer-detail/transfer-detail.module').then( m => m.TransferDetailPageModule)
   }
+
 
 ];
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from 'src/app/services/toast/toast.service';
 import { Router } from '@angular/router';
 @Component({
@@ -15,16 +15,32 @@ export class TwoFactorVerificationPage implements OnInit {
 
   verify_form: FormGroup;
   submit_attempt: boolean = false;
+  loading:boolean=false;
+  userName:any;
+
+  form: FormGroup = new FormGroup({
+    code: new FormControl(null, {
+      updateOn: 'change',
+      validators: [Validators.required]
+    })
+  });
 
   constructor(
     private authService: AuthService,
     private loadingController: LoadingController,
     private formBuilder: FormBuilder,
     private toastService: ToastService,
-    private router: Router
+    private router: Router,    
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
+
+    this.userName = JSON.parse(localStorage.getItem('mobility') ?? '').userName;
+
+    this.form = this.formBuilder.group({
+      code: ['', Validators.compose([Validators.required])]
+    });
 
     // Setup form
     // this.verify_form = this.formBuilder.group({
@@ -34,6 +50,66 @@ export class TwoFactorVerificationPage implements OnInit {
     // DEBUG: Prefill inputs
     // this.verify_form.get('email').setValue('john.doe@mail.com');
     // this.verify_form.get('password').setValue('123456');
+  }
+
+ submit() {
+    this.loading = true;
+
+    // Proceed with loading overlay
+    // const loading = await this.loadingController.create({
+    //   cssClass: 'default-loading',
+    //   message: '<p>Verifying</p><span>Please wait...</span>',
+    //   spinner: 'crescent'
+    // });
+    // await loading.present();
+    
+    var code = this.form.value.code
+
+    this.authService.authenticate(this.userName,code).subscribe({
+      next: (resp) => {
+        console.log("resp",JSON.stringify(resp));
+        // this.loading = false;
+        // if (resp.statusCode == null) {
+        //   this.user = resp;
+        //   localStorage.clear();
+        //   localStorage.setItem("user", JSON.stringify(resp));
+        //   localStorage.setItem("path", environment.apiURL)
+        //   if (resp.statusCode == 200) {
+
+        if(resp.result == "ACCEPTED"){
+          // result"ACCEPTED"
+          // setTimeout(async () => {
+
+          //   // Sign in success
+            this.router.navigate(['/home2']);
+          //   loading.dismiss();
+          // }, 2000);
+
+        } else {
+          this.presentAlert(resp.statusMessage, "error")
+        }
+        
+
+        //   }
+        // } else {
+        //   this.presentAlert(resp.statusMessage, "error")
+        // }
+
+
+      }, error: (error) => {
+        this.loading = false;
+      }
+    })
+
+  }
+
+  async presentAlert(headerText:string,message:string): Promise<void> {
+    const alert = await this.alertController.create({
+      header: headerText,
+      message: message,
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
   // Sign in

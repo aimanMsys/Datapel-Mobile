@@ -55,6 +55,9 @@ export class AppComponent {
     });
     await loading.present();
 
+    localStorage.removeItem("user");
+    localStorage.removeItem("mobility");
+
     // TODO: Add your sign in logic
     // ...
 

@@ -15,11 +15,11 @@
 
     <div class="logo-container">
       <h1 class="logo-placeholder">Two Factor Verification</h1>
-      <p>Login to start using the Datapel Mobility Assistance.
-        Enter the registered email address and password.</p>
+      <p><br>Verify your account.<br> Enter your InvAssist Pin Number.</p>
+        <!-- <p> </p> -->
     </div>
 
-    <form class="form-default"  (submit)="signIn()">
+    <form class="form-default" [formGroup]="form"  (submit)="submit()">
 
       <ion-list class="item-card-list" lines="none">
         <!-- <ion-item>
@@ -30,7 +30,7 @@
 
         <ion-item class="ion-margin-top-small">
           <ion-label color="tertiary" position="stacked">Enter InvAssist Pin Number</ion-label>
-          <ion-input  type="text" placeholder="xxxx-xxxx-xxxx-xxxx"></ion-input>
+          <ion-input formControlName="code" type="text" placeholder="730561"></ion-input>
         </ion-item>
       </ion-list>
 
