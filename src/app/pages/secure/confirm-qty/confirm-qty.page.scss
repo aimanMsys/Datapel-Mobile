@@ -1,7 +1,4 @@
-.text-center{
-    text-align: left;
-    padding-left: 20px;
-}
+
 .header-with-underline {
   border-bottom: 0.05px solid #999999; /* Add your desired color here */
 }
@@ -36,22 +33,32 @@ ion-row.blue-bg {
   font: bold;
   color: #7c8086;
 }
-.ion-card {
+
+ion-card{
   color: #000;
-  margin: 10px; /* Add margin if needed */
-  padding: 10px; /* Add padding if needed */
-  --background: #FFFFED; /* Set the background color to yellow */
+  margin: 0px;
+  margin-bottom: 20px;
+  
+  ion-card-title{
+      font-size: 16px;
+      font-weight: bold; 
+  }
+  
+  padding: 10px;
+  border-radius: 10px;
+  --background:#fdfbe6;
 }
+
+ion-input{
+  font-size: 1.5rem;
+  margin-top: 10px;
+  }
 
 /* Styling ion-card-title elements within ion-card */
 ion-card ion-card-title {
   font-size: 1.4rem;
   font-weight: bold;
 }
-.bold-text{
-  color: gray;
-}
-
 /* Styling ion-label elements within ion-col */
 ion-col ion-label {
   color: #7c8086;
@@ -76,43 +83,8 @@ form.form-default ion-list.item-card-list ion-item{
   ion-content{
     --background: white;
   }
-// .text-center::before {
-//     content: ""; /* Create an empty pseudo-element */
-//     display: inline-block;
-//     width: 8px; /* Adjust the width as needed */
-//     height: 100%; /* Set the height to match the text height */
-//     background-color: yellow; /* Set the desired color */
-//     margin-right: 8px; /* Adjust the spacing between the color and text */
-//   }
 
-  .bold-text{
-    color: gray;
-}
 
-/* Styling ion-label elements within ion-col */
-// ion-col ion-label {
-//     color: #7c8086;
-//   }
-  
-  /* Styling ion-card elements */
-  .ion-card {
-    color: #000;
-    margin: 10px; /* Add margin if needed */
-    padding: 10px; /* Add padding if needed */
-    --background: #FFFFED; /* Set the background color to yellow */
-  }
-  
-  /* Styling ion-card-title elements within ion-card */
-  // ion-card ion-card-title {
-  //   font-size: 1.4rem;
-  //   font-weight: bold;
-  // }
-  
-  /* Styling ion-row elements with the .blue-bg class */
-  // ion-row.blue-bg {
-  //   --background: #e9f1fe;
-  // }
-  
   .rounded-card{
     border-radius: 10px;
 }
@@ -120,31 +92,8 @@ form.form-default ion-list.item-card-list ion-item{
   
   
   .bold-text {
-    font-weight: bold; /* Set the font weight to bold */
     color: black;
 }
-
-/* Styling ion-card-title elements within ion-card-header */
-/* Style the solid yellow inline block */
-// ion-card-title.with-inline-block {
-//     position: relative;
-//   }
-  
-  // ion-card-title.with-inline-block::before {
-  //   content: "";
-  //   display: inline-block;
-  //   width: 0.5em; /* Adjust the width to make it thinner */
-  //   height: 2em; /* Set the height to match the letter "F" */
-  //   background-color: yellow;
-  //   margin-right: 5px; /* Adjust the spacing between the inline block and text */
-  //   vertical-align: middle; /* Align the inline block vertically with text */
-  // }
-
-  /* Add this CSS to your component's stylesheet */
-// ion-button[slot="start"] {
-//     --background: transparent; /* Remove the orange background */
-//     color: var(--ion-color-primary); /* Set the text color to the primary color */
-//   }
   
   .col1 {
     background-color: transparent; /* Set background color to transparent */
@@ -152,18 +101,14 @@ form.form-default ion-list.item-card-list ion-item{
     color: #000; /* Set text color to black */
     text-align: center;
   }
-
   
-  ion-card{
-    padding: 10px;
-    border-radius: 0px;
-}
 .shadow {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
 }
+
 .custom-title { 
   color: #0c0101; /* Use a darker color code or color name */
   font: bold;

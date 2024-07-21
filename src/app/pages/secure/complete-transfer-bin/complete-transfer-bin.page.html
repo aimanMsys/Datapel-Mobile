@@ -8,7 +8,7 @@
             <!-- <ion-icon  defaultHref="/despatch" slot="icon-only" name="arrow-back"></ion-icon> -->
           </ion-button>
         </ion-buttons>
-        <ion-title class="title-center" >Transfer</ion-title>
+        <ion-title class="title-center" >Transfer Order</ion-title>
         <ion-buttons slot="primary">
           <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
@@ -20,49 +20,29 @@
     <div class="ion-padding">
 
 
-      <!-- <div>
-        <ion-icon style="height: 40%;width: 30%;" size="large" name="cube-outline"></ion-icon>
-      </div> -->
-      <!-- <ion-card> -->
         <div class="icon-div">
           <ion-icon style="font-size: 7rem;text-align: center;color:#4471ee" (click)="stage()" name="cube-outline"></ion-icon>
           <!-- <ion-card-header> -->
-            <ion-card-title>Transfer Order Complete</ion-card-title>
+            <ion-card-title style="text-align: center;">Transfer Order Complete</ion-card-title>
         </div>
-        
-        <!-- </ion-card-header> -->
-      <!-- </ion-card> -->
+
+        <ion-card>
+          <ion-card-header>
+            <ion-label class="borderLeftYellow" color="dark" style="font-weight: bolder;font-size: 16px;">Hasselbald 500 C/M</ion-label>
+          </ion-card-header>
       
-      <ion-card class="yellow-card">
-        <ion-card-header>
-          <ion-card-title>
-            <div class="col col-50">&nbsp;Hasselbald 500 C/M</div>
-          </ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          <ion-grid>
+          <ion-card-content style="padding-inline: 10px;" class="yellow-card">
             <ion-row>
-              <ion-col>
-                <label>Reference</label>
-                <p>T0-0431-7311</p>
+              <ion-col size="12" style="color: gray;">Reference<br />
+                <div class="text-dark mt-5">T0-0431-7311</div>
               </ion-col>
-              <!-- <ion-col>
-                <div class="bar-green">
-                  ALLOCATED
-                </div>
-              </ion-col> -->
+              <ion-col size="12" style="color: gray;">Status<br />
+                <div class="text-dark mt-5">Closed</div>
+              </ion-col>
+              
             </ion-row>
-            <ion-row>
-              <ion-col>
-                <label>Status</label>
-                <p>Closed</p>
-              </ion-col>
-            </ion-row>        
-          </ion-grid>
-  
-        </ion-card-content>
-      </ion-card>
+          </ion-card-content>
+        </ion-card>
       
     </div>
     

@@ -12,23 +12,17 @@
 </ion-header>
 
 <ion-content class="ion-padding" [fullscreen] = "true">
-  <ion-toolbar>
-    <ion-list-header>
-      <ion-toolbar>
-        <!-- <ion-label color="dark" style="text-align: left;">
-          <div class="col col-50">
-            &nbsp; Confirm quantity
-            </div> 
-          </ion-label> -->
-          <ion-label color="dark"><span style="color: #ffff00">|</span> Confirm quantity</ion-label>
-      </ion-toolbar>
-    </ion-list-header>
-    <ion-buttons slot="end">
+
+  <ion-list-header>
+    <ion-toolbar>
+      <ion-label class="borderLeftYellow" color="dark" style="text-align: left;">Confirm quantity</ion-label>
+      <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scanned Products</ion-label> -->
       <ion-buttons slot="end">
-        <ion-icon id="open-modal9" name="alert-circle-outline" style="font-size: 24px; color: #FFA500;"></ion-icon>
+        <ion-icon style="color:  #e87100;" name="alert-circle-outline" id="open-modal3"
+          class="enlargeicon"></ion-icon>
       </ion-buttons>
-    </ion-buttons>
-  </ion-toolbar>
+    </ion-toolbar>
+  </ion-list-header>
 
   <form class="form-default">
     <ion-list class="item-card-list" lines="none">
@@ -41,50 +35,45 @@
     </ion-list>
   </form>
 
-  <ion-row class="blue-bg">
-    <ion-col class="bold-text">Source</ion-col>
-    <ion-col class="bold-text">Destination</ion-col>
-  </ion-row>
-  <ion-row class="blue-bg">
-    <ion-col>Photo-Inwards</ion-col>
-    <ion-col>Photo-Main</ion-col>
+  <ion-row>
+    <ion-col style="color: gray">Source</ion-col>
+    <ion-col style="color: gray">Destination</ion-col>
   </ion-row>
 
-  <ion-toolbar>
-    <div>
-      <ion-card class="ion-card-chart ion-no-margin animate__animated animate__fadeIn bg-orange mt-10 rounded-card custom-card custom-width ion-padding shadow">
-        <ion-list-header><div class="col col-50">&nbsp;FujiFilm X100V </div></ion-list-header>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              Item Number
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="bold-text row">
-              Camera-01
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              CTN#
-            </ion-col>
-            <ion-col class="bold-text">1</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="bold-text">BIN</ion-col>
-            <ion-col class="bold-text">R-900</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>BRN#</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>DEM123</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card>
-    </div>
-   </ion-toolbar>
+  <ion-row>
+    <ion-col style="color:black">Photo-Inwards</ion-col>
+    <ion-col style="color:black">Photo-Main</ion-col>
+  </ion-row>
+  <br>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-label class="borderLeftYellow" color="dark" style="font-weight: bolder;font-size: 16px;">FujiFilm X100V</ion-label>
+    </ion-card-header>
+    <ion-card-content style="padding-inline: 10px;" class="yellow-card">
+
+      <ion-row>
+        <ion-col size="12" style="color: gray;">Item Number <br />
+          <div class="bold-text mt-5">Camera-01</div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="color: gray;">
+          CTN#
+        </ion-col>
+        <ion-col class="bold-text">1</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="color: gray;">BIN</ion-col>
+        <ion-col class="bold-text">R-900</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="color: gray;">BRN<br />
+          <div class="bold-text mt-5">DEM123</div>
+        </ion-col>
+      </ion-row>
+  </ion-card-content>
+  </ion-card>
 
   <ion-modal #modal trigger="open-modal9" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
