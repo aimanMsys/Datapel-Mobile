@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-import {  AlertController, LoadingController } from '@ionic/angular';
+import {  AlertController, LoadingController,IonContent  } from '@ionic/angular';
 import { StockLookupService } from 'src/app/services/stock-lookup.service';
 
 @Component({
@@ -11,11 +11,15 @@ import { StockLookupService } from 'src/app/services/stock-lookup.service';
 
 
 export class StockDetailPage implements OnInit {
+  @ViewChild('pageTop') content: IonContent;
+
 
   private loading;
   id:any;
   data:any;
   numbering:number=0;
+  batchId:any;
+  tqoh:number=0;
 
   constructor(   
     private router: Router,
@@ -28,9 +32,13 @@ export class StockDetailPage implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
-      console.log(this.id); // Now you have access to the ID parameter
+      this.batchId = params.get('batchId');
     });
     this.search();
+  }
+
+  scrollToTop() {
+    this.content.scrollToTop(400);
   }
 
   scan(){
@@ -42,7 +50,7 @@ export class StockDetailPage implements OnInit {
   }
 
   next(){
-    this.router.navigate(['/stock-moredetails',this.id])
+    this.router.navigate(['/stock-moredetails',this.id,this.batchId])
   }
 
   home(){
@@ -81,6 +89,9 @@ export class StockDetailPage implements OnInit {
         this.loading = false;
  
         this.data = resp;
+        this.data.Articles.forEach(ele => {
+          this.tqoh += ele.TQOH;
+        });
 
         // setTimeout(async () => {
           // this.router.navigate(['/stock-batchscanner',this.id]);

@@ -42,6 +42,48 @@ export class StockLookupService {
       );
   }
 
+  getProductUid(barcode: any): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('scope', 'mobility-user')
+      .set('useMobility',"true");
+  
+    return this.httpClient.get(`${this.APIURL}/api.datapel/v2.0/mobility/getproductuid?$filter=Barcode eq '${barcode}'`, { headers })
+      .pipe(
+        catchError((err => {
+          return this.handleError(err);
+        }))
+      );
+  }
+
+  getInventoryList(batchSerialNumber: any,productUid:any): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('scope', 'mobility-user')
+      .set('useMobility',"true");
+  
+    return this.httpClient.get(`${this.APIURL}/api.datapel/v2.0/mobility/inventorylist?$filter=BatchSerialNumber eq '${batchSerialNumber}' and ProductUid eq '${productUid}' `, { headers })
+      .pipe(
+        catchError((err => {
+          return this.handleError(err);
+        }))
+      );
+  }
+  
+  udfConfig(): Observable<any> {
+    // console.log("param",JSON.stringify(param));
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('scope', 'mobility-user')
+      .set('useMobility',"true");
+  
+    return this.httpClient.get(`${this.APIURL}/api.datapel/v2.0/mobility/udfconfigs?$filter=IsVisible eq true`, { headers })
+      .pipe(
+        catchError((err => {
+          return this.handleError(err);
+        }))
+      );
+  }
   
 
   private handleError(error: any): Observable<any> {

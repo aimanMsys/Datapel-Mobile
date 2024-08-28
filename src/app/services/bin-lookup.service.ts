@@ -70,7 +70,7 @@ export class BinLookupService {
       .set('scope', 'mobility-user')
       .set('useMobility',"true");
   
-    return this.httpClient.get(`https://mobility.datapelapi.net/api.datapel/v2.0/mobility/locations`,  { headers })
+    return this.httpClient.get(`https://mobility.datapelapi.net/api.datapel/v2.0/mobility/locations?$filter=LocationCode ne '*ALLLOCATIONS'&$orderby=LocationCode`,  { headers })
       .pipe(
         catchError((err => {
           return this.handleError(err);
@@ -92,6 +92,9 @@ export class BinLookupService {
         }))
       );
   }
+
+  
+
 
   private handleError(error: any): Observable<any> {
     return throwError(error);

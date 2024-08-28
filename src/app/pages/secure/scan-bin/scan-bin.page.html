@@ -24,10 +24,13 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-list-header>
-
-  <ion-toolbar>
-    <ion-label class="borderLeftRed" color="dark" style="font-weight: bolder;">{{binDetail?.code}}</ion-label>
-  </ion-toolbar>
+  
+  <ion-list-header style="padding-top:10px;">
+    <ion-toolbar>
+      <ion-label class="borderLeftRed mt-5" color="dark" style="font-weight: bolder;text-transform: uppercase;">{{binDetail?.code}}</ion-label>
+    </ion-toolbar>
+  </ion-list-header>
+  
   
       <ion-card>
         <ion-row>
@@ -40,36 +43,55 @@
       <ion-card *ngFor="let i of productArticle">
         <ion-card-header>
           <!-- <ion-card-title>Card Title</ion-card-title> -->
-          <ion-label class="borderLeftRed" color="dark" style="font-weight: bolder;font-size: 16px;">{{i?.ItemName}}</ion-label>
+          <ion-label class="borderLeftRed" color="dark" style="font-weight: bolder;font-size: 20px">{{i?.ItemName}}</ion-label>
         </ion-card-header>
       
-        <ion-card-content>
-          <ion-grid>
+        <!-- <ion-card-content> -->
+          <!-- <ion-grid> -->
             <ion-row>
               <ion-col>
                 Item Number
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col class="bold-text row">
+              <ion-col style="font-size: 20px" class="bold-text row">
                 {{i?.ItemNumber}}
               </ion-col>
             </ion-row>
-            <ion-row>
-              <ion-col>AQTY</ion-col>
-              <ion-col class="bold-text">{{i?.AQTY}}</ion-col>
-              <ion-col>HQTY</ion-col>
-              <ion-col class="bold-text">{{i?.HQTY}}</ion-col>
+
+            <!-- 2 col -->
+            <!-- <ion-row>
+              <ion-col size="6">AQTY &nbsp; <ion-text class="bold ">{{i?.AQTY  / i?.UOMQty}}</ion-text></ion-col>
+              <ion-col size="6">HQTY &nbsp; <ion-text class="bold ">{{i?.HQTY  / i?.UOMQty}}</ion-text></ion-col>
             </ion-row>
             <ion-row>
-              <ion-col size="6">TQOH<div class="bold mt-5">{{i?.TQOH}} / {{i?.TQOH}}</div></ion-col>
-              <ion-col size="6">EXP*<div class="bold mt-5">{{i?.EXP}}</div></ion-col>
+              <ion-col size="6">TQOH &nbsp; <ion-text class="bold ">{{i?.TQOH  / i?.UOMQty}} / {{i?.UnitMeasure}}</ion-text></ion-col>
+              <ion-col size="6">EXP &nbsp; <ion-text class="bold ">{{i?.EXP}}</ion-text></ion-col>
+            </ion-row> -->
+
+
+            <!-- 4 col -->
+            <ion-row>
+              <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">AQTY</ion-col>
+              <ion-col size="4" size-md="4"><ion-text class="bold mb-1">{{i?.AQTY  / i?.UOMQty}}</ion-text></ion-col>
+
+              <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">HQTY</ion-col>
+              <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.HQTY  / i?.UOMQty}}</ion-text></ion-col>
             </ion-row>
+
+            <ion-row>
+              <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">TQOH</ion-col>
+              <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.TQOH  / i?.UOMQty}} / {{i?.UnitMeasure}}</ion-text></ion-col>
+
+              <ion-col size="2" size-md="2"  style="word-wrap: normal;margin-top: 1px;">EXP</ion-col>
+              <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.EXP}}</ion-text></ion-col>
+            </ion-row>
+
             <ion-row>
               <ion-col size="12">BRN #<div class="bold mt-5">{{i?.BRN}}</div></ion-col>
             </ion-row>
-          </ion-grid>
-        </ion-card-content>
+          <!-- </ion-grid> -->
+        <!-- </ion-card-content> -->
         
         <!-- <ion-toolbar> -->
         

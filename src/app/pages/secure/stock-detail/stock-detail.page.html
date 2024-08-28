@@ -6,7 +6,7 @@
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-back-button defaultHref="/home2"></ion-back-button>
+            <ion-back-button defaultHref="/stock-lookup"></ion-back-button>
           </ion-buttons>
           <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
@@ -127,9 +127,9 @@
   </ng-template>
 </ion-modal>
 
-<ion-content>
+<ion-content #pageTop>
 
-  <div class="ion-padding">
+  <div class="ion-padding" id="scrollTop">
 
     <ion-list-header>
       <ion-toolbar>
@@ -142,85 +142,154 @@
       </ion-toolbar>
     </ion-list-header>
 
-    <ion-toolbar>
-      <ion-label class="borderLeft" color="dark" style="font-weight: bolder;">{{data?.ItemName}}</ion-label>
-    </ion-toolbar>
+    <ion-list-header style="padding-top: 10px;">
+      <ion-toolbar>
+        <ion-label class="borderLeft" color="dark" style="font-weight: bolder;">{{data?.ItemName}}</ion-label>
+      </ion-toolbar>
+    </ion-list-header>
 
 
     <ion-card>
       <ion-row>
         <ion-col size="12">Item Number <br />
-          <div class="bold mt-5">{{data?.ItemNumber}}</div>
+          <div class="bold mt-5" style="font-size: 20px;">{{data?.ItemNumber}}</div>
         </ion-col>
         <ion-col size="6">Barcode <br />
-          <div class="bold mt-5">{{data?.Barcode}}</div>
+          <div class="bold mt-5" style="font-size: 20px;">{{data?.Barcode}}</div>
         </ion-col>
         <ion-col size="6">TQOH <br />
-          <div class="bold mt-5">{{data?.Articles.length}}</div>
+          <div class="bold mt-5" style="font-size: 20px;">{{tqoh / data?.UOMQty }} / {{data?.UnitMeasure}}</div>
         </ion-col>
       </ion-row>
     </ion-card>
 
 
     <div *ngFor="let i of data?.Articles;let index=index" >
-      <ion-card>
-        <ion-row>
+      <ion-card *ngIf="batchId == ''">
+
+        <!-- comment 15/08 -->
+
+        <!-- <ion-row>
           <ion-col size="7" class="bold mt-5"> Article Page: {{numbering + (index+1)}}</ion-col>
-          <ion-col size="6">AQTY &nbsp; <ion-text class="bold ">{{i.AQTY}}</ion-text></ion-col>
-          <ion-col size="6">HQTY &nbsp; <ion-text class="bold">{{i.HQTY}}</ion-text></ion-col>
+          <ion-col size="6">AQTY &nbsp; <ion-text class="bold ">{{i?.AQTY / data?.UOMQty}}</ion-text></ion-col>
+          <ion-col size="6">HQTY &nbsp; <ion-text class="bold">{{i?.HQTY  / data?.UOMQty}}</ion-text></ion-col>
         </ion-row>
         <ion-row>
-          <ion-col size="6">LOT# &nbsp; <ion-text class="bold ">{{i.LotNumber}}</ion-text></ion-col>
-          <ion-col size="6">EXP* &nbsp; <ion-text class="bold ">{{i.EXP}}</ion-text></ion-col>
+          <ion-col size="6">LOT# &nbsp; <ion-text class="bold ">{{i?.LotNumber}}</ion-text></ion-col>
+          <ion-col size="6">EXP &nbsp; <ion-text class="bold ">{{i?.EXP}}</ion-text></ion-col>
         </ion-row>
-  
         <ion-row>
-          <ion-col size="6">BIN* &nbsp; <ion-text class="bold " style="padding-left: 5px;">{{i.BIN}}</ion-text></ion-col>
-        </ion-row>
-  
-        <ion-row>
-          <ion-col size="12">LOCATION<br />
-            <div class="bold mt-5">{{i.LocationCode}}</div>
+          <ion-col size="6">BIN &nbsp; <ion-text class="bold " style="text-transform: uppercase;">{{i?.BIN}}</ion-text></ion-col>
+          <ion-col size="6">LOCATION<br />
+            <div class="bold mt-5" style="text-transform: uppercase;">{{i?.LocationCode}}</div>
           </ion-col>
         </ion-row>
   
         <ion-row>
+          <ion-col size="12">BRN #<br />
+            <div class="bold mt-5" style="text-transform: uppercase;">{{i?.BRN}}</div>
+          </ion-col>
+        </ion-row> -->
+
+
+        <!-- comment 15/08 -->
+         
+        <ion-row>
+          <ion-col size="7" class="bold mt-5"> Article Page: {{numbering + (index+1)}}</ion-col>         
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">AQTY</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.AQTY  / data?.UOMQty}}</ion-text></ion-col>
+
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">HQTY</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.HQTY  / data?.UOMQty}}</ion-text></ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">LOT#</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.LotNumber}}</ion-text></ion-col>
+
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">EXP</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.EXP}}</ion-text></ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">BIN</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold " style="text-transform: uppercase;">{{i?.BIN}}</ion-text></ion-col>
+
+          <!-- <ion-col size="6">LOCATION<br />
+            <div class="bold mt-5" style="text-transform: uppercase;">{{i?.LocationCode}}</div>
+          </ion-col> -->
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">LOCATION<br />
+            <div class="bold mt-5" style="text-transform: uppercase;">{{i?.LocationCode}}</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">BRN #<br />
+            <div class="bold mt-5" style="text-transform: uppercase;">{{i?.BRN}}</div>
+          </ion-col>
+        </ion-row>
+
+
+
+  
+        <!-- <ion-row>
           <ion-col size="6">BRN #<br />
-            <div class="bold mt-5">{{i.BRN}}</div>
+            <div class="bold mt-5">{{i?.BRN}}</div>
+          </ion-col>
+        </ion-row> -->
+  
+      </ion-card>
+      <ion-card *ngIf="batchId != '' && i?.BRN.toLowerCase() == batchId.toLowerCase()">
+        <ion-row>
+          <ion-col size="7" class="bold mt-5"> Article Page: {{numbering + (index+1)}}</ion-col>         
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">AQTY</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.AQTY  / data?.UOMQty}}</ion-text></ion-col>
+
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">HQTY</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.HQTY  / data?.UOMQty}}</ion-text></ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">LOT#</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.LotNumber}}</ion-text></ion-col>
+
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">EXP</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold ">{{i?.EXP}}</ion-text></ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="2" size-md="2" style="word-wrap: normal;margin-top: 1px;">BIN</ion-col>
+          <ion-col size="4" size-md="4"><ion-text class="bold " style="text-transform: uppercase;">{{i?.BIN}}</ion-text></ion-col>
+
+          <!-- <ion-col size="6">LOCATION<br />
+            <div class="bold mt-5" style="text-transform: uppercase;">{{i?.LocationCode}}</div>
+          </ion-col> -->
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">LOCATION<br />
+            <div class="bold mt-5" style="text-transform: uppercase;">{{i?.LocationCode}}</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">BRN #<br />
+            <div class="bold mt-5" style="text-transform: uppercase;">{{i?.BRN}}</div>
           </ion-col>
         </ion-row>
   
       </ion-card>
-    </div>
-    
+    </div>    
 
-    <!-- <ion-card>
-      <ion-row>
-        <ion-col size="7" class="bold mt-5"> Article Page: 02</ion-col>
-        <ion-col size="6">AQTY &nbsp; <ion-text class="bold "> 0</ion-text></ion-col>
-        <ion-col size="6">HQTY &nbsp; <ion-text class="bold"> 10</ion-text></ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="6">LOT# &nbsp; <ion-text class="bold ">10</ion-text></ion-col>
-        <ion-col size="6">EXP* &nbsp; <ion-text class="bold" style="padding-left: 5px;">8/5/2022</ion-text></ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col size="6">BIN* &nbsp; <ion-text class="bold " style="padding-left: 5px;">R-900</ion-text></ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col size="12">LOCATION<br />
-          <div class="bold mt-5">WAREHOUSE-JASMAIN</div>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col size="6">BRN #<br />
-          <div class="bold mt-5">BRN45123</div>
-        </ion-col>
-      </ion-row>
-    </ion-card> -->
 
 </div>
 </ion-content>
@@ -230,7 +299,8 @@
   <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()"> <ion-icon name="scan"
     style="margin-right: 10px;"></ion-icon> Scan Again</ion-button>
   <ion-button mode="md" style="width: 49%;" class="btn btn-dark" (click)="next()">More Details</ion-button>
-  <ion-button mode="md" style="width: 100%;margin-right: 2%; margin-top: 2%;" (disabled)="data?.IsBatchTracked != true" (click)="findArticle()" class="btn btn-white pt-2">Find Article</ion-button>
+  <ion-button mode="md" style="width: 49%;margin-right: 2%; margin-top: 2%;" [disabled]="data?.IsBatchTracked == false" (click)="findArticle()" class="btn btn-white pt-2">Find Article</ion-button>
+  <ion-button mode="md" style="width: 49%; margin-top: 2%" class="btn btn-white" (click)="scrollToTop()">Back to Top</ion-button>
 </ion-footer>
 
 

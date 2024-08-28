@@ -12,10 +12,13 @@ import { StockLookupService } from 'src/app/services/stock-lookup.service';
 export class StockMoredetailsPage implements OnInit {
 
   id:any;
+  batchId:any;
   loading:boolean=false;
   data:any;
   numbering:number=0;
   udf = Array.from({ length: 23 }, (_, index) => index + 1);
+  newUdf:any;
+  mappedUDFs:any[]=[];
   
   constructor(
     private router: Router,
@@ -25,16 +28,32 @@ export class StockMoredetailsPage implements OnInit {
     private alertController: AlertController,
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const loading = await this.loadingController.create({
+      cssClass: 'default-loading',
+      message: '<p>Loading</p><span>Please wait...</span>',
+      spinner: 'crescent'
+    });
+    await loading.present();
+
+    
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
+      this.batchId = params.get('batchId');
       console.log(this.id); // Now you have access to the ID parameter
     });
     this.search();
+    setTimeout(async () => {
+      loading.dismiss();
+    }, 3000);
+    // this.mapUdf();
+    
+    
+    // console.log(mappedUDFs);Details
   } 
 
   home(){
-    this.router.navigate(['/stock-detail',this.id]);
+    this.router.navigate(['/stock-detail',this.id,this.batchId]);
   } 
 
   home2(){
@@ -43,6 +62,55 @@ export class StockMoredetailsPage implements OnInit {
 
   signin(){
     this.router.navigate(['/signin'])
+  }
+
+  
+
+  callUdfConfig(){
+    this.stockLookupService.udfConfig().subscribe({
+      next: async (resp) => {
+        
+        this.newUdf = resp.d.results;
+        this.mappedUDFs = this.mapUDFs(this.data.Details[0], this.newUdf);
+
+          console.log("mappedUDFs =",this.mappedUDFs);
+
+      }, error: (error) => {
+        this.loading = false;
+        
+      }
+    })
+  }
+
+  normalizeUDF(udf) {
+    return udf.toUpperCase().replace(/^UDF0?/, 'UDF');
+  }
+  
+ 
+  mapUDFs(details, config) {
+    console.log(" details =",details);
+    // return config.map(cfg => {
+    //   const value = details[0][cfg.UDF] || ""; // Extract the value from details using the UDF key
+    //   return {
+    //     Label: cfg.Label,
+    //     Value: value,
+    //     IsVisible: cfg.IsVisible
+    //   };
+    // });
+
+    return config.map((udfConfigItem) => {
+      const normalizedUDF = this.normalizeUDF(udfConfigItem.UDF);
+      console.log(" normalizedUDF ="+normalizedUDF);
+      console.log("details[normalizedUDF] ="+details[normalizedUDF]);
+      const value = details[normalizedUDF] || "";
+      return {
+        Label: udfConfigItem.Label,
+        Value: value,
+        IsVisible: udfConfigItem.IsVisible
+      };
+    });
+
+    
   }
 
   async signout(){
@@ -66,24 +134,20 @@ export class StockMoredetailsPage implements OnInit {
   }
 
   search(){
-    this.loading = true;
   
       this.stockLookupService.product(this.id).subscribe({
         next: (resp) => {
           this.loading = false;
    
           this.data = resp;
-  
-          // setTimeout(async () => {
-            // this.router.navigate(['/stock-batchscanner',this.id]);
-          //   loading.dismiss();
-          // }, 2000);
+          console.log(this.data.Details);
+          
+          this.callUdfConfig();
+          
           
   
         }, error: (error) => {
-          this.loading = false;
           this.presentAlert(error.statusMessage, "error")
-          this.loading = false;
         }
       })
   

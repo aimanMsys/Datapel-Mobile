@@ -73,6 +73,7 @@ ion-fab-button {
   }
 
 
+
  
  .fab-horizontal-center {
     margin-left: unset;
@@ -117,24 +118,37 @@ ion-col{
     margin-inline: 0px;
 }
 
+
 ion-card{
     color: #000;
-
+    margin: 0px;
+    margin-bottom: 20px;
+    
     ion-card-title{
         font-size: 1.4rem;
         font-weight: bold; 
-        font-family: Lato, sans-serif;
     }
 
     ion-button{
         // font-size: 1.8rem;
+        --background:  #4471ee;
         font-weight: bold;
-        color:#4471ee;
+        color:#fff;
         float: right;
         align-self: center;
+        border-radius: 16px;;
     }
 
-}
+    // ion-button {    
+    //     --background:  #4471ee;
+    //     --border-radius: 15px;
+    //     --color:white;
+    //   }
+    
+    padding: 10px;
+    border-radius: 10px;
+    --background:#e9f1fe;
+  }
 
 
 ion-toolbar {

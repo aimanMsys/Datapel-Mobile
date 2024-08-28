@@ -18,7 +18,7 @@
 
 
         <activity
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+          android:configChanges="orientation|keyboardHidden|screenSize"
             android:name="io.ionic.starter.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBarLaunch"
@@ -42,7 +42,7 @@
             android:resource="@xml/file_paths" />
           <meta-data android:name="com.google.ml-kit.vision.DEPENDENCIES" android:value="barcode_ui"/>
         </provider>
-    </application> 
+    </application>
 
 
 
@@ -52,6 +52,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
   <!-- To get access to the flashlight. -->
   <uses-permission android:name="android.permission.FLASHLIGHT"/>
 </manifest>

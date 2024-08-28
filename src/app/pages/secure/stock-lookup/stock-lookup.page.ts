@@ -20,6 +20,7 @@ export class StockLookupPage implements OnInit {
   barcodes: Barcode[] = [];
   barcode:any="";
   loading:boolean=false;
+  product:any;
  
 
   constructor( 
@@ -55,7 +56,7 @@ export class StockLookupPage implements OnInit {
     this.barcodes.push(...barcodes);
     this.barcode = barcodes[0].rawValue;
 
-    this.search2();
+    this.scanBarcode();
   }
 
   async requestPermissions(): Promise<boolean> {
@@ -142,6 +143,55 @@ export class StockLookupPage implements OnInit {
         // }, 2000);
         
 
+      }, error: (error) => {
+        this.loading = false;
+          loading.dismiss();
+          this.presentAlert2('System Alert ', 'The item barcode or number was not found.');
+          return; // Exit the function early if the barcode is incorrect
+        
+      }
+    })
+
+    
+  
+  }
+
+  async scanBarcode(): Promise<void> {
+
+    const loading = await this.loadingController.create({
+      cssClass: 'default-loading',
+      message: '<p>Searching for item </p><span>Please wait...</span> ',
+      spinner: 'crescent'
+    });
+    await loading.present();
+
+    this.stockLookupService.getProductUid(this.barcode).subscribe({
+      next: (resp) => {
+
+        if(resp.d.results != null && resp.d.results.length != 0){
+          this.product  = resp.d.results[0];
+          this.stockLookupService.product(this.product.ItemUid).subscribe({
+            next: (response) => {
+              loading.dismiss();
+              this.router.navigate(['/stock-detail',response.ProductUid,""]);
+              
+      
+            }, error: (error) => {
+                loading.dismiss();
+                this.presentAlert2('System Alert ', 'The item barcode or number was not found.');
+                return; // Exit the function early if the barcode is incorrect
+              
+            }
+          })
+          
+        } else {
+          loading.dismiss();
+          this.presentAlert2('System Alert ', 'The item barcode or number was not found.');
+          return; // Exit the function early if the barcode is incorrect
+        }
+
+        
+         
       }, error: (error) => {
         this.loading = false;
           loading.dismiss();

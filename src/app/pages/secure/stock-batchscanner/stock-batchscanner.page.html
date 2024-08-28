@@ -116,7 +116,7 @@
       <ion-row>
         <ion-col size="12">Item Number <br/> <div class="bold mt-5">{{data?.ItemNumber}}</div></ion-col>
         <ion-col size="6">Barcode <br/> <div class="bold mt-5">{{data?.Barcode}}</div></ion-col>
-        <ion-col size="6">TQOH <br/> <div class="bold mt-5">{{data?.Articles.length}}</div></ion-col>
+        <ion-col size="6">TQOH <br/> <div class="bold mt-5">{{tqoh / data?.UOMQty}} / {{data?.UnitMeasure}}</div></ion-col>
       </ion-row>
     </ion-card>
     <ion-label class="center-label" style="color: grey;">Article Batch Serial Tracked</ion-label>    </div>
@@ -149,7 +149,7 @@
 <ion-footer class="ion-no-border">
   <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn"  (click)="scan()" > <ion-icon name="scan" style="margin-right: 10px;"></ion-icon>Scan</ion-button>
   <!--<ion-buttons mode="md" class="item1" (click)="nextPage()" style="margin-top: 10px;">More Details</ion-buttons> -->
-  <ion-button mode="md" style="width: 49%;" class="btn btn-dark"  (click)="  stockmore()">Continue</ion-button>
+  <ion-button mode="md" style="width: 49%;" class="btn btn-dark"  (click)="batchScanner()">Continue</ion-button>
 </ion-footer>
 
 

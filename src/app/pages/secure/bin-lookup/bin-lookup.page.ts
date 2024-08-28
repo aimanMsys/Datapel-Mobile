@@ -19,6 +19,10 @@ export class BinLookupPage implements OnInit {
   binDetail:any;
   locationList:any[]=[];
   location:any;
+  
+  currentPage: number;
+  pageSize: number;
+  data: any[];
 
   constructor(
     private loadingController: LoadingController,
@@ -49,12 +53,31 @@ export class BinLookupPage implements OnInit {
     //       // "bin": JSON.stringify(this.users[i])
     //   }
     // };
+    
+    this.currentPage = 0;
+    this.pageSize = 7;
+    this.data = [];
+    
     this.getLocationList();
-
+    // this.callUdfConfig();
+    
    
   }
 
- 
+  get paginatedList() {
+    const start = this.currentPage * this.pageSize;
+    const end = start + this.pageSize;
+    return this.locationList.slice(start, end);
+  }
+
+  get totalPageCount() {
+    return Math.ceil(this.locationList.length / this.pageSize);
+  }
+
+  
+  numberOfPages(list:any) {
+    return Math.ceil(list.length/this.pageSize);                
+  }
 
 
   nextPage(locationCode:any){
@@ -127,6 +150,7 @@ export class BinLookupPage implements OnInit {
     this.binLookupService.getLocationList(this.barcode).subscribe({
       next: (resp) => {
         this.locationList = resp.d.results;
+        this.numberOfPages(this.locationList);
         loading.dismiss();
 
       }, error: async (error) => {
