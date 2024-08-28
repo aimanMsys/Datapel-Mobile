@@ -27,7 +27,7 @@ const routes: Routes = [
     loadChildren: () => import('./stock-lookup/stock-lookup.module').then( m => m.StockLookupPageModule)
   },
   {
-    path: 'stock-detail/:id',
+    path: 'stock-detail/:id/:batchId',
     loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
   },
   {
@@ -51,7 +51,7 @@ const routes: Routes = [
     loadChildren: () => import('./stock-lookup/stock-lookup.module').then( m => m.StockLookupPageModule)
   },
   {
-    path: 'stock-moredetails/:id',
+    path: 'stock-moredetails/:id/:batchId',
     loadChildren: () => import('./stock-moredetails/stock-moredetails.module').then( m => m.StockMoredetailsPageModule)
   },
   {

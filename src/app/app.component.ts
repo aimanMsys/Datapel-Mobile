@@ -5,6 +5,8 @@ import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth/auth.service';
+import { Device } from '@capacitor/device';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +15,13 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
+  deviceId:string;
+
   constructor(
     private platform: Platform,
     private loadingController: LoadingController,
     private router: Router,
+    private authService: AuthService,
   ) {
     this.initializeApp();
   }
@@ -26,7 +31,7 @@ export class AppComponent {
 
     // Wait until platform is ready
     this.platform.ready().then(async () => {
-
+      this.logDeviceInfo();
       // If we're on a mobile platform (iOS / Android), not web
       if (Capacitor.getPlatform() !== 'web') {
 
@@ -47,6 +52,12 @@ export class AppComponent {
     });
   }
 
+  async logDeviceInfo() {
+    // const info = await Device.getInfo();
+    // console.log(info);
+    this.deviceId = (await Device.getId()).identifier;
+  };
+
   async signout(){
     const loading = await this.loadingController.create({
       cssClass: 'default-loading',
@@ -55,18 +66,32 @@ export class AppComponent {
     });
     await loading.present();
 
-    localStorage.removeItem("user");
-    localStorage.removeItem("mobility");
+    this.authService.sessionLogout(this.deviceId).subscribe({
+      next: (session) => {
+        
+        localStorage.removeItem("user");
+        localStorage.removeItem("mobility");
+        console.log('session:', session);
+         // Fake timeout
+        setTimeout(async () => {
+
+          // Sign in success
+          await this.router.navigate(['/signin']);
+          loading.dismiss();
+        }, 4000);
+        
+      },
+      error: (error) => {
+        loading.dismiss();
+        console.error('Error during mobility logout:',error);
+        localStorage.removeItem("user");
+      }
+    });
+
 
     // TODO: Add your sign in logic
     // ...
 
-    // Fake timeout
-    setTimeout(async () => {
-
-      // Sign in success
-      await this.router.navigate(['/signin']);
-      loading.dismiss();
-    }, 4000);
+   
   }
 }

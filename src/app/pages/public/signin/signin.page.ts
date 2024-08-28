@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AlertController,LoadingController } from '@ionic/angular';
 import { HttpHeaders } from '@angular/common/http';
+import { Device } from '@capacitor/device';
 
 @Component({
   selector: 'app-signin',
@@ -17,6 +18,9 @@ export class SigninPage implements OnInit {
   current_year: number = new Date().getFullYear();
   loading:boolean=false;
   user:any;
+  email:string="";
+  deviceId:string="";
+
 
   signin_form: FormGroup = new FormGroup({
     username: new FormControl(null, {
@@ -41,7 +45,8 @@ export class SigninPage implements OnInit {
 
   ngOnInit() {
     
-
+    this.email = localStorage.getItem('email');
+    // console.log(this.email);
     // Setup form
     this.signin_form = this.formBuilder.group({
       username: ['', Validators.compose([ Validators.required])],
@@ -50,8 +55,9 @@ export class SigninPage implements OnInit {
 
     // DEBUG: Prefill inputs
     // this.signin_form.get('username').setValue('datapel@mobilityapi.com');
-    this.signin_form.get('username').setValue('');
+    this.signin_form.get('username').setValue(this.email);
     this.signin_form.get('password').setValue('');
+    this.logDeviceInfo();
   }
 
   // Sign in
@@ -87,9 +93,15 @@ export class SigninPage implements OnInit {
     }
   }
 
+  async logDeviceInfo() {
+    // const info = await Device.getInfo();
+    // console.log(info);
+    this.deviceId = (await Device.getId()).identifier;
+  };
+
   async submit() {
     this.loading = true;
-    console.log("this.signin_form.value.username ",this.signin_form.value.username)
+    // console.log("this.signin_form.value.username ",this.signin_form.value.username)
     let param = {
       username: this.signin_form.value.username,
       password: this.signin_form.value.password
@@ -108,25 +120,57 @@ export class SigninPage implements OnInit {
       next: (resp) => {
         this.loading = false;
         localStorage.setItem("user", JSON.stringify(resp));
-        console.log("Token response:",  JSON.stringify(resp));
+        // console.log("Token response:",  JSON.stringify(resp));
     
         // Now initiate the mobility login
         this.authService.loginMobility(param).subscribe({
           next: (mobilityResp) => {
-            console.log("1 ="+JSON.stringify(mobilityResp));
+            // console.log("1 ="+JSON.stringify(mobilityResp));
             loading.dismiss();
-            console.log('mobilityResp',JSON.stringify(mobilityResp));
+            // console.log('mobilityResp',JSON.stringify(mobilityResp));
             localStorage.setItem("mobility", JSON.stringify(mobilityResp));
-            console.log('Mobility login successful:', mobilityResp);
-            this.router.navigate(['/two-factor-verification']);
+            localStorage.setItem("email", this.signin_form.value.username);
+            // let devideId = "device_id_1";
 
-            // if (mobilityResp) {
-             
-            // } else {
-            //   console.error('Mobility login failed:', mobilityResp);
-            //   localStorage.removeItem("user");
-            //   this.presentAlert('Login failed', "error 1");  // Adjust the message as needed
-            // }
+            // Now initiate the mobility login
+            this.authService.sessionLogin(this.deviceId).subscribe({
+              next: (session) => {
+                if(session.status == "success"){
+                  // console.log("1 ="+JSON.stringify(mobilityResp));
+                  loading.dismiss();
+                  // console.log('mobilityResp',JSON.stringify(mobilityResp));
+                  localStorage.setItem("mobility", JSON.stringify(mobilityResp));
+                  localStorage.setItem("email", this.signin_form.value.username);
+                  // console.log('Mobility login successful:', mobilityResp);
+                  this.router.navigate(['/two-factor-verification']);
+                } else {
+                  loading.dismiss();
+                  let msg = "";
+                  if(session.status == "failed"){
+                    msg = `You’re already logged in on another device. Please log out from that device to continue.`
+                  } else {
+                    msg = session.status;
+                  }
+                    
+                  this.presentAlert(session.status,msg);
+                }
+
+                
+                
+              },
+              error: (error) => {
+                loading.dismiss();
+                this.loading = false;
+                console.error('Error during mobility login:',error);
+                localStorage.removeItem("user");
+                // this.presentAlert(error.statusMessage || 'Unknown error during mobility login - '+JSON.stringify(error), "error 2");
+                // this.presentAlert("Login Failed", "Authorization failed");
+              }
+            });
+
+            // // console.log('Mobility login successful:', mobilityResp);
+            // this.router.navigate(['/two-factor-verification']);
+
           },
           error: (error) => {
             loading.dismiss();
@@ -134,7 +178,7 @@ export class SigninPage implements OnInit {
             console.error('Error during mobility login:'+ error);
             localStorage.removeItem("user");
             // this.presentAlert(error.statusMessage || 'Unknown error during mobility login - '+JSON.stringify(error), "error 2");
-            this.presentAlert("Login Failed", "Authorization failed");
+            // this.presentAlert("Login Failed", "Authorization failed");
           }
         });
     
@@ -218,11 +262,15 @@ export class SigninPage implements OnInit {
 
   async presentAlert(headerText:string,message:string): Promise<void> {
     const alert = await this.alertController.create({
-      header: headerText,
-      message: message,
+      header: this.capitalizeFirstLetter(headerText),
+      message: this.capitalizeFirstLetter(message),
       buttons: ['OK'],
     });
     await alert.present();
   }
+
+  capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 }

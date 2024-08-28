@@ -7,7 +7,7 @@ import { SecureRoutingModule } from './secure-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    SecureRoutingModule
+    SecureRoutingModule,
   ]
 })
 export class SecureModule { }

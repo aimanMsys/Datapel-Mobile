@@ -158,8 +158,37 @@ export class AuthService {
       );
   }
 
-  
-       
+  sessionLogin(deviceId: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'scope': 'mobility-user',
+    });
+
+    const body = `"${deviceId}"`;
+
+    return this.httpClient.post(`${this.APIURL}/api.datapel/v2.0/mobility/login`, body, { headers })
+      .pipe(
+        catchError((err) => {
+          return this.handleError(err);
+        })
+      );
+  }
+
+  sessionLogout(deviceId: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'scope': 'mobility-user',
+    });
+
+    const body = `"${deviceId}"`;
+
+    return this.httpClient.post(`${this.APIURL}/api.datapel/v2.0/mobility/logout`, body, { headers })
+      .pipe(
+        catchError((err) => {
+          return this.handleError(err);
+        })
+      );
+  }
 
   private handleError(error: any): Observable<any> {
     return throwError(error);
