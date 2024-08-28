@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastService } from 'src/app/services/toast/toast.service';
 import { Router } from '@angular/router';
 @Component({
@@ -13,13 +13,13 @@ export class TwoFactorVerificationPage implements OnInit {
 
   current_year: number = new Date().getFullYear();
 
-  verify_form: FormGroup;
+  verify_form: UntypedFormGroup;
   submit_attempt: boolean = false;
   loading:boolean=false;
   userName:any;
 
-  form: FormGroup = new FormGroup({
-    code: new FormControl(null, {
+  form: UntypedFormGroup = new UntypedFormGroup({
+    code: new UntypedFormControl(null, {
       updateOn: 'change',
       validators: [Validators.required]
     })
@@ -28,7 +28,7 @@ export class TwoFactorVerificationPage implements OnInit {
   constructor(
     private authService: AuthService,
     private loadingController: LoadingController,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastService: ToastService,
     private router: Router,    
     private alertController: AlertController

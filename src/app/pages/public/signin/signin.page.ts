@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastService } from 'src/app/services/toast/toast.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -22,12 +22,12 @@ export class SigninPage implements OnInit {
   deviceId:string="";
 
 
-  signin_form: FormGroup = new FormGroup({
-    username: new FormControl(null, {
+  signin_form: UntypedFormGroup = new UntypedFormGroup({
+    username: new UntypedFormControl(null, {
       updateOn: 'change',
       validators: [Validators.required]
     }),
-    password: new FormControl(null, {
+    password: new UntypedFormControl(null, {
       updateOn: 'change',
       validators: [Validators.required]
     })
@@ -37,7 +37,7 @@ export class SigninPage implements OnInit {
   constructor(
     private authService: AuthService,
     private loadingController: LoadingController,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastService: ToastService,
     private router: Router,
     private alertController: AlertController
