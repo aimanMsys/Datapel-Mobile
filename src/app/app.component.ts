@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { Capacitor } from '@capacitor/core';
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
 import { Device } from '@capacitor/device';
+import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
+import { Keepalive } from '@ng-idle/keepalive';
 
 @Component({
   selector: 'app-root',
@@ -17,13 +19,64 @@ export class AppComponent {
 
   deviceId:string;
 
+  idleState = 'Not started.';
+  timedOut = false;
+  lastPing?: Date = null;
+  title = 'angular-idle-timeout';
+
   constructor(
     private platform: Platform,
     private loadingController: LoadingController,
     private router: Router,
     private authService: AuthService,
+    private idle: Idle, 
+    private keepalive: Keepalive,
+    private alertController:AlertController
   ) {
     this.initializeApp();
+    idle.setIdle(5);
+    // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
+    idle.setTimeout(5);
+    // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
+    idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
+
+    idle.onIdleEnd.subscribe(() => { 
+      this.idleState = 'No longer idle.'
+      console.log(this.idleState);
+      this.reset();
+    });
+    
+    idle.onTimeout.subscribe(() => {
+      this.idleState = 'Timed out!';
+      this.timedOut = true;
+      console.log(this.idleState);
+      this.router.navigate(['/']);
+    });
+    
+    idle.onIdleStart.subscribe(() => {
+        this.idleState = 'You\'ve gone idle!'
+        console.log(this.idleState);
+        // this.childModal.show();
+        this.presentAlert("timeOut","msg");
+    });
+    
+    idle.onTimeoutWarning.subscribe((countdown) => {
+      this.idleState = 'You will time out in ' + countdown + ' seconds!'
+      console.log(this.idleState);
+    });
+
+    // sets the ping interval to 15 seconds
+    keepalive.interval(15);
+
+    keepalive.onPing.subscribe(() => this.lastPing = new Date());
+
+    this.reset();
+  }
+
+  reset() {
+    this.idle.watch();
+    this.idleState = 'Started.';
+    this.timedOut = false;
   }
 
   // Initialize app
@@ -50,6 +103,22 @@ export class AppComponent {
         await SplashScreen.hide();
       }, 2000);
     });
+  }
+
+  async presentAlert(headerText:string,message:string): Promise<void> {
+    const alert = await this.alertController.create({
+      header: headerText,
+      message: message,
+      buttons: [{
+        text: 'OK',
+        handler: () => {
+          alert.dismiss();
+        }
+      }]
+    });
+    await alert.present();
+
+    await alert.onDidDismiss();
   }
 
   async logDeviceInfo() {
