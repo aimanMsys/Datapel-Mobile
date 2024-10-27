@@ -68,6 +68,17 @@ export class TwoFactorVerificationPage implements OnInit {
     this.authService.authenticate(this.userName,code).subscribe({
       next: (resp) => {
         console.log("resp",JSON.stringify(resp));
+
+        this.authService.globalConfig().subscribe({
+          next: (resp) => {
+            console.log("resp",JSON.stringify(resp));
+            
+    
+          }, error: (error) => {
+            this.loading = false;
+          }
+        })
+
         // this.loading = false;
         // if (resp.statusCode == null) {
         //   this.user = resp;

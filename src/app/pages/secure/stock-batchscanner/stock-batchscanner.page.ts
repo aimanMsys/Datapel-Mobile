@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
-import {AlertController, LoadingController } from '@ionic/angular';
+import {AlertController, IonInput, LoadingController } from '@ionic/angular';
 import { StockLookupService } from 'src/app/services/stock-lookup.service';
 
 
@@ -11,7 +11,7 @@ import { StockLookupService } from 'src/app/services/stock-lookup.service';
   templateUrl: './stock-batchscanner.page.html',
   styleUrls: ['./stock-batchscanner.page.scss'],
 })
-export class StockBatchscannerPage implements OnInit {
+export class StockBatchscannerPage implements OnInit,OnDestroy {
   id:any;
   loading:boolean=false;
   data:any;
@@ -19,6 +19,7 @@ export class StockBatchscannerPage implements OnInit {
   barcodes: Barcode[] = [];
   barcode:any="";
   tqoh:number=0;
+  @ViewChild('input', { static: true }) input: IonInput;
 
   constructor(
     private router: Router,
@@ -30,7 +31,7 @@ export class StockBatchscannerPage implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.barcode = "";
     if(!BarcodeScanner.isGoogleBarcodeScannerModuleAvailable()){
       BarcodeScanner.installGoogleBarcodeScannerModule();
     }
@@ -44,6 +45,34 @@ export class StockBatchscannerPage implements OnInit {
       console.log(this.id); // Now you have access to the ID parameter
     });
     this.search();
+  }
+
+  ngOnDestroy() {
+    // Unsubscribe from back button event when leaving the component
+    this.barcode = "";
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.input.setFocus();
+    }, 300);
+  }
+
+  // Reset the input value before leaving the component
+  ionViewWillLeave() {
+    this.barcode = "";
+  }
+
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.input.setFocus();
+    }, 300);  // Optional delay if needed
+  }
+
+  ionViewDidEnter() {
+    setTimeout(() => {
+      this.input.setFocus();
+    }, 300);
   }
 
   async scan(): Promise<void> {
@@ -127,7 +156,9 @@ export class StockBatchscannerPage implements OnInit {
         spinner: 'crescent'
       });
       await loading.present();
-    
+      if(this.barcode.startsWith("]E0")){
+        this.barcode = this.barcode.substring(3);
+      }
         this.stockLookupService.getInventoryList(this.barcode,this.data.ProductUid).subscribe({
           next: (resp) => {
             this.loading = false;
@@ -138,6 +169,9 @@ export class StockBatchscannerPage implements OnInit {
             // } else 
             if(resp.d.results.length == 0){
               this.presentAlert("System Alert", "Inventory does not exists");
+              setTimeout(() => {
+                this.input.setFocus();
+              }, 300);
             } else {
 
               this.data = resp.d.results[0];
@@ -147,12 +181,14 @@ export class StockBatchscannerPage implements OnInit {
                   this.loading = false;
            
                   this.data = resp;
-                  this.router.navigate(['/stock-detail',this.data.ProductUid,this.barcode])
+                  this.router.navigate(['/stock-detail',this.data.ProductUid,this.barcode]);
                   
           
                 }, error: (error) => {
                   loading.dismiss(); 
                   this.presentAlert(error.statusMessage, "error");
+                  this.input.setFocus();
+                  return; // Exit the function early if the barcode is incorrect
                 }
               })
               
@@ -160,7 +196,9 @@ export class StockBatchscannerPage implements OnInit {
                 
           }, error: (error) => {
             loading.dismiss(); 
-            this.presentAlert(error.statusMessage, "error")
+            this.presentAlert(error.statusMessage, "error");
+            this.input.setFocus();
+            return; // Exit the function early if the barcode is incorrect
           }
         })
       }
@@ -170,7 +208,18 @@ export class StockBatchscannerPage implements OnInit {
         cssClass: 'custom-alert', // Apply the custom CSS class
         header: header,
         message: message,
-        buttons: ['OK']
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+              setTimeout(() => {
+                this.input.value = "";
+                this.input.setFocus();
+              },300);
+              
+            }
+          }
+        ]
       });
       await alert.present();
     }

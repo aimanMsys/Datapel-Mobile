@@ -129,13 +129,21 @@
       <ion-list class="item-card-list" lines="none">
         <ion-item>
           <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
-          <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" ></ion-input>
+          <!-- <ion-input #input2  (keyup)="transferValue()" [autofocus]="true" style="position: absolute; top: -9999px;" ></ion-input>     -->
+          <!-- <input #input2  (keyup)="transferValue()" style="position: absolute; top: -9999px;" />    -->
+          <ion-input  #input (keyup.enter)="scanBarcode()" placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" [autofocus]="true"></ion-input>       
+          <!-- <ion-input  readonly="true" (keydown)="handleKeyboardInput($event)"  #input (keyup.enter)="scanBarcode()" placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" [autofocus]="true"></ion-input>        -->
         </ion-item>
       </ion-list>
 
     </form>
   
-
+    <!-- <ion-icon (click)="focusInput()" name="keypad-outline"></ion-icon> -->
+    <!-- <ion-fab slot="fixed" (click)="focusInput()"  vertical="bottom" horizontal="end">
+      <ion-fab-button>
+        <ion-icon name="keypad-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab> -->
 </ion-content>
 
 <ion-footer class="ion-padding">

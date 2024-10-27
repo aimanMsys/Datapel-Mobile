@@ -15,6 +15,7 @@ export class WelcomePage implements AfterContentChecked {
 
   language: string = '';
   last_slide: boolean = false;
+  userCache = "";
 
   @ViewChild('swiper') swiper: SwiperComponent;
 
@@ -31,6 +32,14 @@ export class WelcomePage implements AfterContentChecked {
     private ref: ChangeDetectorRef
   ) { }
 
+  ngOnInit() {
+    this.userCache = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') ?? '').access_token : null; 
+
+    if(this.userCache != null){
+      this.router.navigateByUrl('/home2');
+    }
+  }
+
   ngAfterContentChecked(): void {
 
     if (this.swiper) {
@@ -45,7 +54,7 @@ export class WelcomePage implements AfterContentChecked {
 
   // Go to next slide
   nextSlide() {
-    this.swiper.swiperRef.slideNext(500);
+    this.swiper.swiperRef.slideNext(0);
   }
 
   // Last slide trigger

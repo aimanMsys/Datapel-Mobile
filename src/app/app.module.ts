@@ -15,10 +15,26 @@ import { ReactiveFormsModule } from '@angular/forms';
 // NgCharts
 import { NgChartsModule } from 'ng2-charts';
 
+
+
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
+import { HideKeyboardModule } from 'hide-keyboard';
+// import { MomentModule } from 'angular2-moment'; 
+
 @NgModule({
-    declarations: [AppComponent],
-    imports: [BrowserModule, IonicModule.forRoot({ mode: 'ios' }), ReactiveFormsModule, AppRoutingModule, NgChartsModule, HttpClientModule],
-    providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule, 
+    IonicModule.forRoot({ mode: 'ios' }), 
+    ReactiveFormsModule, 
+    AppRoutingModule, 
+    NgChartsModule,
+    HttpClientModule, 
+    NgIdleKeepaliveModule.forRoot(),
+    HideKeyboardModule
+    // MomentModule,
+    ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },{ provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

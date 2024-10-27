@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { Capacitor } from '@capacitor/core';
@@ -9,6 +9,8 @@ import { AuthService } from './services/auth/auth.service';
 import { Device } from '@capacitor/device';
 import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
 import { Keepalive } from '@ng-idle/keepalive';
+import { Keyboard } from '@capacitor/keyboard';
+import { Plugins } from '@capacitor/core';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +25,7 @@ export class AppComponent {
   timedOut = false;
   lastPing?: Date = null;
   title = 'angular-idle-timeout';
+  keyboardVisible: boolean = false; 
 
   constructor(
     private platform: Platform,
@@ -31,46 +34,78 @@ export class AppComponent {
     private authService: AuthService,
     private idle: Idle, 
     private keepalive: Keepalive,
-    private alertController:AlertController
+    private alertController:AlertController,
   ) {
     this.initializeApp();
-    idle.setIdle(5);
-    // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
-    idle.setTimeout(5);
-    // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
-    idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
-
-    idle.onIdleEnd.subscribe(() => { 
-      this.idleState = 'No longer idle.'
-      console.log(this.idleState);
-      this.reset();
-    });
     
-    idle.onTimeout.subscribe(() => {
-      this.idleState = 'Timed out!';
-      this.timedOut = true;
-      console.log(this.idleState);
-      this.router.navigate(['/']);
-    });
+    const { Keyboard } = Plugins;
+    Keyboard.hide();
+    // this.listenToKeyboardEvents();
+
+
+
+    // idle.setIdle(5);
+    // // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
+    // idle.setTimeout(5);
+    // // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
+    // idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
+
+    // idle.onIdleEnd.subscribe(() => { 
+    //   this.idleState = 'No longer idle.'
+    //   console.log(this.idleState);
+    //   this.reset();
+    // });
     
-    idle.onIdleStart.subscribe(() => {
-        this.idleState = 'You\'ve gone idle!'
-        console.log(this.idleState);
-        // this.childModal.show();
-        this.presentAlert("timeOut","msg");
-    });
+    // idle.onTimeout.subscribe(() => {
+    //   this.idleState = 'Timed out!';
+    //   this.timedOut = true;
+    //   console.log(this.idleState);
+    //   this.router.navigate(['/']);
+    // });
     
-    idle.onTimeoutWarning.subscribe((countdown) => {
-      this.idleState = 'You will time out in ' + countdown + ' seconds!'
-      console.log(this.idleState);
-    });
+    // idle.onIdleStart.subscribe(() => {
+    //     this.idleState = 'You\'ve gone idle!'
+    //     console.log(this.idleState);
+    //     // this.childModal.show();
+    //     this.presentAlert("timeOut","msg");
+    // });
+    
+    // idle.onTimeoutWarning.subscribe((countdown) => {
+    //   this.idleState = 'You will time out in ' + countdown + ' seconds!'
+    //   console.log(this.idleState);
+    // });
 
-    // sets the ping interval to 15 seconds
-    keepalive.interval(15);
+    // // sets the ping interval to 15 seconds
+    // keepalive.interval(15);
 
-    keepalive.onPing.subscribe(() => this.lastPing = new Date());
+    // keepalive.onPing.subscribe(() => this.lastPing = new Date());
 
-    this.reset();
+    // this.reset();
+  }
+
+  // // Toggle the keyboard based on the ion-toggle state
+  // toggleKeyboard(event: any) {
+  //   if (event.detail.checked) {
+  //     Keyboard.show();  // Show keyboard when toggle is switched on
+  //   } else {
+  //     Keyboard.hide();  // Hide keyboard when toggle is switched off
+  //   }
+  // }
+
+  // // Optional: Track keyboard visibility based on keyboard events
+  // listenToKeyboardEvents() {
+  //   Keyboard.addListener('keyboardDidShow', () => {
+  //     this.keyboardVisible = true;
+  //   });
+
+  //   Keyboard.addListener('keyboardDidHide', () => {
+  //     this.keyboardVisible = false;
+  //   });
+  // }
+
+
+  onToggleKeyboard(event: any) {
+    this.authService.toggleKeyboard(event.detail.checked);
   }
 
   reset() {
@@ -84,6 +119,7 @@ export class AppComponent {
 
     // Wait until platform is ready
     this.platform.ready().then(async () => {
+      
       this.logDeviceInfo();
       // If we're on a mobile platform (iOS / Android), not web
       if (Capacitor.getPlatform() !== 'web') {
@@ -101,7 +137,25 @@ export class AppComponent {
 
         // Hide SplashScreen
         await SplashScreen.hide();
-      }, 2000);
+      }, 0);
+    });
+  }
+
+  @HostListener('focus', ['$event.target'])
+  onFocus() {
+    // Allow the input to be focused, but hide the keyboard
+    setTimeout(() => {
+      Keyboard.hide();  // Hide the keyboard immediately after focus
+    }, 10); // Small delay to ensure focus event completes
+  }
+
+  // Hide keyboard globally on any input blur event
+  hideKeyboardForAllInputs() {
+    const inputs = document.querySelectorAll('input, textarea, ion-input, ion-textarea');
+    inputs.forEach(input => {
+      input.addEventListener('blur', () => {
+        Keyboard.hide(); // Hide keyboard when the input loses focus
+      });
     });
   }
 
@@ -125,6 +179,7 @@ export class AppComponent {
     // const info = await Device.getInfo();
     // console.log(info);
     this.deviceId = (await Device.getId()).identifier;
+    console.log(this.deviceId);
   };
 
   async signout(){
@@ -141,6 +196,8 @@ export class AppComponent {
         localStorage.removeItem("user");
         localStorage.removeItem("mobility");
         console.log('session:', session);
+        
+        this.authService.stopInterval();
          // Fake timeout
         setTimeout(async () => {
 
@@ -163,4 +220,5 @@ export class AppComponent {
 
    
   }
+  
 }

@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 
-import { from as fromPromise,Observable, throwError } from 'rxjs';
+import { BehaviorSubject, from as fromPromise,interval,Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import { ht } from 'date-fns/locale';
+import { Keyboard } from '@capacitor/keyboard';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,23 @@ export class AuthService {
 
   private APIURL = `${environment.apiURL}`;
   private APIURLpublic = `${environment.apiURLpublic}`;
+  heartbeatSubscription: any;
+  private keyboardState = new BehaviorSubject<boolean>(false);
+
+  keyboardState$ = this.keyboardState.asObservable();
 
   constructor(public httpClient: HttpClient) { this.httpClient=httpClient }
 
+
+  toggleKeyboard(visible: boolean) {
+    this.keyboardState.next(visible);
+    if (visible) {
+      Keyboard.show();
+    } else {
+      Keyboard.hide();
+    }
+  }
+  
   // Get user session
   async getSession() {
 
@@ -159,10 +174,10 @@ export class AuthService {
   }
 
   sessionLogin(deviceId: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'scope': 'mobility-user',
-    });
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('scope', 'mobility-user')
+      .set('useMobility',"true");
 
     const body = `"${deviceId}"`;
 
@@ -174,11 +189,116 @@ export class AuthService {
       );
   }
 
-  sessionLogout(deviceId: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'scope': 'mobility-user',
+  transaction(): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('scope', 'mobility-user')
+      .set('useMobility',"true");
+
+      const body= {
+        "NewDataSet": {
+          "tREMOTETransHeader": {
+            "TransID": "",
+            "TransDate": "2024-09-20",
+            "SrcLocation": "WA",
+            "DstLocation": "TRINITY",
+            "Contact": "DECTEC Supplier",
+            "User": "Clarke, Connan",
+            "TransactionType": "TO"
+          },
+          "tREMOTETransLines": [
+            {
+              "Item": "1005",
+              "Quantity": "55",
+              "BRN": "125",
+              "SrcBin": "",
+              "DstBin": ""
+            }
+          ]
+        }
+      };
+      
+
+    return this.httpClient.post(`${this.APIURL}/api.datapel/v2.0/mobility/transaction`,body, { headers })
+      .pipe(
+        catchError((err) => {
+          return this.handleError(err);
+        })
+      );
+  }
+
+  globalConfig(): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('scope', 'mobility-user')
+      .set('useMobility',"true");
+
+      const body= {};
+      
+
+    return this.httpClient.get(`${this.APIURL}/api.datapel/v2.0/mobility/globalconfig`, { headers })
+      .pipe(
+        catchError((err) => {
+          return this.handleError(err);
+        })
+      );
+  }
+
+  sessionHeartbeat(deviceId: string): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('scope', 'mobility-user')
+      .set('useMobility',"true");
+
+    const body = `"${deviceId}"`;
+
+    return this.httpClient.post(`${this.APIURL}/api.datapel/v2.0/mobility/heartbeat`, body, { headers })
+      .pipe(
+        catchError((err) => {
+          return this.handleError(err);
+        })
+      );
+  }
+
+  startInterval(deviceId: string,loading:any){
+    this.heartbeatSubscription = interval(15000).subscribe(() => {
+      console.log("Tst");
+      // this.sessionHeartbeat(deviceId);
+      this.sessionHeartbeat(deviceId).subscribe({
+        next: (session) => {
+          if (session.status == 'success') {
+            // Handle success logic
+          } else {
+            // Handle failure logic
+          }
+        },
+        error: (error) => {
+          loading.dismiss();
+          console.error('sessionHeartbeat', error);
+          localStorage.removeItem('user');
+        },
+      });
     });
+  }
+
+  stopInterval() {
+    if (this.heartbeatSubscription) {
+      this.heartbeatSubscription.unsubscribe();
+      this.heartbeatSubscription = null;
+    }
+  }
+
+  sessionLogout(deviceId: string): Observable<any> {
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'scope': 'mobility-user',
+    //   "useMobility":"true",
+    // });
+
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('scope', 'mobility-user')
+      .set('useMobility',"true");
 
     const body = `"${deviceId}"`;
 

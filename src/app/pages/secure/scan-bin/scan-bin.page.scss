@@ -191,3 +191,16 @@ ion-modal {
   }
 
 }
+
+/* Ensure .exp-value displays inline on very small screens */
+@media (max-width: 320px) {
+  .exp-col {
+    display: flex;
+    align-items: center;
+  }
+
+  .exp-value {
+    display: inline !important;
+    margin-left: 4px;
+  }
+}

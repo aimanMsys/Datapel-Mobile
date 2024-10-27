@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { AlertController,LoadingController } from '@ionic/angular';
 import { HttpHeaders } from '@angular/common/http';
 import { Device } from '@capacitor/device';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-signin',
@@ -33,6 +34,7 @@ export class SigninPage implements OnInit {
     })
   });
   submit_attempt: boolean = false;
+  heartbeatSubscription: any;
 
   constructor(
     private authService: AuthService,
@@ -141,15 +143,20 @@ export class SigninPage implements OnInit {
                   // console.log('mobilityResp',JSON.stringify(mobilityResp));
                   localStorage.setItem("mobility", JSON.stringify(mobilityResp));
                   localStorage.setItem("email", this.signin_form.value.username);
+
+                  this.authService.startInterval(this.deviceId,loading);
+
                   // console.log('Mobility login successful:', mobilityResp);
                   this.router.navigate(['/two-factor-verification']);
                 } else {
                   loading.dismiss();
                   let msg = "";
-                  if(session.status == "failed"){
+                  if(session.status == "failed" && session.message == "session already active in this device."){
+                    msg = `session already active in this device.`;
+                  } else if(session.status == "failed"){
                     msg = `You’re already logged in on another device. Please log out from that device to continue.`
                   } else {
-                    msg = session.status;
+                    msg = session.message;
                   }
                     
                   this.presentAlert(session.status,msg);
@@ -190,6 +197,7 @@ export class SigninPage implements OnInit {
         this.presentAlert(error.statusMessage || 'Unknown error during token retrieval', "error 3");
       }
     });
+    
 
     // this.authService.token(param).subscribe({
     //   next: (resp) => {
