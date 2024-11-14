@@ -26,6 +26,7 @@ export class AppComponent {
   lastPing?: Date = null;
   title = 'angular-idle-timeout';
   keyboardVisible: boolean = false; 
+  isLarge:boolean  = false;
 
   constructor(
     private platform: Platform,

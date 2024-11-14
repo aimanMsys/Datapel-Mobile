@@ -29,7 +29,7 @@
       <ion-list class="item-card-list" lines="none">
         <ion-item>
           <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
-          <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+          <ion-input  #input (keyup.enter)="checkBarcodeInput()" placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" [autofocus]="true"></ion-input>   
         </ion-item>
       </ion-list>
 
@@ -41,8 +41,8 @@
       <ion-col class="bold-text">Destination</ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>Photo-Inwards</ion-col>
-      <ion-col>Photo-Main</ion-col>
+      <ion-col style="color:black">{{transferParam?.source.LocationCode}}</ion-col>
+    <ion-col style="color:black">{{transferParam?.destination.LocationCode}}</ion-col>
     </ion-row>
 
 

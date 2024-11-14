@@ -39,11 +39,23 @@
           <ion-col style="color:gray">Source</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col style="color:black">Photo-Inwards</ion-col>
+          <ion-col style="color:black">{{transferParam?.source.LocationCode}}</ion-col>
         </ion-row>
 
 
     <ion-row>
+      <ion-col size="12" *ngFor="let i of paginatedList">
+
+        <ion-item lines="none" [ngClass]="{'grey-card': i.LocationCode === transferParam?.source.LocationCode, 'yellow-card' : i.LocationCode !== transferParam?.source.LocationCode }"  (click)="transferDestination(i)">
+          <ion-label>
+            <h3>{{i.LocationCode}}</h3>
+          </ion-label>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>    
+
+    <!-- <ion-row>
       <ion-col size="12">
         <ion-item  class="grey-card" (click)="browse()">
           <ion-label>
@@ -84,13 +96,27 @@
           <ion-icon  name="arrow-forward-outline"></ion-icon>
         </ion-item>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
   
 
     
  
 
 </ion-content>
+<ion-footer class="ion-no-border ion-padding">
+  <!-- <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> 
+    <ion-icon name="scan" style="margin-right: 10px;"></ion-icon>Previous
+  </ion-button>
+  <ion-button mode="md" style="width: 49%;" class="btn" [disabled]="barcode == ''" (click)="getProductArticles()">
+    Next
+  </ion-button> -->
+  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="currentPage = currentPage - 1"  [disabled]="currentPage === 0"> 
+    Previous
+  </ion-button>
+  <ion-button mode="md" style="width: 49%;" class="btn" (click)="currentPage = currentPage + 1"  [disabled]="currentPage >= totalPageCount - 1">
+    Next
+  </ion-button>
+</ion-footer>
 
 
  <!--TO DISPLAY MODAL-->

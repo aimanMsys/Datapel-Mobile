@@ -269,13 +269,18 @@ export class AuthService {
           if (session.status == 'success') {
             // Handle success logic
           } else {
+            localStorage.removeItem("user");
+            localStorage.removeItem("mobility");
+            this.sessionLogout(deviceId);
             // Handle failure logic
           }
         },
         error: (error) => {
           loading.dismiss();
           console.error('sessionHeartbeat', error);
-          localStorage.removeItem('user');
+          localStorage.removeItem("user");
+          localStorage.removeItem("mobility");
+          this.sessionLogout(deviceId);
         },
       });
     });

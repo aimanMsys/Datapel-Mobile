@@ -34,25 +34,37 @@
       </div>
 
       <ion-card>
-        <ion-card-header>
+        <!-- <ion-card-header>
           <ion-label class="borderLeftYellow" color="dark" style="font-weight: bolder;font-size: 16px;">Hasselbald 500 C/M</ion-label>
-        </ion-card-header>
+        </ion-card-header> -->
     
         <ion-card-content style="padding-inline: 10px;" class="yellow-card">
           <ion-row>
-            <ion-col size="12" style="color: gray;">Reference<br />
-              <div class="text-dark mt-5">T0-0431-7311r</div>
+            <ion-col size="6" style="color: gray;">Reference<br />
+              <div class="text-dark mt-5">{{transaction?.message}}</div>
             </ion-col>
-            <ion-col size="12" style="color: gray;">Status<br />
-              <div class="text-dark mt-5">Closed</div>
+            <ion-col size="6">
+              <div style="background-color:#90ee90;text-align: center;color:#008000;text-transform: uppercase;">
+                {{transaction?.status}}
+              </div>
+  
             </ion-col>
+            <!-- <ion-col size="12" style="color: gray;">Status<br />
+              <div class="text-dark mt-5">{{transaction?.status}}</div>
+            </ion-col> -->
             
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="bold-text1" style="color: gray;">Source</ion-col>
+            <ion-col class="bold-text1" style="color: gray;">Destination</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color:black">{{transferParam?.source.LocationCode}}</ion-col>
+            <ion-col style="color:black">{{transferParam?.destination.LocationCode}}</ion-col>
           </ion-row>
         </ion-card-content>
       </ion-card>
-      
-        
-     
       
     </div>
     

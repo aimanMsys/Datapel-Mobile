@@ -7,14 +7,17 @@ import { AuthService } from '../services/auth/auth.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { throwError,BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { Device } from '@capacitor/device';
+
 
 @Injectable()
 export class Interceptor implements HttpInterceptor {
 
   private isAlertPresented = new BehaviorSubject<boolean>(false);
+  deviceId: string;
 
-  constructor(private router: Router,private authService:AuthService,private alertController: AlertController) {}
+  constructor(private router: Router,private authService:AuthService,private alertController: AlertController,private loadingController: LoadingController,) {}
   // https://medium.com/@monkov/angular-using-httpinterceptor-for-token-refreshing-3f04ea2ccb81
   intercept(
     request: HttpRequest<any>,
@@ -61,7 +64,7 @@ export class Interceptor implements HttpInterceptor {
           });
         }
 
-        console.log("request ",JSON.stringify(request));
+        // console.log("request ",JSON.stringify(request));
         
       } 
     }
@@ -101,7 +104,11 @@ export class Interceptor implements HttpInterceptor {
             } else {
               // server-side error
               errorMessage = `Error Status: ${error.status} \nMessage: ${error.message}`;
-              this.presentAlert(`Error Status: ${error.status}`, ` ${error.message}`)
+              this.presentAlert(`Error Status: ${error.status}`, ` ${error.message}`);
+              if (error.status === 0) {
+                this.logDeviceInfo();
+                this.signout();
+              }
             }
             console.log(JSON.stringify(errorMessage));
             
@@ -112,6 +119,51 @@ export class Interceptor implements HttpInterceptor {
         })
       )
   }
+
+  async signout(){
+    const loading = await this.loadingController.create({
+      cssClass: 'default-loading',
+      message: '<p>Signing out</p><span>See you again</span>',
+      spinner: 'crescent'
+    });
+    await loading.present();
+
+    this.authService.sessionLogout(this.deviceId).subscribe({
+      next: (session) => {
+        
+        localStorage.removeItem("user");
+        localStorage.removeItem("mobility");
+        console.log('session:', session);
+        
+        this.authService.stopInterval();
+         // Fake timeout
+        setTimeout(async () => {
+
+          // Sign in success
+          await this.router.navigate(['/signin']);
+          loading.dismiss();
+        }, 4000);
+        
+      },
+      error: (error) => {
+        loading.dismiss();
+        console.error('Error during mobility logout:',error);
+        localStorage.removeItem("user");
+      }
+    });
+
+
+    // TODO: Add your sign in logic
+    // ...
+
+   
+  }
+
+  async logDeviceInfo() {
+    // const info = await Device.getInfo();
+    // console.log(info);
+    this.deviceId = (await Device.getId()).identifier;
+  };
    
   async presentAlert(headerText:string,message:string): Promise<void> {
     const alert = await this.alertController.create({

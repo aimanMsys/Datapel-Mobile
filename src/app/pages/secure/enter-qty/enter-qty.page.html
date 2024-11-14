@@ -30,7 +30,8 @@
     <ion-list class="item-card-list" lines="none">
       <ion-item>
         <ion-label color="tertiary" position="stacked">Pick Quantity</ion-label>
-        <ion-input  placeholder="" name="barcode" [(ngModel)]="barcode" ></ion-input>
+        <!-- <ion-input  placeholder="" name="barcode" [(ngModel)]="barcode" ></ion-input> -->
+        <ion-input  #input (keyup.enter)="YesPage()" placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" [autofocus]="true"></ion-input>  
       </ion-item>
     </ion-list>
 
@@ -42,35 +43,35 @@
     </ion-row>
 
     <ion-row>
-      <ion-col style="color:black">Photo-Inwards</ion-col>
-      <ion-col style="color:black">Photo-Main</ion-col>
+      <ion-col style="color:black">{{transferParam?.source.LocationCode}}</ion-col>
+      <ion-col style="color:black">{{transferParam?.destination.LocationCode}}</ion-col>
     </ion-row>
     <br>
 
     <ion-card>
       <ion-card-header>
-        <ion-label class="borderLeftYellow" color="dark" style="font-weight: bolder;font-size: 16px;">FujiFilm X100V</ion-label>
+        <ion-label class="borderLeftYellow" color="dark" style="font-weight: bolder;font-size: 16px;">{{transferParam?.product.ItemName}}</ion-label>
       </ion-card-header>
       <ion-card-content style="padding-inline: 10px;" class="yellow-card">
 
         <ion-row>
           <ion-col size="12" style="color: gray;">Item Number <br />
-            <div class="bold-text mt-5">Camera-01</div>
+            <div class="bold-text mt-5">{{transferParam?.product.ItemNumber}}</div>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col style="color: gray;">
             GTIN
           </ion-col>
-          <ion-col class="bold-text">9352297077571</ion-col>
+          <ion-col class="bold-text">{{transferParam?.product.Details[0].GTIN}}</ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="bold-text" style="color: gray;">BIN</ion-col>
-          <ion-col class="bold-text">R-900</ion-col>
+          <ion-col class="bold-text">{{transferParam?.pickBin.BinName}}</ion-col>
         </ion-row>
         <ion-row>
           <ion-col style="color: gray;">BRN#</ion-col>
-          <ion-col class="bold-text">DEM123</ion-col>
+          <ion-col class="bold-text">{{transferParam?.productArticle.BRN}}</ion-col>
         </ion-row>
     </ion-card-content>
     </ion-card>
@@ -80,7 +81,7 @@
 
 
 <ion-footer class="ion-no-border ion-padding">
-  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="YesPage()"> 
+  <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" [disabled]="barcode == ''" (click)="YesPage()"> 
     Yes
   </ion-button>
   <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="NoPage()">

@@ -15,7 +15,7 @@
 
   <ion-list-header>
     <ion-toolbar>
-      <ion-label class="borderLeftYellow" color="dark" style="text-align: left;">Confirm quantity</ion-label>
+      <ion-label class="borderLeftYellow" color="dark" style="text-align: left;">Confirm Quantity</ion-label>
       <!-- <ion-label color="dark"><span style="color: #fcc38d">|</span> Scanned Products</ion-label> -->
       <ion-buttons slot="end">
         <ion-icon style="color:  #e87100;" name="alert-circle-outline" id="open-modal3"
@@ -41,39 +41,59 @@
   </ion-row>
 
   <ion-row>
-    <ion-col style="color:black">Photo-Inwards</ion-col>
-    <ion-col style="color:black">Photo-Main</ion-col>
+    <ion-col style="color:black">{{transferParam?.source.LocationCode}}</ion-col>
+    <ion-col style="color:black">{{transferParam?.destination.LocationCode}}</ion-col>
   </ion-row>
   <br>
 
   <ion-card>
     <ion-card-header>
-      <ion-label class="borderLeftYellow" color="dark" style="font-weight: bolder;font-size: 16px;">FujiFilm X100V</ion-label>
+      <ion-label class="borderLeftYellow" color="dark" style="font-weight: bolder;font-size: 16px;">{{transferParam?.product.ItemName}}</ion-label>
     </ion-card-header>
     <ion-card-content style="padding-inline: 10px;" class="yellow-card">
 
       <ion-row>
         <ion-col size="12" style="color: gray;">Item Number <br />
-          <div class="bold-text mt-5">Camera-01</div>
+          <div class="bold-text mt-5">{{transferParam?.product.ItemNumber}}</div>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col style="color: gray;">
+        <ion-col size="4" style="color: gray;">
           CTN#
         </ion-col>
-        <ion-col class="bold-text">1</ion-col>
+        <ion-col size="2" class="bold-text">{{ctn}}</ion-col>
+        <ion-col>
+          <ion-button size="small" style="margin-right:2%;" (click)="addCTN()">
+            <ion-icon slot="icon-only" ios="add-outline" md="add-outline"></ion-icon>
+          </ion-button>
+          <ion-button size="small" (click)="substractCTN()">
+            <ion-icon slot="icon-only" ios="remove-outline" md="remove-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col style="color: gray;">BIN</ion-col>
-        <ion-col class="bold-text">R-900</ion-col>
+        <ion-col size="4" style="color: gray;">BIN</ion-col>
+        <ion-col class="bold-text">{{transferParam?.pickBin.BinName}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col size="12" style="color: gray;">BRN<br />
-          <div class="bold-text mt-5">DEM123</div>
+          <div class="bold-text mt-5">{{transferParam?.productArticle.BRN}}</div>
         </ion-col>
       </ion-row>
   </ion-card-content>
   </ion-card>
+
+  <ion-row>
+    <ion-col>
+      <label style="color: black; display: inline-block;">Available<br>Quantity</label>
+      <h1 style="display: inline-block; color: black;"> &nbsp; &nbsp; {{transferParam?.productArticle.AQTY /transferParam?.productArticle.UOMQty }}</h1>
+    </ion-col>
+
+    <ion-col>
+      <label style="color: black; display: inline-block;">Scan<br>Quantity</label>
+      <h1 style="display: inline-block; color: black;"> &nbsp; &nbsp; {{barcode != "" ? barcode : "00"}}</h1>
+    </ion-col>
+  </ion-row>
 
   <ion-modal #modal trigger="open-modal9" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>

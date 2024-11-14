@@ -9,8 +9,11 @@ export const environment = {
   // keyCaptcha:"6Ld0JhEoAAAAAAkbb2XBbRpYEE-rlF6auDXLKLQO",
  
   apiURL:"https://mobility.datapelapi.net",
+  apiUrlv2:"https://mobility.datapelapi.net/api.datapel/v2.0/mobility",
   apiURLpublic:"https://app.theneo.io/datapel/datapel-api/datapel-api-reference",
   timer:"120",
+  apiKey:"1RjENhNssDEdrsYK",
+  apiSecretKey:"h1SOJhDHKmGkwEnI"
   // firebase: {
   //   apiKey: '********************************',
   //   authDomain: '********************************',

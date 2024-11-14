@@ -40,7 +40,8 @@
         <ion-list class="item-card-list" lines="none">
           <ion-item>
             <ion-label color="tertiary" position="stacked">Enter or Scan Barcode</ion-label>
-            <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input>
+            <!-- <ion-input placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode"></ion-input> -->
+            <ion-input  #input (keyup.enter)="scanBarcode()" placeholder="xxxx-xxxx-xxxx-xxxx" name="barcode" [(ngModel)]="barcode" [autofocus]="true"></ion-input>       
           </ion-item>
         </ion-list>
       </form>
@@ -51,26 +52,15 @@
   </ion-row>
 
   <ion-row>
-    <ion-col style="color:black">Photo-Inwards</ion-col>
-    <ion-col style="color:black"> Photo-Main</ion-col>
+    <ion-col style="color:black">{{transferParam?.source.LocationCode}}</ion-col>
+    <ion-col style="color:black">{{transferParam?.destination.LocationCode}}</ion-col>
   </ion-row>
    <br>
-   <!-- <ion-row style="display: inline-flex; align-items: center;">
-    <ion-col style="color: gray; white-space: nowrap;">
-        Picking<br>from BIN <h1 style="display: inline; color: black;"> &nbsp; A-20</h1>
-    </ion-col>
-    </ion-row> -->
-
-    <!-- <ion-row>
-      <ion-col>
-        <label style="color: black;">Picking<br>from Bin</label> <h1>A-20</h1>
-      </ion-col>
-    </ion-row> -->
     
     <ion-row>
       <ion-col>
         <label style="color: black; display: inline-block;">Picking<br>from BIN</label>
-        <h1 style="display: inline-block; color: black;"> &nbsp; &nbsp; A-20</h1>
+        <h1 style="display: inline-block; color: black;"> &nbsp; &nbsp; {{transferParam?.pickBin.BinName}}</h1>
       </ion-col>
     </ion-row>
     
@@ -89,7 +79,7 @@
   <ion-button mode="md" style="width: 49%;margin-right: 2%;" class="btn" (click)="scan()" [disabled]="!isSupported"> 
     <ion-icon name="scan" style="margin-right: 10px;"></ion-icon> Scan
   </ion-button>
-  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" (click)="next()">
+  <ion-button mode="md" style="width: 49%;" class="btn btn-dark" [disabled]="barcode == ''" (click)="scanBarcode()">
     Continue
   </ion-button>
 </ion-footer>

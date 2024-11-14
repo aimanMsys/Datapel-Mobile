@@ -7,6 +7,8 @@ import { Router} from '@angular/router';
   styleUrls: ['./transfer-comp.page.scss'],
 })
 export class TransferCompPage implements OnInit {
+  transferParam: any;
+  transaction: any;
 
   constructor(
     private router: Router
@@ -14,6 +16,8 @@ export class TransferCompPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.transferParam = JSON.parse(localStorage.getItem('transferParam'));
+    this.transaction =  JSON.parse(localStorage.getItem('transaction'));
   }
 
   transfer(){
@@ -21,6 +25,10 @@ export class TransferCompPage implements OnInit {
   } 
 
    home(){
+
+    localStorage.removeItem("transferParam");
+    localStorage.removeItem("transaction");
+    localStorage.removeItem("transferItemList");
     this.router.navigate (['/home2'])
    } 
 

@@ -1,23 +1,4 @@
-<!-- <ion-header collapse="fade" [translucent]="true"> -->
- 
-  <!-- <ion-toolbar lines="full">
-    
-      <div class="ion-page" id="main-content">
-        <ion-header>
-          <ion-toolbar>
-            <ion-buttons slot="start">
-              <ion-back-button  defaultHref="/home2"></ion-back-button>
-            </ion-buttons>
-            <ion-buttons slot="end">
-              <ion-menu-button></ion-menu-button>
-            </ion-buttons>
-            <ion-title class="title-center">
-            Stock Lookup
-          </ion-title>
-          </ion-toolbar>
-        </ion-header>
-      </div>
-  </ion-toolbar> -->
+
   <ion-header collapse="fade" [translucent]="true">
     <ion-toolbar> 
   
@@ -41,7 +22,6 @@
     </ion-toolbar>
   </ion-header>
 
-<!-- </ion-header> -->
 
 <!--TO DISPLAY MODAL-->
 <ion-modal #modal trigger="open-modal">
@@ -151,35 +131,6 @@
 
   <ion-button mode="md"  style="width: 49%" class="btn btn-dark" [disabled]="barcode == ''" (click)="scanBarcode()">Continue</ion-button>
 </ion-footer>
-
-
-
-<!-- 
-<ion-menu side="end" contentId="main-content">
-  <ion-header>
-    <ion-item lines="none" >
-    <ion-toolbar style="margin-top: 1rem;">
-      <ion-label>Mobility <br><ion-label>Assistant</ion-label> </ion-label>
-    </ion-toolbar>
-  </ion-item>
-  </ion-header>
-  <ion-item (click)="home()" >
-    <ion-icon name="home-sharp"></ion-icon>
-     &nbsp; Home
-  </ion-item>
-  <ion-content class="ion-padding"></ion-content>
-
-
-  <ion-footer>
-    <ion-toolbar padding>
-      <ion-item lines="none" (click)="signout()">
-      <ion-icon name="log-out-outline"></ion-icon>
-      <ion-text> &nbsp; Sign Out</ion-text>
-    </ion-item>
-    </ion-toolbar>
-  </ion-footer>
-
-</ion-menu> -->
 
 
 
